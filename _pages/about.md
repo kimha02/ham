@@ -3,7 +3,7 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-###하영이의 공부용 블로그
+ ### 하영이의 공부용 블로그
 
 - Since 2021
 - python, R 중심으로 
