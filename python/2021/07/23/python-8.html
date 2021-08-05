@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>(공부) 네임스페이스 &amp; 연산자오버로딩 &amp; 도움말 추가하기 | 하영이의 공부 블로그 ^_^</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="(공부) 네임스페이스 &amp; 연산자오버로딩 &amp; 도움말 추가하기" />
+<meta name="author" content="kimha02" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성완료" />
+<meta property="og:description" content="작성완료" />
+<link rel="canonical" href="https://kimha02.github.io/ham/python/2021/07/23/python-8.html" />
+<meta property="og:url" content="https://kimha02.github.io/ham/python/2021/07/23/python-8.html" />
+<meta property="og:site_name" content="하영이의 공부 블로그 ^_^" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-23T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-07-23T00:00:00-05:00","url":"https://kimha02.github.io/ham/python/2021/07/23/python-8.html","@type":"BlogPosting","headline":"(공부) 네임스페이스 &amp; 연산자오버로딩 &amp; 도움말 추가하기","dateModified":"2021-07-23T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/python/2021/07/23/python-8.html"},"author":{"@type":"Person","name":"kimha02"},"description":"작성완료","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="하영이의 공부 블로그 ^_^" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ham/">하영이의 공부 블로그 ^_^</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ham/about/">About Me</a><a class="page-link" href="/ham/search/">Search</a><a class="page-link" href="/ham/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">(공부) 네임스페이스 &amp; 연산자오버로딩 &amp; 도움말 추가하기</h1><p class="page-description">작성완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-23T00:00:00-05:00" itemprop="datePublished">
+        Jul 23, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">kimha02</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ham/categories/#Python">Python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/kimha02/ham/tree/master/_notebooks/2021-07-23-python-8.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ham/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/kimha02/ham/master?filepath=_notebooks%2F2021-07-23-python-8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/kimha02/ham/blob/master/_notebooks/2021-07-23-python-8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#예제1">예제1 </a></li>
+<li class="toc-entry toc-h3"><a href="#예제2">예제2 </a></li>
+<li class="toc-entry toc-h2"><a href="#연산자-오버로딩">연산자 오버로딩 </a></li>
+<li class="toc-entry toc-h2"><a href="#도움말-작성방법">도움말 작성방법 </a></li>
+<li class="toc-entry toc-h2"><a href="#self에-대한-진실">self에 대한 진실 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-07-23-python-8.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="예제1">
+<a class="anchor" href="#%EC%98%88%EC%A0%9C1" aria-hidden="true"><span class="octicon octicon-link"></span></a>예제1<a class="anchor-link" href="#%EC%98%88%EC%A0%9C1"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래의 코드를 관찰하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass1</span><span class="p">:</span> 
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">Testclass1</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> Testclass1.x를 수정하면 a.x가 강제로 수정된다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>100</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> a.x를 수정한다고 하여 Testclass1.x가 강제로 수정되는 것은 아님</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>100</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>200</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이건 왜이러지?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">300</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>200</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래의 상황과 비슷하다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">39</span>
+<span class="k">def</span> <span class="nf">nextyear</span><span class="p">():</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">nextyear</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>39 40
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">39</span>
+<span class="k">def</span> <span class="nf">nextyear</span><span class="p">():</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">nextyear</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-13-9c5d2bc270db&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     print<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     x<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>nextyear<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-13-9c5d2bc270db&gt;</span> in <span class="ansi-cyan-fg">nextyear</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> x<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">39</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">def</span> nextyear<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg">     </span>y<span class="ansi-blue-fg">=</span>x<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     print<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     x<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0</span>
+
+<span class="ansi-red-fg">UnboundLocalError</span>: local variable 'x' referenced before assignment</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> [code1]은 잘 실행되는 코드다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> [code2]는 실행되지 않는 코드다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> [code2]와 [code1]의 차이점은 x=0이라는 코드가 추가로 포함되었는지 유무다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> (헛소리) x=0 이 잘못된 코드다!! 이걸 실행하는 과정에서 문제가 생겼다!!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> (올바른소리) code1에서는 x는 global variable, code2에서는 x가 local variable 이라서 생기는 문제점이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">39</span>
+<span class="k">def</span> <span class="nf">nextyear</span><span class="p">():</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">nextyear</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>39</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 다시 우리의 예제로 돌아오자.</p>
+<div class="highlight"><pre><span></span><span class="c1">### 시점1</span>
+<span class="k">class</span> <span class="nc">Testclass1</span><span class="p">:</span> 
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+<span class="c1">### 시점2</span>
+<span class="n">a</span><span class="o">=</span><span class="n">Testclass1</span><span class="p">()</span>
+<span class="c1">### 시점3</span>
+<span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span>
+<span class="c1">### 시점4</span>
+<span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span>
+<span class="c1">### 시점5</span>
+<span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">300</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">시점1</th>
+<th style="text-align:center">시점2</th>
+<th style="text-align:center">시점3</th>
+<th style="text-align:center">시점4</th>
+<th style="text-align:center">시점5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Testclass1.x</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">300</td>
+</tr>
+<tr>
+<td style="text-align:center">a.x</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">200</td>
+</tr>
+<tr>
+<td style="text-align:center">a.x의 속성</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">class</td>
+<td style="text-align:center">class</td>
+<td style="text-align:center">instance</td>
+<td style="text-align:center">instance</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> a.x가 클래스로부터 물려받은 속성인지 (그래서 클래스와 연결되어있는지) 아니면 instance가 독자적으로 가지고 있는 속성인지 어떻게 알 수 있을까?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass1</span><span class="p">:</span> 
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'시점1'</span><span class="p">,</span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="c1">### 시점2</span>
+<span class="n">a</span><span class="o">=</span><span class="n">Testclass1</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'시점2'</span><span class="p">,</span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="c1">### 시점3</span>
+<span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'시점3'</span><span class="p">,</span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="c1">### 시점4</span>
+<span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'시점4'</span><span class="p">,</span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="c1">### 시점5</span>
+<span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">300</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'시점5'</span><span class="p">,</span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>시점1 0
+시점2 0 0 {}
+시점3 100 100 {}
+시점4 100 200 {'x': 200}
+시점5 300 200 {'x': 200}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="예제2">
+<a class="anchor" href="#%EC%98%88%EC%A0%9C2" aria-hidden="true"><span class="octicon octicon-link"></span></a>예제2<a class="anchor-link" href="#%EC%98%88%EC%A0%9C2"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">11</span> <span class="c1">## 전역변수 ... A</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">22</span> <span class="c1">## 함수 f안에 설정된 지역변수 </span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">## 전역에 x=11 있지만 함수안에 x=22가 있으므로 x=22를 사용. --&gt; 22출력됨 </span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">## 함수 g안에 x를 찾아봤는데 없음 --&gt; 전역에서 x를 찾음 --&gt; x=11 --&gt; 11출력함. </span>
+
+<span class="k">class</span> <span class="nc">Testclass2</span><span class="p">:</span> 
+    <span class="n">x</span><span class="o">=</span><span class="mi">33</span> <span class="c1">## 클래스 변수 ... B</span>
+    <span class="k">def</span> <span class="nf">m1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">44</span> <span class="c1">## 메소드 변수 ... C</span>
+    <span class="k">def</span> <span class="nf">m2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">44</span> <span class="c1">## 인스턴스 변수 ... D </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결과를 관찰하고 해석해보자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>11
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>전역변수 출력
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>22
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>f에서 설정된 지역변수 22가 출력됨
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>11</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>f내의 지역변수를 사용하여도 전역변수는 변하지 않음. (함수내부에서 선언된 x=22는 함수외부에 영향을 주지못함)
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">g</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>11
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>g에서 설정된 지역변수가 따로 없으므로 전역변수 출력
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(11, 33)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>전역변수 x와 클래스오브젝트에 설정된 변수 x 
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">Testclass2</span><span class="p">()</span>
+<span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">),</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((11, 33, 33), {})</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>전역변수, 클래스 오브젝트내의 변수, 인스턴스내의 변수. <code>a.__dict__</code>의 결과로 보아 인스턴스내의 변수는 클래스 오브젝트내의 변수를 빌려쓰고 있다. 
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">),</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((11, 200, 200), {})</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>클래스오브젝트에서 변수를 고치면 인스턴스에 영향을 미침
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">m1</span><span class="p">()</span>
+<span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">),</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((11, 200, 200), {})</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>메소드 <code>m1</code>내에서 선언된 x=44라는 선언은 아무것도 변화시킬수 없음. 
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">m2</span><span class="p">()</span>
+<span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">),</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((11, 200, 44), {'x': 44})</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>메소드 <code>m2</code>에 있는 self.x는 결국 a.x라는 의미이고, 이 선언은 클래스오브젝트 내의 변수와 독립적으로 인스턴스오브젝트 내에서 통용되는 변수를 선언하는 것임. 이 선언의 결과는 <code>a.__dict__</code>의 출력결과에서도 확인가능.
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Testclass2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">),</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((11, 300, 44), {'x': 44})</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>이제는 a.x와 Testclass2.x 는 분리된 상태이므로, Testclass2.x의 값을 바꾸어도 a.x에는 값의 변화가 없음. 
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 전역변수 &gt; 클래스변수 &gt; 인스턴스변수 &gt; 메소드변수<br>
+내용을 모르고 사용한다면 예상하지 못한 오류가 발생할 수 있으므로 조심해서 사용하자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="연산자-오버로딩">
+<a class="anchor" href="#%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>연산자 오버로딩<a class="anchor-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래의 코드를 관찰하자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 생각해보니까 <code>1</code>은 int class 에서 생성된 인스턴스이다.</p>
+<p><code>-</code> 코드를 관찰하니 instance와 instance를 <code>+</code>라는 연산이 연결하는 형태임.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span><span class="n">semester</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="o">=</span><span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="o">=</span><span class="n">semester</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="c1"># val==0: 휴학 </span>
+        <span class="c1"># val==1: 등록</span>
+        <span class="k">if</span> <span class="n">val</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">+</span><span class="mf">0.5</span> 
+        <span class="k">elif</span> <span class="n">val</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="o">+</span><span class="mf">0.5</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span>   <span class="c1">### return을 통해 guebin+1도 Student Type이 된다</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">'나이: </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">학기: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span><span class="o">=</span><span class="n">Student</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span><span class="o">.</span><span class="n">age</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>20.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span><span class="o">.</span><span class="n">semester</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>나이: 20.0 
+학기: 1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">guebin</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>__main__.Student</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>나이: 20.5 
+학기: 2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">guebin</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>__main__.Student</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span><span class="o">+</span><span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>나이: 21.5 
+학기: 3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span><span class="o">+</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>나이: 25.0 
+학기: 5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 연산자 오버로드 핵심아이디어</p>
+<ul>
+<li>클래스가 일반 파이썬 연산을 재정의하는 것  </li>
+<li>여기에서 연산은 단순히 더하기 빼기를 의미하는게 아니라, <code>print()</code>, <code>+</code>, <code>[0]</code> 와 같은 파이썬 내장문법을 모두 포괄하는 개념이라 이해하는 것이 옳다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">guebin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-44-961de20e3474&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>guebin<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">TypeError</span>: 'Student' object is not subscriptable</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Student2</span><span class="p">(</span><span class="n">Student</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="o">=</span><span class="n">Student2</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>나이: 22.0 
+학기: 3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>22.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="p">[:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[22.0, 3]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 연산자 오버로딩을 이해하면 파이썬 전반에 대한 이해폭이 넓어진다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'age'</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mf">21.5</span><span class="p">],</span><span class="s1">'semester'</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0    20.0
+1    21.5
+Name: age, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="도움말-작성방법">
+<a class="anchor" href="#%EB%8F%84%EC%9B%80%EB%A7%90-%EC%9E%91%EC%84%B1%EB%B0%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>도움말 작성방법<a class="anchor-link" href="#%EB%8F%84%EC%9B%80%EB%A7%90-%EC%9E%91%EC%84%B1%EB%B0%A9%EB%B2%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 넘파이의 경우 아래와 같이 도움말이 잘 작성되어 있다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+a<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Type:</span>            ndarray
+<span class="ansi-red-fg">String form:</span>     [1 2 3]
+<span class="ansi-red-fg">Length:</span>          3
+<span class="ansi-red-fg">File:</span>            ~/anaconda3/envs/py38r40/lib/python3.8/site-packages/numpy/__init__.py
+<span class="ansi-red-fg">Docstring:</span>       &lt;no docstring&gt;
+<span class="ansi-red-fg">Class docstring:</span>
+ndarray(shape, dtype=float, buffer=None, offset=0,
+        strides=None, order=None)
+
+An array object represents a multidimensional, homogeneous array
+of fixed-size items.  An associated data-type object describes the
+format of each element in the array (its byte-order, how many bytes it
+occupies in memory, whether it is an integer, a floating point number,
+or something else, etc.)
+
+Arrays should be constructed using `array`, `zeros` or `empty` (refer
+to the See Also section below).  The parameters given here refer to
+a low-level method (`ndarray(...)`) for instantiating an array.
+
+For more information, refer to the `numpy` module and examine the
+methods and attributes of an array.
+
+Parameters
+----------
+(for the __new__ method; see Notes below)
+
+shape : tuple of ints
+    Shape of created array.
+dtype : data-type, optional
+    Any object that can be interpreted as a numpy data type.
+buffer : object exposing buffer interface, optional
+    Used to fill the array with data.
+offset : int, optional
+    Offset of array data in buffer.
+strides : tuple of ints, optional
+    Strides of data in memory.
+order : {'C', 'F'}, optional
+    Row-major (C-style) or column-major (Fortran-style) order.
+
+Attributes
+----------
+T : ndarray
+    Transpose of the array.
+data : buffer
+    The array's elements, in memory.
+dtype : dtype object
+    Describes the format of the elements in the array.
+flags : dict
+    Dictionary containing information related to memory use, e.g.,
+    'C_CONTIGUOUS', 'OWNDATA', 'WRITEABLE', etc.
+flat : numpy.flatiter object
+    Flattened version of the array as an iterator.  The iterator
+    allows assignments, e.g., ``x.flat = 3`` (See `ndarray.flat` for
+    assignment examples; TODO).
+imag : ndarray
+    Imaginary part of the array.
+real : ndarray
+    Real part of the array.
+size : int
+    Number of elements in the array.
+itemsize : int
+    The memory use of each array element in bytes.
+nbytes : int
+    The total number of bytes required to store the array data,
+    i.e., ``itemsize * size``.
+ndim : int
+    The array's number of dimensions.
+shape : tuple of ints
+    Shape of the array.
+strides : tuple of ints
+    The step-size required to move from one element to the next in
+    memory. For example, a contiguous ``(3, 4)`` array of type
+    ``int16`` in C-order has strides ``(8, 2)``.  This implies that
+    to move from element to element in memory requires jumps of 2 bytes.
+    To move from row-to-row, one needs to jump 8 bytes at a time
+    (``2 * 4``).
+ctypes : ctypes object
+    Class containing properties of the array needed for interaction
+    with ctypes.
+base : ndarray
+    If the array is a view into another array, that array is its `base`
+    (unless that array is also a view).  The `base` array is where the
+    array data is actually stored.
+
+See Also
+--------
+array : Construct an array.
+zeros : Create an array, each element of which is zero.
+empty : Create an array, but leave its allocated memory unchanged (i.e.,
+        it contains "garbage").
+dtype : Create a data-type.
+
+Notes
+-----
+There are two modes of creating an array using ``__new__``:
+
+1. If `buffer` is None, then only `shape`, `dtype`, and `order`
+   are used.
+2. If `buffer` is an object exposing the buffer interface, then
+   all keywords are interpreted.
+
+No ``__init__`` method is needed because the array is fully initialized
+after the ``__new__`` method.
+
+Examples
+--------
+These examples illustrate the low-level `ndarray` constructor.  Refer
+to the `See Also` section above for easier ways of constructing an
+ndarray.
+
+First mode, `buffer` is None:
+
+&gt;&gt;&gt; np.ndarray(shape=(2,2), dtype=float, order='F')
+array([[0.0e+000, 0.0e+000], # random
+       [     nan, 2.5e-323]])
+
+Second mode:
+
+&gt;&gt;&gt; np.ndarray((2,), buffer=np.array([1,2,3]),
+...            offset=np.int_().itemsize,
+...            dtype=int) # offset = 1*itemsize, i.e. skip first element
+array([2, 3])
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 하지만 우리는?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>hynn<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Type:</span>        Student2
+<span class="ansi-red-fg">String form:</span>
+나이: 22.0 
+학기: 3
+<span class="ansi-red-fg">Docstring:</span>   &lt;no docstring&gt;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 우리도 도움말을 작성하고 싶다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Student2</span><span class="p">(</span><span class="n">Student</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Student2는 Student의 개선 </span>
+<span class="sd">    </span>
+<span class="sd">    # Student 클래스의 기능 </span>
+<span class="sd">    1. 출력기능 (__repr__)</span>
+<span class="sd">    2. 연산기능 (__add__): 학기와 나이를 카운트 </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; hynn=Student2()</span>
+<span class="sd">    &gt;&gt;&gt; hynn+1</span>
+<span class="sd">    나이: 20.5 </span>
+<span class="sd">    학기: 2</span>
+<span class="sd">    </span>
+<span class="sd">    # Student2에서 추가된 기능 </span>
+<span class="sd">    1. 인덱싱</span>
+<span class="sd">    '''</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">semester</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="o">=</span><span class="n">Student2</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>hynn<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Type:</span>        Student2
+<span class="ansi-red-fg">String form:</span>
+나이: 20.0 
+학기: 1
+<span class="ansi-red-fg">Docstring:</span>  
+Student2는 Student의 개선 
+
+# Student 클래스의 기능 
+1. 출력기능 (__repr__)
+2. 연산기능 (__add__): 학기와 나이를 카운트 
+Examples
+--------
+&gt;&gt;&gt; hynn=Student2()
+&gt;&gt;&gt; hynn+1
+나이: 20.5 
+학기: 2
+
+# Student2에서 추가된 기능 
+1. 인덱싱
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="o">=</span><span class="n">Student2</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>나이: 21 
+학기: 1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>hynn<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Type:</span>        Student2
+<span class="ansi-red-fg">String form:</span>
+나이: 21 
+학기: 1
+<span class="ansi-red-fg">Docstring:</span>  
+Student2는 Student의 개선 
+
+# Student 클래스의 기능 
+1. 출력기능 (__repr__)
+2. 연산기능 (__add__): 학기와 나이를 카운트 
+Examples
+--------
+&gt;&gt;&gt; hynn=Student2()
+&gt;&gt;&gt; hynn+1
+나이: 20.5 
+학기: 2
+
+# Student2에서 추가된 기능 
+1. 인덱싱
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="self에-대한-진실">
+<a class="anchor" href="#self%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A7%84%EC%8B%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>self에 대한 진실<a class="anchor-link" href="#self%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A7%84%EC%8B%A4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 사실 이름이 self가 아니어도 된다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">MooYaHo</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+        <span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="o">=</span><span class="s1">'mooyaho'</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">moo1</span><span class="o">=</span><span class="n">MooYaHo</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">moo1</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 일반적으로 사람들이 self를 많이 쓴다.<br>
+a는 간단하게 정의할 때 많이 쓰이기 때문에 향후에 헛갈릴 수도 있다.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="kimha02/ham"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ham/python/2021/07/23/python-8.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ham/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ham/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ham/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/kimha02" title="kimha02"><svg class="svg-icon grey"><use xlink:href="/ham/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

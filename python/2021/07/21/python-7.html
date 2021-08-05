@@ -1,0 +1,2677 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>(공부) Class(클래스)_심화 | 하영이의 공부 블로그 ^_^</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="(공부) Class(클래스)_심화" />
+<meta name="author" content="kimha02" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
+<link rel="canonical" href="https://kimha02.github.io/ham/python/2021/07/21/python-7.html" />
+<meta property="og:url" content="https://kimha02.github.io/ham/python/2021/07/21/python-7.html" />
+<meta property="og:site_name" content="하영이의 공부 블로그 ^_^" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-21T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-07-21T00:00:00-05:00","url":"https://kimha02.github.io/ham/python/2021/07/21/python-7.html","@type":"BlogPosting","headline":"(공부) Class(클래스)_심화","dateModified":"2021-07-21T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/python/2021/07/21/python-7.html"},"author":{"@type":"Person","name":"kimha02"},"description":"작성 완료","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="하영이의 공부 블로그 ^_^" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ham/">하영이의 공부 블로그 ^_^</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ham/about/">About Me</a><a class="page-link" href="/ham/search/">Search</a><a class="page-link" href="/ham/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">(공부) Class(클래스)_심화</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-21T00:00:00-05:00" itemprop="datePublished">
+        Jul 21, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">kimha02</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ham/categories/#Python">Python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/kimha02/ham/tree/master/_notebooks/2021-07-21-python-7.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ham/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/kimha02/ham/master?filepath=_notebooks%2F2021-07-21-python-7.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/kimha02/ham/blob/master/_notebooks/2021-07-21-python-7.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#클래스,-인스턴스,-오브젝트">클래스, 인스턴스, 오브젝트 </a></li>
+<li class="toc-entry toc-h2"><a href="#클래스-속성-vs-인스턴스-속성">클래스 속성 vs 인스턴스 속성 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#[예제1]">[예제1] </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#분석">분석 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#[예제2]">[예제2] </a></li>
+<li class="toc-entry toc-h3"><a href="#[예제-3]">[예제 3] </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Testclass1-&-Testclass3-비교">Testclass1 &amp; Testclass3 비교 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-07-21-python-7.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="클래스,-인스턴스,-오브젝트">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4,-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4,-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>클래스, 인스턴스, 오브젝트</strong><a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4,-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4,-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 오브젝트</p>
+<ul>
+<li>클래스 오브젝트</li>
+<li>인스턴스 오브젝트 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 클래스 (=클래스 오브젝트)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 인스턴스 (=인스턴스 오브젝트)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="클래스-속성-vs-인스턴스-속성">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%86%8D%EC%84%B1-vs-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%86%8D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>클래스 속성 vs 인스턴스 속성<a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%86%8D%EC%84%B1-vs-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%86%8D%EC%84%B1"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>노트(5)에서 아래와 같은 노트가 있었다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>규칙2:클래스 내에서 정의한 변수 (예를들면 <code>title</code>, <code>img</code>, <code>don</code>)를 사용하려면    - <code>self.title</code>, <code>self.img</code>, <code>self.don</code></p>
+
+<pre><code>- `MooYaHo.title`, `MooYaHo.img`, `MooYaHo.don`</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\to$  <code>self.</code>는 인스턴스 속성, <code>MooYaHo.</code>는 클래스 속성을 의미한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="[예제1]">
+<a class="anchor" href="#%5B%EC%98%88%EC%A0%9C1%5D" aria-hidden="true"><span class="octicon octicon-link"></span></a>[예제1]<a class="anchor-link" href="#%5B%EC%98%88%EC%A0%9C1%5D"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass1</span><span class="p">:</span> 
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span> 
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass1</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">Testclass1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">Testclass1</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="n">f</span><span class="p">()</span>  <span class="c1">### f라는 클래스 오브젝트에서 b라는 인스턴트 오브젝트 생성</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 신기한 점: 각 인스턴스에서 instance.my_print()를 실행한 횟수를 서로 공유하는 듯 하다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="분석">
+<a class="anchor" href="#%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>분석<a class="anchor-link" href="#%EB%B6%84%EC%84%9D"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 코드를 시점별로 분석해보자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 분석을 위해서 커널을 재시작한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점1]: Testclass1를 선언하는 시점</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass1</span><span class="p">:</span> 
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span> 
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass1</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">Testclass1</span><span class="p">)</span>   <span class="c1">###Testclass 탐색</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ 'my_print',
+ 'x',
+ 'y']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-3af1c875b71a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>dir<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'a' is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-35660f044d44&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>dir<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'b' is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 이 시점에는 Testclass1만이 존재한다. Testclass1를 바로 <code>클래스 오브젝트</code> 라고 부름.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 현재시점에서는 클래스 오브젝트의 수 1개, 인스턴스 오브젝트의 수 0개, 따라서 총 오브젝트 수는 1개임.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점2] 클래스에 별칭을 지정하는 시점</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">Testclass1</span> <span class="c1">###f라는 별칭을 지정</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 이 시점에서 클래스 오브젝트는 2개가 있는 것 처럼 보인다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그렇다면 이 2개의 클래스 오브젝트는 컴퓨터의 어딘가에 저장이 되어 있을 것이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 구체적으로는 메모리에 저장되어 있을 것.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 2개의 클래스오브젝트는 서로 다른 메모리 공간에 저장되어 있을 것이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 진짜인가? 확인해보자. <code>id()</code>는 오브젝트(클래스 오브젝트, 인스턴스 오브젝트)가 저장된 메모리 주소를 확인하는 명령어이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>93883369152752</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> f라는 오브젝트는 93883369152752 메모리에 저장되어 있다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">Testclass1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>93883369152752</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Testclass1의 오브젝트 역시 93883369152752 메모리에 저장되어 있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 추론: 사실 93883369152752
+라는 메모리공간에 저장된 어떠한 것은 동일한데, 그것을 어떤사람은 <code>Testclass1</code> 이라고 부르고 어떤사람은 <code>f</code>라고 부른다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이는 마치 <strong>별명</strong>이랑 비슷하다. 부르는 이름이 2개라고 해서 나라는 오브젝트가 2개가 있는것은 아니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결국 이 시점에서 클래스 오브젝트의 수는 여전히 1개라고 볼 수 있다. (인스턴스 오브젝트의 수는 0개)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점3]: 클래스 오브젝트로부터 인스턴스 오브젝트를 만드는 시점</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">Testclass1</span><span class="p">()</span>
+<span class="n">b</span><span class="o">=</span><span class="n">f</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">Testclass1</span><span class="p">),</span><span class="nb">id</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(93883369152752, 93883369152752, 140489211063024, 140489211062064)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 이 순간에는 클래스 오브젝트 1개, 인스턴스 오브젝트 2개 존재한다. 즉 총 3개의 오브젝트가 존재한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 메모리주소 93883369152752 에 존재하는 오브젝트는 클래스 오브젝트이며 Testclass1 또는 f 라고 불린다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 메모리주소 140489211063024 에 존재하는 오브젝트는 인스턴스 오브젝트이며 a라고 불린다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 메모리주소 140489211062064 에 존재하는 오브젝트는 인스턴스 오브젝트이며 b라고 불린다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Testclass1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">Testclass1</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0, 0)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0, 0)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0, 0)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0, 0)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점4]</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 1 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((0, 1), (1, 1), (0, 1))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 특징</p>
+<ul>
+<li>a.my_print()를 실행하면 a.x 의 값이 1이 증가한다. </li>
+<li>a.my_print()를 실행하면 f.y, a.y, b.y 의 값이 동시에 1이 증가한다. (공유가 되는 느낌)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점5]</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 2 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((0, 2), (1, 2), (1, 2))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점6]</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 2 회 출력
+전체 인스턴스에서 총 3 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((0, 3), (1, 3), (2, 3))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점7]</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 2 회 출력
+전체 인스턴스에서 총 4 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((0, 4), (2, 4), (2, 4))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[시점8]</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 3 회 출력
+전체 인스턴스에서 총 5 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">),(</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((0, 5), (3, 5), (2, 5))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="[예제2]">
+<a class="anchor" href="#%5B%EC%98%88%EC%A0%9C2%5D" aria-hidden="true"><span class="octicon octicon-link"></span></a>[예제2]<a class="anchor-link" href="#%5B%EC%98%88%EC%A0%9C2%5D"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래처럼 코드를 바꿔도 잘 동작할것 같다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass2</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass2</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="n">Testclass2</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-35-5500abb1215d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>c<span class="ansi-blue-fg">.</span>my_print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-33-72dbe3bd77f6&gt;</span> in <span class="ansi-cyan-fg">my_print</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span class="ansi-green-fg">def</span> my_print<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         self<span class="ansi-blue-fg">.</span>x <span class="ansi-blue-fg">+=</span> <span class="ansi-cyan-fg">1</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">         </span>Testclass2<span class="ansi-blue-fg">.</span>y <span class="ansi-blue-fg">+=</span><span class="ansi-cyan-fg">1</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span>         print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"현재 인스턴스에서 %s 회 출력"</span> <span class="ansi-blue-fg">%</span> self<span class="ansi-blue-fg">.</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>         print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"전체 인스턴스에서 총 %s 회 출력"</span> <span class="ansi-blue-fg">%</span> self<span class="ansi-blue-fg">.</span>y<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">AttributeError</span>: type object 'Testclass2' has no attribute 'y'</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 왜 에러가 나는가?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">Testclass2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ 'my_print']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">Testclass1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ 'my_print',
+ 'x',
+ 'y']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 관찰1: Testclass2에서는 Testclass1과는 다르게 x,y가 없다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ 'my_print',
+ 'x',
+ 'y']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 관찰2: 그런데 <code>c</code>라는 인스턴스 오브젝트에서는 x,y가 있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 추론: <code>__init__</code>함수는 클래스 오브젝트가 만들어지는 시점에서는 실행되지 않고, <strong>인스텐스 오브젝트가 만들어지는 시점에 실행된다.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결국 <code>__init__</code>함수의 역할은 클래스 오브젝트에서 인스턴스 오브젝트를 만든후에 초기화를 위해서 실행하는 어떠한 일련의 명령들을 묶어놓은 것에 불과하다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> 즉 위의 코드는 굳이 따지면 아래를 실행한 것과 동일하다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass2</span><span class="p">:</span> 
+<span class="c1">#     def __init__(self):</span>
+<span class="c1">#         self.x=0</span>
+<span class="c1">#         self.y=0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass2</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="n">Testclass2</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">c</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이 상황에서</p>
+<div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+<p>를 실행하면</p>
+<div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+<span class="n">Testclass2</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="n">c</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="n">c</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p>이 실행되는데, 이때 Testclass2.y 이 정의되어 있지 않으므로</p>
+<div class="highlight"><pre><span></span><span class="n">Testclass2</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+<p>에서 에러가 난다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="[예제-3]">
+<a class="anchor" href="#%5B%EC%98%88%EC%A0%9C-3%5D" aria-hidden="true"><span class="octicon octicon-link"></span></a>[예제 3]<a class="anchor-link" href="#%5B%EC%98%88%EC%A0%9C-3%5D"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그렇다면 아래와 같이 수정하면 어떨까?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass3</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">Testclass3</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass3</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">Testclass3</span><span class="p">()</span>
+<span class="n">b</span><span class="o">=</span><span class="n">Testclass3</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 1 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 2 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 2 회 출력
+전체 인스턴스에서 총 3 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 3 회 출력
+전체 인스턴스에서 총 4 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 2 회 출력
+전체 인스턴스에서 총 5 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 3 회 출력
+전체 인스턴스에서 총 6 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> Testclass1과 동일한 기능이 수행되는것 같다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그런데 조금만 생각해보면 엉터리라는 것을 알 수 있다. 아래의 코드를 관찰하여보자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Testclass3</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">Testclass3</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass3</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        
+<span class="n">a</span><span class="o">=</span><span class="n">Testclass3</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+<span class="n">b</span><span class="o">=</span><span class="n">Testclass3</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 1 회 출력
+현재 인스턴스에서 2 회 출력
+전체 인스턴스에서 총 2 회 출력
+현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 1 회 출력
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Testclass3는 인스턴스를 생성할때마다 <code>y=0</code>이 설정된다. 그래서</p>
+<div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="n">Testclass3</span><span class="p">()</span>
+</pre></div>
+<p>이 시점에서 의도하지 않게 '전체 인스턴스에서 출력된 횟수'를 의미하는 <code>y</code>가 초기화되었다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 코드는 엉터리이지만, Testclass3은 의외로 분석할만한 가치가 있다. 특히 위의 실행결과를 시점별로 Testclass1과 비교해보면 재미있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Testclass1-&amp;-Testclass3-비교">
+<a class="anchor" href="#Testclass1-&amp;-Testclass3-%EB%B9%84%EA%B5%90" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Testclass1 &amp; Testclass3 비교</em></strong><a class="anchor-link" href="#Testclass1-&amp;-Testclass3-%EB%B9%84%EA%B5%90"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Testclass1</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">### Testclass1 </span>
+<span class="c1">## 시점1: 클래스 오브젝트 생성 </span>
+<span class="k">class</span> <span class="nc">Testclass1</span><span class="p">:</span> 
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span> 
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass1</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">## 시점2: 인스턴스 오브젝트 a를 생성 </span>
+<span class="n">a</span><span class="o">=</span><span class="n">Testclass1</span><span class="p">()</span>
+<span class="c1">## 시점3: a에서 메소드 실행 </span>
+<span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+<span class="c1">## 시점4: a에서 메소드를 한번 더 실행 </span>
+<span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+<span class="c1">## 시점5: 인스턴스 오브젝트 b를 생성</span>
+<span class="n">b</span><span class="o">=</span><span class="n">Testclass1</span><span class="p">()</span>
+<span class="c1">## 시점6: b에서 메소드를 실행</span>
+<span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 1 회 출력
+현재 인스턴스에서 2 회 출력
+전체 인스턴스에서 총 2 회 출력
+현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 3 회 출력</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">시점1</th>
+<th style="text-align:center">시점2</th>
+<th style="text-align:center">시점3</th>
+<th style="text-align:center">시점4</th>
+<th style="text-align:center">시점5</th>
+<th style="text-align:center">시점6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Testclass1.x</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">Testclass1.y</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">a.x</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">a.y</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">b.x</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">b.y</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> Testclass3</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">#### Testclass3</span>
+<span class="c1">## 시점1: 클래스 오브젝트 생성 </span>
+<span class="k">class</span> <span class="nc">Testclass3</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">Testclass3</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> 
+        <span class="n">Testclass3</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span><span class="mi">1</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"현재 인스턴스에서 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"전체 인스턴스에서 총 </span><span class="si">%s</span><span class="s2"> 회 출력"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">## 시점2: 인스턴스 오브젝트 a를 생성 </span>
+<span class="n">a</span><span class="o">=</span><span class="n">Testclass3</span><span class="p">()</span>
+<span class="c1">## 시점3: a에서 메소드 실행 </span>
+<span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+<span class="c1">## 시점4: a에서 메소드를 한번 더 실행 </span>
+<span class="n">a</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+<span class="c1">## 시점5: 인스턴스 오브젝트 b를 생성</span>
+<span class="n">b</span><span class="o">=</span><span class="n">Testclass3</span><span class="p">()</span>
+<span class="c1">## 시점6: b에서 메소드를 실행</span>
+<span class="n">b</span><span class="o">.</span><span class="n">my_print</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 1 회 출력
+현재 인스턴스에서 2 회 출력
+전체 인스턴스에서 총 2 회 출력
+현재 인스턴스에서 1 회 출력
+전체 인스턴스에서 총 1 회 출력</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">시점1</th>
+<th style="text-align:center">시점2</th>
+<th style="text-align:center">시점3</th>
+<th style="text-align:center">시점4</th>
+<th style="text-align:center">시점5</th>
+<th style="text-align:center">시점6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Testclass3.x</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+</tr>
+<tr>
+<td style="text-align:center">Testclass3.y</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">a.x</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">a.y</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">b.x</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">b.y</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">값없음</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>–</code> Testclass3.y가 업데이트 되면 a.y, b.y도 자동으로 업데이트 된다.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="kimha02/ham"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ham/python/2021/07/21/python-7.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ham/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ham/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ham/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/kimha02" title="kimha02"><svg class="svg-icon grey"><use xlink:href="/ham/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

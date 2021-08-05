@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>(공부) Class(클래스)_예제 | 하영이의 공부 블로그 ^_^</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="(공부) Class(클래스)_예제" />
+<meta name="author" content="kimha02" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
+<link rel="canonical" href="https://kimha02.github.io/ham/python/2021/07/21/python-6.html" />
+<meta property="og:url" content="https://kimha02.github.io/ham/python/2021/07/21/python-6.html" />
+<meta property="og:site_name" content="하영이의 공부 블로그 ^_^" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-21T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-07-21T00:00:00-05:00","url":"https://kimha02.github.io/ham/python/2021/07/21/python-6.html","@type":"BlogPosting","headline":"(공부) Class(클래스)_예제","dateModified":"2021-07-21T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/python/2021/07/21/python-6.html"},"author":{"@type":"Person","name":"kimha02"},"description":"작성 완료","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="하영이의 공부 블로그 ^_^" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ham/">하영이의 공부 블로그 ^_^</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ham/about/">About Me</a><a class="page-link" href="/ham/search/">Search</a><a class="page-link" href="/ham/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">(공부) Class(클래스)_예제</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-21T00:00:00-05:00" itemprop="datePublished">
+        Jul 21, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">kimha02</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ham/categories/#Python">Python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/kimha02/ham/tree/master/_notebooks/2021-07-21-python-6.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ham/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/kimha02/ham/master?filepath=_notebooks%2F2021-07-21-python-6.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/kimha02/ham/blob/master/_notebooks/2021-07-21-python-6.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#[예제4]-인사관리-예제">[예제4] 인사관리 예제 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Step1:-인적사항-입력">Step1: 인적사항 입력 </a></li>
+<li class="toc-entry toc-h4"><a href="#Step2:-메소드-추가">Step2: 메소드 추가 </a></li>
+<li class="toc-entry toc-h4"><a href="#Step3:-연산자-오버로딩">Step3: 연산자 오버로딩 </a></li>
+<li class="toc-entry toc-h4"><a href="#Step-4:-상속">Step 4: 상속 </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-07-21-python-6.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="[예제4]-인사관리-예제">
+<a class="anchor" href="#%5B%EC%98%88%EC%A0%9C4%5D-%EC%9D%B8%EC%82%AC%EA%B4%80%EB%A6%AC-%EC%98%88%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>[예제4] 인사관리 예제<a class="anchor-link" href="#%5B%EC%98%88%EC%A0%9C4%5D-%EC%9D%B8%EC%82%AC%EA%B4%80%EB%A6%AC-%EC%98%88%EC%A0%9C"> </a>
+</h3>
+<ul>
+<li>원시적인 형태의 클래스 $\to$ 복잡하고 다양한 속성과 기능을 가지는 클래스로 발전 </li>
+<li>클래스는 무에서 점차 발전해나가는 프로토타입과 같이 코드를 설계할 때 유리 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Step1:-인적사항-입력">
+<a class="anchor" href="#Step1:-%EC%9D%B8%EC%A0%81%EC%82%AC%ED%95%AD-%EC%9E%85%EB%A0%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step1: 인적사항 입력<a class="anchor-link" href="#Step1:-%EC%9D%B8%EC%A0%81%EC%82%AC%ED%95%AD-%EC%9E%85%EB%A0%A5"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="o">=</span><span class="n">job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="o">=</span><span class="n">pay</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hd</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">hd</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">hd</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hynn</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hodong Kang None 0
+Jieun Lee dev 5000
+Hyewon Park None 3000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Step2:-메소드-추가">
+<a class="anchor" href="#Step2:-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%B6%94%EA%B0%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step2: 메소드 추가<a class="anchor-link" href="#Step2:-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%B6%94%EA%B0%80"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아이유의 연봉을 10퍼센트 올리고 싶다면?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iu</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="mf">1.1</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iu</span><span class="o">.</span><span class="n">pay</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5500.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>--&gt; 클래스의 외부에서 클래스의 속성 (<code>iu.pay</code>)을 바꾸는 동작(=함수)을 하드코딩하는 것은 좋은 방법이 아니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>좀 더 좋은 방법은 클래스 내부에 함수를 선언하는 방법이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="o">=</span><span class="n">job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="o">=</span><span class="n">pay</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">percent</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hd</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">hd</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">hd</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hynn</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hodong Kang None 0
+Jieun Lee dev 5000
+Hyewon Park None 3000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iu</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">iu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Jieun Lee dev 5500.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hynn</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hyewon Park None 3600.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>giveRaise라는 함수를 클래스 내부에 정의하면</strong></p>
+<p>(1) 자명한 입력은 넣지 않아도 된다. (self)</p>
+<p>(2) 원래 아이유의 연봉을 올리기 위해 작성한 코드였는데, Hynn의 연봉도 올릴 수 있게 되었다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><code>note</code>: 만약에 하드코딩을 했다면?</strong></p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="o">=</span><span class="n">job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="o">=</span><span class="n">pay</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="mf">1.1</span> 
+<span class="n">hynn</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="mf">1.2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><code>note2</code>: 함수를 클래스 외부에 선언했다면? (암묵적 전달대상 / 암묵적 업데이트 대상을 매순간 명시해야함)</strong></p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="o">=</span><span class="n">job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="o">=</span><span class="n">pay</span>
+
+<span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="n">pay</span><span class="p">,</span><span class="n">percent</span><span class="p">)</span> 
+    <span class="n">pay</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">percent</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">pay</span> 
+<span class="n">iu</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="n">giveRaise</span><span class="p">(</span><span class="n">iu</span><span class="o">.</span><span class="n">pay</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span> 
+<span class="n">hynn</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="n">giveRaise</span><span class="p">(</span><span class="n">hynn</span><span class="o">.</span><span class="n">pay</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Step3:-연산자-오버로딩">
+<a class="anchor" href="#Step3:-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step3: 연산자 오버로딩<a class="anchor-link" href="#Step3:-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>클래스의 정보를 확인하기 위해서는?</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hd</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">hd</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">hd</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">iu</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hynn</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="n">hynn</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이것도 어떻게 보면 코드의 낭비 아닌가? 어차피 Person에서 보고 싶은 정보란 뻔하다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>소망: 만약에 아래와 같이 타이핑만 하면 원하는 정보가 알아서 출력되면 좋겠다.</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hd</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iu</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hynn</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>우리의 소망은 불가능해 보인다. <code>print</code> 함수이고 함수의 기능을 바꾸려면 함수를 다시 정의해야한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>그런데 <code>print</code>는 결국 내장함수이므로, 우리의 소망을 실현하기 위해서는 파이썬에 내장된 함수를 바꿔야한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>가능하다고 하더라도 문제이다. 그전까지 작성한 코드는 모두 어떻게 되는지?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>hd
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Type:</span>        Person
+<span class="ansi-red-fg">String form:</span> &lt;__main__.Person object at 0x7fbf621bb100&gt;
+<span class="ansi-red-fg">Docstring:</span>   &lt;no docstring&gt;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>Type이 <code>Person</code>인 경우에 한정하여 print의 기능을 바꾼다면?</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>print</code> 내장함수는 Person타입(=내가 만든 클래스의 이름)에서만 바뀐 기능을 수행하고, 그외에서는 일반적으로 동작</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>조금 특별한 함수 <code>__str__</code> 개발!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="o">=</span><span class="n">job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="o">=</span><span class="n">pay</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">percent</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>__str__</code>의 특징</p>
+<ul>
+<li>self를 입력으로 받는다. </li>
+<li>출력의 형태가 항상 문자열이어야 한다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hynn</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hyewon ParkNone3000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>욕심: 보통 주피터 노트북과 같은 대화형 프롬프트에서는 print를 굳이 사용하지 않아도 원하는 출력결과를 쉽게 얻는다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>우리가 만든 클래스는?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hd</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hodong KangNone0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.Person at 0x7fbf621bbd00&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아쉬운데?.. $\to$ <code>__repr__</code> 함수 개발</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="o">=</span><span class="n">job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="o">=</span><span class="n">pay</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">percent</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Hodong KangNone0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hd</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hodong KangNone0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>보통은 <code>__repr__</code>을 더 선호한다.</p>
+<ul>
+<li>
+<code>__repr__</code>이 더 많은 디스플레이 케이스에서 적용</li>
+<li>두 가지 서로 다른 형태로 디스플레이하는데 관심이 없음. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Step-4:-상속">
+<a class="anchor" href="#Step-4:-%EC%83%81%EC%86%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: 상속<a class="anchor-link" href="#Step-4:-%EC%83%81%EC%86%8D"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>print(hd)의 디스플레이 형태가 예쁘지 않음 --&gt; 수정해보자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>잔기술1</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">'파이는 </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="mf">3.14</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'파이는 3.14'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>잔기술2</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'나는</span><span class="se">\n</span><span class="s1">최고다'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>나는
+최고다
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person2</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">'이름: </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">직업: </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">연봉: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Hodong Kang 
+직업: None 
+연봉: 0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iu</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Jieun Lee 
+직업: dev 
+연봉: 5000</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Hyewon Park 
+직업: None 
+연봉: 3000</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(이름: Hodong Kang 
+ 직업: None 
+ 연봉: 0,
+ 이름: Jieun Lee 
+ 직업: dev 
+ 연봉: 5000,
+ 이름: Hyewon Park 
+ 직업: None 
+ 연봉: 3000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Manager라는 클래스를 새로 만들자.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Person2와 동일한데, 연봉상승방법이 약간 다르다고 하자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>나쁜코드</em></strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Person2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="s1">'mgr'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Hodong Kang 
+직업: mgr 
+연봉: 8000</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Hodong Kang 
+직업: mgr 
+연봉: 9600.000000000002</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>연봉상승은 10%상승이지만 매니저는 기본적으로 10% 상승시키므로 총 상승분은 20%</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>좀 더 좋은 코드</em></strong><br>
+기존에 만들어놓은 함수를 이용하자!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Person2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="n">Person2</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="s1">'mgr'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Hodong Kang 
+직업: mgr 
+연봉: 8000</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Hodong Kang 
+직업: mgr 
+연봉: 9600.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>만약에 우리회사의 모든 직원들의 연봉을 20%올리고 싶다면?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="s1">'mgr'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(이름: Hodong Kang 
+ 직업: mgr 
+ 연봉: 8000,
+ 이름: Jieun Lee 
+ 직업: dev 
+ 연봉: 5000,
+ 이름: Hyewon Park 
+ 직업: None 
+ 연봉: 3000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="p">[</span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span><span class="p">]:</span>
+    <span class="n">ins</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(이름: Hodong Kang 
+ 직업: mgr 
+ 연봉: 10400.0,
+ 이름: Jieun Lee 
+ 직업: dev 
+ 연봉: 6000.0,
+ 이름: Hyewon Park 
+ 직업: None 
+ 연봉: 3600.0)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>코드분석</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) ins는 <code>Person2</code>클래스의 인스턴스 혹은 <code>Manager</code>클래스의 인스턴스</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(2) 각 인스턴스는 각 클래스에 정의된 적당한 버전의 'giveRaise'를 활용하여 연봉이 인상된다. 즉 iu, hynn은 Person2버전의 giveRasie를 실행하고, hd는 Manager버전의 'giveRaise'를 실행</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(3) 출력은 모두 동일한 <code>__repr__</code>을 실행</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>클래스가 없다면?</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) 함수의 암묵적인자를 전달하지 못하므로 코드가 길어진다. (self 인자)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(2) (hd, iu, hynn) 와 같이 같이 깔끔한 코드로 출력결과를 바로바로 확인하기가 불가능할 것이다. (연산자 오버로딩)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(3) 그 사람이 매니저인지 아닌지에 따라 연봉상승하는 방법이 다르므로, 어딘가에 if문을 넣어야 할 것이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(4) 코드의 재사용이 어렵다.. 디버깅이 어렵다.. 등등..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[$\ast$] <code>__init__</code>함수 재정의</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>생각해보니까 아래의 코드에서 호동의 직업을 매니저로 입력하는 것이 낭비같다.</em></strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="s1">'mgr'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>호동은 매니저클래스의 인스턴스이므로 직업은 당연히 매니저일것.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>굳이 <code>job='mgr'</code>와 같은 방식으로 입력하지 않아도 될것 같다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>어떻게 하면 될까?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Person2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="o">=</span><span class="s1">'mgr'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay</span><span class="o">=</span><span class="n">pay</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="n">Person2</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>이름: Hodong Kang 
+직업: mgr 
+연봉: 8000</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(이름: Hodong Kang 
+ 직업: mgr 
+ 연봉: 8000,
+ 이름: Jieun Lee 
+ 직업: dev 
+ 연봉: 5000,
+ 이름: Hyewon Park 
+ 직업: None 
+ 연봉: 3000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>관찰:</code> 아까 매니저 클래스에서 함수를 정의하는 과정을 잘 관찰하면</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Person2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="n">Person2</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+</pre></div>
+<p>상속받은 클래스(서브클래스)에서 <code>슈퍼클래스이름.함수이름</code>으로 슈퍼클래스의 함수를 호출함.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>__init__</code>도 함수이므로 위와 같은 방식을 사용할 수 있겠다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Person2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">Person2</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="s1">'mgr'</span><span class="p">,</span><span class="n">pay</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="n">Person2</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(이름: Hodong Kang 
+ 직업: mgr 
+ 연봉: 8000,
+ 이름: Jieun Lee 
+ 직업: dev 
+ 연봉: 5000,
+ 이름: Hyewon Park 
+ 직업: None 
+ 연봉: 3000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>giveRiase</code>를 수정한 기법과 <code>__init__</code>을 수정한 기법은 동일함.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[$\ast$] 객체임베딩(객체내장)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 클래스 Person2를 상속받지 않고 사용할 수는 없을까?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Person2를 인스턴스화 하고 그 인스턴스를 입력으로 받아 기능을 사용하는 방식을 취한다면? $\to$ 구현해보자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 원래코드</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Person2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">Person2</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="s1">'mgr'</span><span class="p">,</span><span class="n">pay</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="n">Person2</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래와 같이 수정</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">person2</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s1">'mgr'</span><span class="p">,</span><span class="n">pay</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">person2</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&lt;__main__.Manager at 0x7fdea54ddbe0&gt;,
+ 이름: Jieun Lee 
+ 직업: dev 
+ 연봉: 5000,
+ 이름: Hyewon Park 
+ 직업: None 
+ 연봉: 3000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">.</span><span class="fm">__repr__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ 'giveRaise',
+ 'job',
+ 'name',
+ 'pay']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">person2</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s1">'mgr'</span><span class="p">,</span><span class="n">pay</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">bonus</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">person2</span><span class="o">.</span><span class="n">giveRaise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">percent</span><span class="o">+</span><span class="n">bonus</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">person2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">=</span><span class="n">Manager</span><span class="p">(</span><span class="s1">'Hodong Kang'</span><span class="p">,</span> <span class="n">pay</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="n">iu</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Jieun Lee'</span><span class="p">,</span><span class="n">job</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">hynn</span><span class="o">=</span><span class="n">Person2</span><span class="p">(</span><span class="s1">'Hyewon Park'</span><span class="p">,</span><span class="n">pay</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="p">,</span><span class="n">iu</span><span class="p">,</span><span class="n">hynn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(이름: Hodong Kang 
+ 직업: mgr 
+ 연봉: 8000,
+ 이름: Jieun Lee 
+ 직업: dev 
+ 연봉: 5000,
+ 이름: Hyewon Park 
+ 직업: None 
+ 연봉: 3000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">.</span><span class="n">person2</span><span class="o">.</span><span class="fm">__repr__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.Manager at 0x7fdea54a1940&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd</span><span class="o">.</span><span class="fm">__repr__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.Manager at 0x7fdea54a1940&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이 예제에서는 임베딩기법이 그다지 유용하지 않다.</p>
+<p><code>-</code> 코드에 따라서 유용할수도있다.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="kimha02/ham"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ham/python/2021/07/21/python-6.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ham/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ham/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ham/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/kimha02" title="kimha02"><svg class="svg-icon grey"><use xlink:href="/ham/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
