@@ -326,7 +326,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "### 하영이의 공부용 블로그 . Since 2021 | python, R 중심으로 | 자주자주 올리는 것이 목표 | .",
+          "content": "공부용 블로그 . Since 2021 | python, R 중심으로 | 자주자주 올리는 것이 목표 | .",
           "url": "https://kimha02.github.io/ham/about/",
           "relUrl": "/about/",
           "date": ""
