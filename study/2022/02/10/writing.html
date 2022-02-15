@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -166,7 +166,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>우리는 실제 의료 데이터를 사용하여</p>
+<p>AI는 빠른 속도로 발전하고 있으며, 이미지 판별 등에서도 활발하게 사용되고 있다. 우리가 잘 알고 있는 예제 CAT/DOG, MNIST와 같이 매우 높은 정확도로 분류해내는 경우도 있지만 여전히 한계점은 존재한다.</p>
+<blockquote>
+<p>늑대, 개를 눈(snow)로 구분한 예시 <a href="https://towardsdatascience.com/explainability-and-visibility-in-covid-19-x-ray-classifiers-with-deep-learning-c12c3247f905">https://towardsdatascience.com/explainability-and-visibility-in-covid-19-x-ray-classifiers-with-deep-learning-c12c3247f905</a>
+해당 한계점을 보완하기 위해 본 논문에서는 CNN으로 데이터를 학습한 후 CAM을 활용해 반복적으로 특징을 탐색해보려 한다. 반복적으로 특징을 탐색하는 이유는 첫 번째 판별해낸 특징이 실제 사람이 이미지를 판별할 때 사용하는 특징(=일반적이지 않은 특징)이 아닐 수 있기 때문이다. class 수는 2개로 진행하였다.</p>
+</blockquote>
 
 </div>
 </div>
@@ -183,7 +187,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>첫번째 CAM이 발견한 특징(현재 예제에서는 고양이로 판별되는데 가장 크게 기여한 부분)을 제거한 후 CAM을 재실행하여 첫번째 시도에서 놓친(비교적 약하다고 판별된) 특징을 확인하는 과정을 반복적으로 수행할 것이기 때문에 특징의 면적이 좁을수록 이후 판별되는 특징과 구별이 수월하다. 따라서 epoch 수를 25회로 일반적인 학습의 경우보다 많게 진행하여 과적합을 유도하였다.</p>
+<p>CNN 후 CAM을 진행할 수 있도록 network의 형태를 일부 수정했다. 수정한 net2와 net1을 통합해 net을 생성하였으며 해당 network로 학습을 진행하고자 한다.</p>
 
 </div>
 </div>
@@ -191,15 +195,54 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>✏️  Toy example로 CAT/DOG을 선택하여 진행하였다. Resnet34로 epoch=1만큼 학습하였으며 이미지 사이즈는 $512*512$ 로 통일시켰다.<br>
-만약 sample image가 Dog이라면,</p>
+<p>첫번째 CAM이 발견한 특징을 제거한 후 CAM을 재실행하여 첫번째 시도에서 놓친(비교적 약하다고 판별된) 특징을 확인하는 과정을 반복적으로 수행할 것이기 때문에 특징의 면적이 좁을수록 이후 판별되는 특징과 구별이 수월하다. 따라서 epoch 수를 일반적인 학습의 경우보다 많게 진행하여 과적합을 유도하였다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>한 개 이미지를 선택하여 텐서화를 진행한 결과, 이전 0-255 사이의 값을 가지던 픽셀들이 -3-3 사이의 값을 가지게 되었다. 이에 따라 이미지의 대비도가 높아져 향후 이미지 시각화 시 원본 이미지에 가까운 색을 띌 수 있게 선형변환을 진행할 예정이다.</p>
-<p>CNN 후 CAM을 진행할 수 있도록 network의 형태를 일부 수정했다. 수정한 net2와 net1을 통합해 net을 생성하였으며 해당 network로 학습을 진행하고자 한다.</p>
-<p>첫번째 CAM이 발견한 특징(현재 예제에서는 고양이로 판별되는데 가장 크게 기여한 부분)을 제거한 후 CAM을 재실행하여 첫번째 시도에서 놓친(비교적 약하다고 판별된) 특징을 확인하는 과정을 반복적으로 수행할 것이기 때문에 특징의 면적이 좁을수록 이후 판별되는 특징과 구별이 수월하다. 따라서 epoch 수를 25회로 일반적인 학습의 경우보다 많게 진행하여 과적합을 유도하였다.</p>
-<p>과적합을 위해 25회 학습을 진행하였으나, 고양이 이미지에서 처음에 얼굴을 판별해 낸 이후 얼굴을 제외한 모든 부분이 고양이로 판별된 이유로 (동일한 가중치를 가지고)확인되어서 epoch수를 늘려 보았다. (총 epoch=40) 40으로 늘렸더니 너무 이동이 느리다..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>CAM에서 발견한 특징의 가중치를 낮추는 mode weigth와 CAM에서 발견한 특징을 제외한 부분의 가중치를 살리는 mode res weight를 생성해 mode$n$($n$=number of acting CAM)과 mode$n$ res를 생성한다.<br>
+이 때 k라는 hyper parameter값을 곱해줘서 그 정도를 조정하는데,</p>
+<ul>
+<li>k의 값이 클수록, CAM img의 가중치에 큰 값이 곱해져 이미지가 어떤 클래스로 분류되는데 기여한 부분의 범위가 넓어지며(=mode weight에서 분홍색으로 표시되는 부위가 실제 CAM img보다 넓어짐), residual에서는 더욱 어둡게 나타난다.</li>
+<li>k의 값이 작을수록, CAM img의 가중치에 큰 값이 곱해져 이미지가 어떤 클래스로 분류되는데 기여한 부분의 범위가 CAM img에서 나타난 것과 유사하나, residual에서 완벽하게 지워지지가 않아서 다음 차수에서 동일한 부분이 탐색될 가능성이 높다.  </li>
+</ul>
+<p>위와 같은 이유로 적당한 k를 시뮬레이션을 통해 임의로 설정하였다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>✏️ <strong>Simulation Study</strong><br>
+데이터로 CAT/DOG을 선택하여 진행하였다. Resnet34로 epoch=1만큼 학습하였으며 이미지 사이즈는 $512*512$ 로 통일시켰다.</p>
 <p>원본 이미지 shape : $3X512X512$ $\to$ CNN $\to$ CAM 이미지 : $2X16X16$</p>
+<p>만약 sample image가 Dog이라면,</p>
+<p>과적합을 위해 25회 학습을 진행하였으나, 고양이 이미지에서 처음에 얼굴을 판별해 낸 이후 얼굴을 제외한 모든 부분이 고양이로 판별된 이유로 (동일한 가중치를 가지고)확인되어서 epoch수를 늘려 보았다. (총 epoch=40) 40으로 늘렸더니 너무 이동이 느리다..</p>
 <p>CAM img를 가중치로 보다 쉽게 사용할 수 있도록(?. 맞나?) 0~1 범위로 만들어주기 위해 각 픽셀 값에서 최소 픽셀값을 빼주었다.</p>
-<p>k=(이름 넣어주기)값은 여러 값을 대입해 본 결과 가장 결과가 보기 좋은 값으로 설정하였다. k가 커질수록 MODE1에서 삭제되는 값의 범위가 넓어져 CAM img 결과와 같은 범위가 나오도록 적당한 조절이 필요하다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>✏️ <strong>Real Data Study</strong></p>
+<ul>
+<li>k=0.04로 진행해본 결과, 이전 언급한 것과 같이 1차에서 발견된 특징이 잘 지워지지 않았다. 따라서 2번째 CAM에서 발견된 특징이 1번째 CAM에서 발견된 특징과 유사하다.</li>
+<li>k=0.055로 진행해본 결과, 1차에서 발견된 특징이 residual img에서 잘 지워졌으나(검정색에 가깝게 나타났으나, 픽셀의 값이 0에 가깝게 나타났으나) 폐 내부?의 시각적인 특징들도 함께 사라져 2번째 CAM에서 엉뚱한 결과를 초래했다.</li>
+</ul>
 
 </div>
 </div>
