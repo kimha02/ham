@@ -310,7 +310,7 @@ $w^c_k$는 클래스 $c$에 k번째 feature map의 특징변수가 얼마나 중
 <p>우리는 이미지에 <code>가중치(mask)</code>를 곱하여 <code>중요도가 높은 픽셀이 마스킹(masking)된 이미지</code>를 생성한다.<br>
 가중치를 수식으로 표현하면 아래와 같으며, CAM과 동일한 $16 \times 16$ 매트릭스 형태이다.</p>
 \begin{align}
-w(x,y) = exp (\frac{1}{2\theta^2} \times {\bf{M}}_{cat}(x,y) )
+w(x,y) = exp \left(-\frac{1}{2\theta^2} \times {\bf{M}}_{cat}(x,y) \right)
 \end{align}<p>여기서 사용된 $\theta$는 CAM 픽셀들의 분산을 표준화시켜주기 위한 hyper parameter이다.<br>
 $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작아져 약해진 신호<cite>(Yang et al, 2004)</cite>를 보정하기 위해 값을 증가시킨다.</p>
 
@@ -337,7 +337,7 @@ $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작�
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>가중치 $w$와 $\bf{X}$ 간 아다마르곱(element-wise product)을 통해 모드 분해를 진행한다.<br>
+<p>가중치 $w$와 $\bf{X}$ 간 아다마르곱을 통해 모드 분해를 진행한다.<br>
 이 때, $w$는 $\bf{X}$와 형태가 다르기 때문에 bilinear interpolation을 진행하여 $512 \times 512$형태로 재조정한다.</p>
 <p>아다마르곱을 통해 생성된 ${\bf{X}}^{(1)}_{res}$는 <code>중요도가 높은 픽셀이 마스킹(masking)된 이미지</code>, <code>모드 1의 residual</code>이 되며, 숫자 $1$은 모드 분해 횟수이다.</p>
 \begin{align}
@@ -375,7 +375,7 @@ $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작�
     
     
 </figure>
-&lt;/img&gt;</p>
+</p>
 <p>이를 바탕으로 모드 분해를 진행한 결과는 아래와 같다. 각 시차별 활성화된 픽셀이 <code>모드</code>로 분리되고, 분리된 모드가 마스킹된 <code>모드 residual</code>이 생성되어 다시 모드 분해를 진행해나가는 과정이다.<br>
 <figure>
   
@@ -383,7 +383,7 @@ $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작�
     
     
 </figure>
-&lt;/img&gt;</p>
+</p>
 <p>예제에서 우리가 기대한 결과가 도출되었기 때문에 실제 의료 데이터를 이용하여 분석을 진행해보고자 한다.</p>
 
 </div>
