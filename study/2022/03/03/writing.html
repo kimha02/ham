@@ -212,18 +212,18 @@ window.onload = wrap_img;
 <p>본 논문에서는 <code>모드 분해</code>를 설명하기 위한 예제로 Cat/Dog(<a href="https://www.robots.ox.ac.uk/~vgg/data/pets/)%EC%9D%84">https://www.robots.ox.ac.uk/~vgg/data/pets/)을</a> 사용한다. 37종의 고양이, 개로 이루어진 $7,349$개 이미지 데이터로 사이즈는 $512 \times 512$로 통일한다.<br>
 따라서 입력 이미지(아래 사진)인 $\bf X$는 $512 \times 512$ 매트릭스이며, 클래스의 집합 $y$로 분류된다. 
 \begin{align}
+{\bf{X}} : {\bf{\Lambda}} \to {\mathbb{R}^3} {of size} {512 \times 512}
+\end{align}
+\begin{align}
 y=\{cat, dog\}
 \end{align}</p>
-<blockquote>
-<p>RISE 논문에서 $\bf{I}$ :$\bf{\Lambda} \to \mathbb{R}^3$ of size $\bf{H}$ $\times$ $\bf{W}$ $(\Lambda = {1, \dots, \bf{H}} \times {1, \dots, \bf{W}})$ 이렇게 표현했는데 써도 될까?? $\mathbb{R}^3$은 채널 수를 말하는 것 같다.  &gt; 아니면 사용된 이미지에 국한되지 않고 $\it{h} \times \it{w}$라고 쓰는 게 나을려나?</p>
-</blockquote>
 <p><figure>
   
     <img class="docimage" src="/ham/images/copied_from_nb/original.png" alt="original" style="max-width: 250px">
     
     
 </figure>
-&lt;/img&gt;</p>
+</p>
 <p>학습은 <code>resnet34</code>를 사용하고, 총 epoch 수는 5이다.
 예제를 통해 우리는 사람이 고양이, 개를 분류할 때 직관적으로 사용되는 특징에 CAM이 반응하여 모드 분해로 이어질 수 있는지를 확인하고, 이런 특징들이 중요도에 따라 순차적으로 나타나는지를 보고자 한다.</p>
 
@@ -254,15 +254,13 @@ y=\{cat, dog\}
 <p>GAP는 마지막 convolutional layer에서 k개의 activation map을 출력한다. 이를 feature map : $f_k(x,y)$라고 한다.<br>
 $w^c_k$는 클래스 $c$에 k번째 feature map의 특징변수가 얼마나 중요한지를 보여주는 가중치이다.<br>
 클래스 $c$에 대한 CAM $M_c$는 k번째 Feature Map의 각 픽셀값을 가중합한 결과이다. <cite>(Zhou et al, 2016)</cite></p>
-\begin{align}
-{\bf{M}}_c(x,y) = \sum_k w^c_k f_k(x,y)
-\end{align}<blockquote>
+<p>${\bf{M}}_c(x,y) = \sum_k w^c_k f_k(x,y)$</p>
+<blockquote>
 <p>k :Feture Map의 index  x,y : Feature Map의 가로(x), 세로(y) 좌표</p>
 </blockquote>
-<p>예제 이미지를 통해 생성된 CAM은 $16 \times 16$ 매트릭스 형태이며, 각 activation map을 $\bf{M}$$_{cat}$, $\bf{M}$$_{dog}$으로 지정한다.<br>
-사용되는 이미지가 고양이이기 때문에 모드 분해에는 ${\bf{M}}_{cat}$을 사용한다.</p>
-\begin{align}
-{\bf{M}}_{cat} = {\bf{M}}_{cat_{x,y}}=
+<p>예제 이미지를 통해 생성된 CAM은 $16 \times 16$ 매트릭스 형태이며, 각 activation map을 $\bf{M}$$_{0}$, $\bf{M}$$_{1}$으로 지정한다.<br>
+사용되는 이미지가 고양이이기 때문에 모드 분해에는 ${\bf{M}}_{0}$을 사용한다.</p>
+<p>${\bf{M}}_{0} = {\bf{M}}_{0_{x,y}}=
  \begin{pmatrix}
   a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,y} \\
   a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,y} \\
@@ -270,10 +268,9 @@ $w^c_k$는 클래스 $c$에 k번째 feature map의 특징변수가 얼마나 중
   a_{x,1} &amp; a_{x,2} &amp; \cdots &amp; a_{x,y}
  \end{pmatrix}   
   , x \in \{1,2,\dots,16\}  
-  , y \in \{1,2,\dots,16\}
-\end{align}<p><br><br>
-\begin{align}
-{\bf{M}}_{dog} = {\bf{M}}_{dog_{k,l}}=
+  , y \in \{1,2,\dots,16\}$</p>
+<p><br><br></p>
+<p>${\bf{M}}_{1} = {\bf{M}}_{1_{k,l}}=
  \begin{pmatrix}
   a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,l} \\
   a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,l} \\
@@ -281,8 +278,7 @@ $w^c_k$는 클래스 $c$에 k번째 feature map의 특징변수가 얼마나 중
   a_{k,1} &amp; a_{k,2} &amp; \cdots &amp; a_{k,l}
  \end{pmatrix}   
   , k \in \{1,2,\dots,16\}  
-  , l \in \{1,2,\dots,16\}
-\end{align}</p>
+  , l \in \{1,2,\dots,16\}$</p>
 
 </div>
 </div>
@@ -309,9 +305,8 @@ $w^c_k$는 클래스 $c$에 k번째 feature map의 특징변수가 얼마나 중
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>우리는 이미지에 <code>가중치(mask)</code>를 곱하여 <code>중요도가 높은 픽셀이 마스킹(masking)된 이미지</code>를 생성한다.<br>
 가중치를 수식으로 표현하면 아래와 같으며, CAM과 동일한 $16 \times 16$ 매트릭스 형태이다.</p>
-\begin{align}
-w(x,y) = exp \left(-\frac{1}{2\theta^2} \times {\bf{M}}_{cat}(x,y) \right)
-\end{align}<p>여기서 사용된 $\theta$는 CAM 픽셀들의 분산을 표준화시켜주기 위한 hyper parameter이다.<br>
+<p>$w(x,y) = exp \left(-\frac{1}{2\theta^2} \times {\bf{M}}_{0}(x,y) \right)$</p>
+<p>여기서 사용된 $\theta$는 CAM 픽셀들의 분산을 표준화시켜주기 위한 hyper parameter이다.<br>
 $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작아져 약해진 신호<cite>(Yang et al, 2004)</cite>를 보정하기 위해 값을 증가시킨다.</p>
 
 </div>
@@ -340,12 +335,10 @@ $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작�
 <p>가중치 $w$와 $\bf{X}$ 간 아다마르곱을 통해 모드 분해를 진행한다.<br>
 이 때, $w$는 $\bf{X}$와 형태가 다르기 때문에 bilinear interpolation을 진행하여 $512 \times 512$형태로 재조정한다.</p>
 <p>아다마르곱을 통해 생성된 ${\bf{X}}^{(1)}_{res}$는 <code>중요도가 높은 픽셀이 마스킹(masking)된 이미지</code>, <code>모드 1의 residual</code>이 되며, 숫자 $1$은 모드 분해 횟수이다.</p>
-\begin{align}
-{\bf{X}}^{(1)}_{res} = {\bf{X}} \odot w
-\end{align}<p><code>모드 1</code>, <code>중요도가 높은 픽셀을 추출한 이미지</code>는 $1-w$와 $\bf{X}$ 간 아다마르곱으로 생성한다.</p>
-\begin{align}
-{\bf{X}}^{(1)} = {\bf{X}} \odot (1-w)
-\end{align}<blockquote>
+<p>${\bf{X}}^{(1)}_{res} = {\bf{X}} \odot w$</p>
+<p><code>모드 1</code>, <code>중요도가 높은 픽셀을 추출한 이미지</code>는 $1-w$와 $\bf{X}$ 간 아다마르곱으로 생성한다.</p>
+<p>${\bf{X}}^{(1)} = {\bf{X}} \odot (1-w)$</p>
+<blockquote>
 <p>참고 :${\bf {X}}\approx {\bf {X}}^{(1)}+{\bf X}^{(2)}+{\bf X}^{(3)} \dots +{\bf X}^{(m)}$를 만족한다.  왜냐하면, ${\bf X}={\bf X}^{(1)}+{\bf X}^{(1)}_{res}$, ${\bf X}^{(1)}={\bf X}^{(2)}+{\bf X}^{(2)}_{res} \dots$를 만족하기 때문이다.<br>
 이 때 $m$은 모드 생성 횟수이다.</p>
 </blockquote>
@@ -442,7 +435,7 @@ $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작�
     
     
 </figure>
-&lt;/img&gt;</p>
+</p>
 <p>이를 바탕으로 모드 분해를 진행한 결과는 아래와 같다.<br>
 <figure>
   
@@ -450,7 +443,7 @@ $\theta$는 모드 분해가 진행됨에 따라 픽셀들의 분산들이 작�
     
     
 </figure>
-&lt;/img&gt;</p>
+</p>
 <p>CAM을 진행함에 따라 X-ray에서 중요도가 높은 순으로 픽셀이 활성화되었고, 성공적으로 분해가 진행되었다.</p>
 
 </div>
