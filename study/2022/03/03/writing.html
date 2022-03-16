@@ -252,6 +252,8 @@ y=\{cat, dog\}
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>CAM은 global average pooling을 사용하여 CNN에서 이미지를 분류하는데 중요한 역할을 한 픽셀을 시각화하는 class activation map을 생성하는 기법이다. <cite>(Zhou et al, 2016)</cite></p>
 <p>GAP는 마지막 convolutional layer에서 k개의 activation map을 출력한다. 이를 feature map : $f_k(x,y)$라고 한다.<br>
+<code>feature map</code>은 먼저 이미지에서 시각적인 패턴을 나타낸 지도로, 이 때 활성화된 픽셀은 이미지가 가진 특징(energy)를 보여준다.<br>
+예제 이미지는 컬러 이미지이기 때문에 feature map의 형태는 $3 \times 16 \times 16$이다. 이 때 channel의 수가 $3$이기 때문에 $k=3$ 이다.<br>
 $w^c_k$는 클래스 $c$에 k번째 feature map의 특징변수가 얼마나 중요한지를 보여주는 가중치이다.<br>
 클래스 $c$에 대한 CAM $M_c$는 k번째 Feature Map의 각 픽셀값을 가중합한 결과이다. <cite>(Zhou et al, 2016)</cite></p>
 <p>${\bf{M}}_c(x,y) = \sum_k w^c_k f_k(x,y)$</p>
