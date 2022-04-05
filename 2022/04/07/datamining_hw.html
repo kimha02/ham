@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | Hayoung Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://kimha02.github.io/ham/2022/04/07/datamining_hw.html" />
+<meta property="og:url" content="https://kimha02.github.io/ham/2022/04/07/datamining_hw.html" />
+<meta property="og:site_name" content="Hayoung Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-07T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2022-04-07T00:00:00-05:00","url":"https://kimha02.github.io/ham/2022/04/07/datamining_hw.html","@type":"BlogPosting","headline":"Title","dateModified":"2022-04-07T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/2022/04/07/datamining_hw.html"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="Hayoung Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ham/">Hayoung Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ham/about/">About Me</a><a class="page-link" href="/ham/search/">Search</a><a class="page-link" href="/ham/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-07T00:00:00-05:00" itemprop="datePublished">
+        Apr 7, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/kimha02/ham/tree/master/_notebooks/2022-04-07-datamining_hw.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ham/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/kimha02/ham/master?filepath=_notebooks%2F2022-04-07-datamining_hw.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/kimha02/ham/blob/master/_notebooks/2022-04-07-datamining_hw.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-04-07-datamining_hw.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>1. 설명변수가 1개(X)인고, 반응변수가 1개(Y )인데이터를 가지고 있다고 하자. (n = 100) 그리고 다음의 두 모형(linear regression, cubic regression)을 적합시키려고 한다.</strong></p>
+<p><center>
+$Y = \beta_0 + \beta_1X + \epsilon$&lt;/p&gt;
+<p><center>
+$Y = \beta_0 + \beta_1X + \beta_2X^2 + \beta_3X^3 + \epsilon$&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(a) 실제 X, Y 가 선형(linear)관계가 있다고 가정 하자. 모델 (1),(2)의 SSE(잔차제곱합)의 크기를 비교할 수 있는지 설명하여라</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>SSE</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) 실제 X, Y 가 비선형(non-linear)관계가 있다고 가정 하자. 대신 실제 모형에 대한 정보는 없다. 모델 (1),(2)의 SSE(잔차제곱합)의 크기를 비교할 수 있는지 설명하여라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>2. ’Auto.csv’ 데이터를 이용하여 단순선형 회귀 모형을 적합한다.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(a) 반응변수 mpg, 설명변수는 horsepower로 하는 단순선형회귀모형을 적합 시킨 후 summary() 함수의 결과 확인하고 다음의 물음에 답하여라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>단순선형회귀분석 전 horsepower가 문자형으로 확인되어 숫자형으로 변경 후 결측값 제거를 진행함. 총 397개 데이터에서 결측치 5개를 제거하여 392개 데이터로 분석함.</p>
+</li>
+<li><p>x=horsepower, y=mpg 회귀분석 summary결과를 요약하면 아래와 같음.</p>
+<ul>
+<li>회귀계수 유의성 검정 결과, 유의확률이 0에 가까워 horsepower는 유의하다고 할 수 있음.</li>
+<li>회귀직선 유의성 검정 결과, 유의확률은 0에 가까워 이 모델은 통계적으로 유의하다고 할 수 있음.</li>
+<li>$R^2=0.6059$으로 비교적 설명력이 높게 나타남.  </li>
+</ul>
+</li>
+</ul>
+<p>**<center>&lt;/p&gt;
+<p>&lt;표. 회귀계수 유의성 검정 결과&gt;**</p>
+<table>
+<thead><tr>
+<th></th>
+<th>Estimate</th>
+<th>Std.Error</th>
+<th>t</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(Intercept)</td>
+<td>39.935861</td>
+<td>0.717499</td>
+<td>55.66</td>
+<td>&lt;2e-16</td>
+</tr>
+<tr>
+<td>x</td>
+<td>-0.157845</td>
+<td>0.006446</td>
+<td>-24.49</td>
+<td>&lt;2e-16</td>
+</tr>
+</tbody>
+</table>
+<p>**<center>&lt;/p&gt;
+<p>&lt;표. 회귀직선 유의성 검정 결과&gt;**</p>
+<table>
+<thead><tr>
+<th></th>
+<th>DF</th>
+<th>Sum Sq</th>
+<th>Mean Sq</th>
+<th>F</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>1</td>
+<td>14433.1</td>
+<td>14433.1</td>
+<td>599.72</td>
+<td>&lt;2.2e-16</td>
+</tr>
+<tr>
+<td>Residuals</td>
+<td>390</td>
+<td>9385.9</td>
+<td>24.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><center>
+Multiple $R^2 = 0.6059$, Adjusted $R^2 = 0.6049$&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>Q.</code> 두 변수 사이에 관계</p>
+<ul>
+<li>두 변수 간 관계 여부를 확인하기 위해 산점도를 그려보면, <strong>x가 증가함에 따라 y가 감소하는 경향</strong>을 보임.</li>
+<li>상관계수는 $-0.7784268$으로 <strong>음의 관계</strong>를 가지고 있으며, 절대값이 $0.7$보다 크기 때문에 <strong>매우 강한 관련성</strong>을 가진다고 해석할 수 있음.</li>
+<li>상관분석 결과 또한 p-value$&lt;2.2e-16 \approx 0$으로 상관계수가 0이라는 귀무가설을 기각함.<p align="center"><img src="http://210.117.173.183:8787/graphics/e5a8c8ab-9106-4443-a2a6-840c1f921153.png" alt="scatter" width="350px" /></p></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>Q.</code>  horsepower의 값이 98일 때, mpg의 예측값과 95% 신뢰구간</p>
+<ul>
+<li>추정된 단순선형회귀모형은 $\hat{y} = 39.935861 -0.157845x$</li>
+<li>$x=98$일 때 예측값은 $24.46708$이며 95% 신뢰구간은 $(23.97308, 24.96108)$임.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>Q.</code>  회귀직선을 추가한 산점도</p>
+<ul>
+<li>위에서 확인한 바와 같이 회귀직선은 우하향하는 모습을 보임.<p align="center"><img src="http://210.117.173.183:8787/graphics/c4f6714e-5af4-413d-909b-79ff559ecad3.png" alt="scatter" width="350px" /></p></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>3. 다중공선성(collinearity)</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(a) 회귀모형 : $y_i = 2 + 2*x_{i1} + 0.3*x_{i2} + \epsilon_i$  $i=1,2,\dots,100$</p>
+<ul>
+<li>회귀모수 $\beta_0 = 2, \beta_1 = 2, \beta_2 = 0.3$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) 두 설명변수 x1과 x2 사이에 상관관계(correlation)이 있는가? 산점도를 그려서 확인하여라.</p>
+<ul>
+<li>설명변수 간 상관관계를 확인하기 위해 산점도를 그린 결과, x1이 증가함에 따라 x2도 증가하는 경향을 보여 양의 관계가 있을 것으로 해석됨.</li>
+<li>상관분석을 진행한 결과 상관계수는 $0.835121$로 매우 강한 양의 상관관계가 있는 것으로 확인되었으며, $p-value&lt;2.2e-16 \approx 0$으로 두 변수 간 상관관계가 없다는 귀무가설을 기각함.<p align="center"><img src="http://210.117.173.183:8787/graphics/7d04e8de-f29e-4fe7-b977-6adcf0ff38b3.png" alt="scatter" width="350px" /></p></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(c) 생성된 데이터를 이용하여 (a) 모형의 회귀계수를 추정하여라. 실제 회귀계수와 추정된 회귀계수와
+비교하여라. H0 : β1 = 0을 기각할 수 있는가? H0 : β2 = 0을 기각할 수 있는가?</p>
+<ul>
+<li>추정된 회귀식은 $\hat{y} = 2.1305 + 1.4396*x_1 + 1.0097*x_2$임. Multiple R-squared$=0.2088$, Adjusted R-squared$=0.1925$로 설명력은 비교적 작게 나타났으나 p-value$=1.164e-05 \approx 0.00001$로 유의한 모델로 확인됨.</li>
+<li>$\hat{\beta}_0$과 $\hat{\beta}_1$은 실제 회귀계수인 $2$에 가까운 값을 보이나, $\hat{\beta}_2$는 실제 회귀계수인 $0.3$보다 비교적 작은 값을 보이며 다른 회귀계수 추정량 대비 실제 회귀계수와의 값 차이가 크게 나타남.</li>
+<li>회귀계수 유의성 검정 결과 $\hat{\beta}_1$의 p-value는 $0.0487$으로 유의수준 0.5에서 유의한 값을 보여 귀무가설을 기각할 수 없으나, $\hat{\beta}_2$의 p-value는 $0.3754$로 유의수준 0.5보다 크게 나타나 귀무가설을 기각할 수 없음.<br />
+$\to$ 이미 유의한 모델이나, x2를 제거하는 것을 고려해볼 수 있음.
+<strong><center> 
+&lt;표. 회귀계수 유의성 검정 결과&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+<table>
+<thead><tr>
+<th></th>
+<th>Estimate</th>
+<th>Std.Error</th>
+<th>t</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(Intercept)</td>
+<td>2.1305</td>
+<td>0.2319</td>
+<td>9.188</td>
+<td>7.61e-15$\approx 0$</td>
+</tr>
+<tr>
+<td>x1</td>
+<td>1.4396</td>
+<td>0.7212</td>
+<td>1.996</td>
+<td>0.0487</td>
+</tr>
+<tr>
+<td>x2</td>
+<td>1.0097</td>
+<td>1.1337</td>
+<td>0.891</td>
+<td>0.3754</td>
+</tr>
+</tbody>
+</table>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(d) 이번에는 x1만을 이용한 단순선형회귀 모형을 적합하여라. 결과를 분석하여라. H0 : β1 = 0을 기각할
+수 있는가?</p>
+<ul>
+<li>단순선형회귀모형을 적합한 결과, 추정된 회귀식은 $\hat{y} = 2.1124 + 1.9759*x_1$임. Multiple R-squared $=0.2024$, Adjusted R-squared$=0.1942$로 설명력은 비교적 작게 나타났으나 p-value$=2.66e-06 \approx 0$로 유의한 모델로 확인됨.</li>
+<li>회귀계수 유의성 검정 결과, 이전 중회귀분석 결과와 유사하게 p-value가 0에 가깝게 나타나 $\beta_1 = 0$이라는 귀무가설을 기각함.</li>
+</ul>
+<p>**<center>&lt;/p&gt;
+<p>&lt;표. 회귀계수 유의성 검정 결과&gt;**</p>
+<table>
+<thead><tr>
+<th></th>
+<th>Estimate</th>
+<th>Std.Error</th>
+<th>t</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(Intercept)</td>
+<td>2.1124</td>
+<td>0.2307</td>
+<td>9.155</td>
+<td>8.27e-15 $\approx 0$</td>
+</tr>
+<tr>
+<td>x1</td>
+<td>1.9759</td>
+<td>0.3963</td>
+<td>4.986</td>
+<td>2.66e-06 $\approx 0$</td>
+</tr>
+</tbody>
+</table>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(e) 이번에는 x2만을 이용한 단순선형회귀 모형을 적합하여라. 결과를 분석하여라. H0 : β2 = 0을 기각할
+수 있는가?</p>
+<ul>
+<li>단순선형회귀모형을 적합한 결과, 추정된 회귀식은 $\hat{y} = 2.3899 + 2.8996*x_2$임. Multiple R-squared $=0.1763$, Adjusted R-squared$=0.1679$로 설명력은 비교적 작게 나타났으나 p-value$=1.366e-05 \approx 0.00001$로 유의한 모델로 확인됨.</li>
+<li>회귀계수 유의성 검정 결과, 이전 중회귀분석 결과와 반대로 p-value가 0에 가깝게 나타나 $\beta_2 = 0$이라는 귀무가설을 기각함.</li>
+</ul>
+<p>**<center>&lt;/p&gt;
+<p>&lt;표. 회귀계수 유의성 검정 결과&gt;**</p>
+<table>
+<thead><tr>
+<th></th>
+<th>Estimate</th>
+<th>Std.Error</th>
+<th>t</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(Intercept)</td>
+<td>2.3899</td>
+<td>0.1949</td>
+<td>12.26</td>
+<td>&lt;2e-16 $\approx 0$</td>
+</tr>
+<tr>
+<td>x2</td>
+<td>2.8996</td>
+<td>0.6330</td>
+<td>4.58</td>
+<td>1.37e-05 $\approx 0$</td>
+</tr>
+</tbody>
+</table>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(f) (c)-(e)의 결과가 서로 모순되는가? 설명하여라.</p>
+<ul>
+<li>$x_1$에 대한 단순선형회귀분석 결과, $x_1, x_2$를 모두 사용한 중회귀분석 결과와 동일하게 $\beta_1 = 0$이라는 귀무가설을 기각하여 유의한 계수임을 확인할 수 있었음.</li>
+<li>하지만 $x_2$에 대한 단순선형회귀분석 결과는 중회귀분석 결과와 반대로 $\beta_2 = 0$이라는 귀무가설을 기각해 유의한 계수로 나타나는 모순된 결과를 확인할 수 있음.</li>
+<li>이는 $x_1$과 $x_2$가 독립적이지 않고 상관관계가 있기 때문에 발생한 다중공선성 문제로, 중회귀분석 시에는 $x_2$가 설명해야 할 부분을 $x_1$이 설명하기 때문에 $x_2$의 계수인 $\beta_2=0$이라는 귀무가설을 기각할 수 없었던 것임.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(g) 새로운 데이터가 관측되었다고 하자. 추가된 데이터를 이용하여 (c)-(e)를 다시 적합하여라. 결과가 어떻게 달라졌는가?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Logistic-Regression">Logistic Regression<a class="anchor-link" href="#Logistic-Regression"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>1. 두개의 설명변수 (X1 = 공부시간, X2 = 학부평점)를 이용하여 A학점을 받을 확률을 예측하기 위해 로지스틱 회귀모형을 적합하였다. 추정된 회귀계수는 $\hat{\beta}_0 = −6, \hat{\beta}_1 = 0.05, \hat{\beta}_2 = 1$이다.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(a) 40시간 공부하고, 평점이 3.5인 학생이 A를 받았을 확률을 예측하여라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) 평점이 3.5인 학생은 얼마나 공부를 해야 A를 받을 확률이 50%를 넘을 것인가?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>2. 다음은 odds에 관한 문제이다.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(a) 신용카드결재 문제에서 결재를 하지 못하는 경우(default)에 대한 odds가 0.37인 사람들이 실제로 defalut할 확률은 평균적으로 얼마인가?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) 어떤 개인이 default할 확률이 16% 라고 하자. 그 사람이 default할 odds는 얼마인가?</p>
+
+</div>
+</div>
+</div>
+&lt;/div&gt;
+ 
+
+</center></p></div></div></div></center></p></div></div></div></center></strong></li></ul></div></div></div></center></p></center></p></center></p></div></div></div></center></p></center></p></div></div></div></div>
+
+
+  </div><a class="u-url" href="/ham/2022/04/07/datamining_hw.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ham/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ham/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ham/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/kimha02" target="_blank" title="kimha02"><svg class="svg-icon grey"><use xlink:href="/ham/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
