@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      8 min read
     
 </span></p>
 
@@ -146,6 +146,29 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">setwd</span><span class="p">(</span><span class="s">"/home/khy/Desktop/2022STAT/datamining"</span><span class="p">)</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">gridExtra</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -177,12 +200,250 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>SSE</li>
+<li>시뮬레이션을 해보기 위해 임의로 만든 모델</li>
 </ul>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="n">x1</span><span class="o">=</span><span class="nf">runif</span><span class="p">(</span><span class="m">100</span><span class="p">)</span>
+<span class="n">y1</span><span class="o">=</span><span class="m">3+3.5</span><span class="o">*</span><span class="n">x1</span><span class="o">+</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">100</span><span class="p">)</span>
+<span class="n">y2</span><span class="o">=</span><span class="m">5+1.5</span><span class="o">*</span><span class="n">x1</span><span class="m">+3</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">2+4</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="o">+</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">100</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y1</span><span class="o">~</span><span class="n">x1</span><span class="p">))</span>
+<span class="nf">anova</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y1</span><span class="o">~</span><span class="n">x1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y1 ~ x1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.84978 -0.56222 -0.08707  0.52427  2.51661 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   2.8207     0.2058   13.71   &lt;2e-16 ***
+x1            3.8123     0.3535   10.79   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9411 on 98 degrees of freedom
+Multiple R-squared:  0.5428,	Adjusted R-squared:  0.5381 
+F-statistic: 116.3 on 1 and 98 DF,  p-value: &lt; 2.2e-16
+</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x1</th>
+<td> 1</td>
+<td>103.02483</td>
+<td>103.0248322</td>
+<td>116.3342</td>
+<td>2.403925e-18</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>98</td>
+<td> 86.78818</td>
+<td>  0.8855937</td>
+<td>      NA</td>
+<td>          NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y1</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="p">)))</span>
+<span class="nf">anova</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y1</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y1 ~ x1 + I(x1^2) + I(x1^3))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.85466 -0.59246 -0.09722  0.54144  2.48360 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   2.6348     0.4645   5.672 1.49e-07 ***
+x1            5.6195     3.7246   1.509    0.135    
+I(x1^2)      -4.1677     8.5256  -0.489    0.626    
+I(x1^3)       2.6800     5.6682   0.473    0.637    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9496 on 96 degrees of freedom
+Multiple R-squared:  0.5439,	Adjusted R-squared:  0.5297 
+F-statistic: 38.16 on 3 and 96 DF,  p-value: 2.523e-16
+</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 4 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x1</th>
+<td> 1</td>
+<td>103.02483221</td>
+<td>103.02483221</td>
+<td>114.24694192</td>
+<td>4.971201e-18</td>
+</tr>
+	<tr>
+<th scope="row">I(x1^2)</th>
+<td> 1</td>
+<td>  0.01635999</td>
+<td>  0.01635999</td>
+<td>  0.01814203</td>
+<td>8.931371e-01</td>
+</tr>
+	<tr>
+<th scope="row">I(x1^3)</th>
+<td> 1</td>
+<td>  0.20159472</td>
+<td>  0.20159472</td>
+<td>  0.22355368</td>
+<td>6.374186e-01</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>96</td>
+<td> 86.57022872</td>
+<td>  0.90177322</td>
+<td>          NA</td>
+<td>          NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -191,6 +452,224 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="o">~</span><span class="n">x1</span><span class="p">))</span>
+<span class="nf">anova</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="o">~</span><span class="n">x1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y2 ~ x1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2064 -0.7806 -0.0233  0.5791  3.4723 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   3.6833     0.2770   13.29   &lt;2e-16 ***
+x1            7.9619     0.4758   16.73   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.267 on 98 degrees of freedom
+Multiple R-squared:  0.7408,	Adjusted R-squared:  0.7381 
+F-statistic:   280 on 1 and 98 DF,  p-value: &lt; 2.2e-16
+</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x1</th>
+<td> 1</td>
+<td>449.3549</td>
+<td>449.354925</td>
+<td>280.0482</td>
+<td>1.734342e-30</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>98</td>
+<td>157.2471</td>
+<td>  1.604563</td>
+<td>      NA</td>
+<td>          NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="p">)))</span>
+<span class="nf">anova</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y2 ~ x1 + I(x1^2) + I(x1^3))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.88281 -0.60007 -0.06635  0.64335  2.31422 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   5.6628     0.5158  10.979   &lt;2e-16 ***
+x1           -2.6415     4.1356  -0.639    0.525    
+I(x1^2)       9.8637     9.4662   1.042    0.300    
+I(x1^3)       0.6755     6.2936   0.107    0.915    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.054 on 96 degrees of freedom
+Multiple R-squared:  0.8241,	Adjusted R-squared:  0.8186 
+F-statistic: 149.9 on 3 and 96 DF,  p-value: &lt; 2.2e-16
+</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 4 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x1</th>
+<td> 1</td>
+<td>449.35492460</td>
+<td>449.35492460</td>
+<td>404.18948899</td>
+<td>3.511253e-36</td>
+</tr>
+	<tr>
+<th scope="row">I(x1^2)</th>
+<td> 1</td>
+<td> 50.50699183</td>
+<td> 50.50699183</td>
+<td> 45.43044730</td>
+<td>1.175750e-09</td>
+</tr>
+	<tr>
+<th scope="row">I(x1^3)</th>
+<td> 1</td>
+<td>  0.01280619</td>
+<td>  0.01280619</td>
+<td>  0.01151902</td>
+<td>9.147538e-01</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>96</td>
+<td>106.72734927</td>
+<td>  1.11174322</td>
+<td>          NA</td>
+<td>          NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -505,10 +984,81 @@ $\to$ 이미 유의한 모델이나, x2를 제거하는 것을 고려해볼 수 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(g) 새로운 데이터가 관측되었다고 하자. 추가된 데이터를 이용하여 (c)-(e)를 다시 적합하여라. 결과가 어떻게 달라졌는가?</p>
+<ul>
+<li>새로운 데이터를 추가한 뒤 중회귀분석 결과 추정된 회귀식은 $\hat{y} = 2.2267 + 0.5394*x_1 + 2.5146*x_2$임. Multiple R-squared$=0.2188$, Adjusted R-squared$=0.2029$로 설명력은 비교적 작게 나타났으나 p-value$=5.564e-06 \approx 0.000006$으로 유의한 모델로 확인됨.</li>
+<li>회귀계수 유의성 검정 결과 $\hat{\beta}_1$의 p-value는 $0.36458$로 유의수준 0.5보다 크게 나타나 귀무가설을 기각할 수 없으며, $\hat{\beta}_2$의 p-value는 $0.00614$로 유의수준 0.5보다 작게 나타나 $\beta_2 = 0$이라는 귀무가설을 기각함.</li>
+<li>이는 데이터 추가 전 결과와 상반되는 결과임.</li>
+</ul>
+<p>**</p>
+<center>&lt;/p&gt;
+<p>&lt;표. 회귀계수 유의성 검정 결과&gt;**</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Estimate</th>
+<th>Std.Error</th>
+<th>t</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(Intercept)</td>
+<td>2.2267</td>
+<td>0.2314</td>
+<td>9.624</td>
+<td>7.91e-16$\approx 0$</td>
+</tr>
+<tr>
+<td>x1</td>
+<td>0.5394</td>
+<td>0.5922</td>
+<td>0.911</td>
+<td>0.36458</td>
+</tr>
+<tr>
+<td>x2</td>
+<td>2.5146</td>
+<td>0.8977</td>
+<td>2.801</td>
+<td>0.00614</td>
+</tr>
+</tbody>
+</table>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>x1과 x2에 대해 단순회귀모형을 진행한 결과 데이터 추가 전과 동일하게 $\beta_1=0$,$\beta_2=0$이라는 귀무가설을 기각하여 유의미한 모델로 확인됨. </li>
+<li>변경된 추정식은 아래와 같음.
+<center>
+$\hat{y} = 2.2569 + 1.7657*x_1$<br>
+<center>
+$\hat{y} = 2.3451 + 3.1190*x_2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>(g) 새로운 데이터가 관측되었다고 하자. 추가된 데이터를 이용하여 (c)-(e)를 다시 적합하여라. 결과가 어떻게 달라졌는가?</p>
+<p><code>Q.</code> 추가된 데이터는 이상점/영향점인가?</p>
+<ul>
+<li>중회귀분석 표준화잔차 산점도를 그린 후, 먼저 선형 회귀분석의 기본 가정을 만족하는지 확인함. </li>
+<li>잔차가 고르게 분포하고 있어 등분산성을 만족하고 있으며, Shapiro-Wilk Test 결과 정규성을 만족함.</li>
+<li>표준화잔차 중 절대값이 가장 큰 점을 찾아보니 이상치를 추정한 결과 82번째 데이터로 확인됨.<p align="center"><img src="http://210.117.173.183:8787/graphics/26218bd1-9989-4203-b4ba-d0ea256456b3.png" alt="scatter_resid" width="700px"></p>
+</li>
+<li>추가된 데이터는 101번째 데이터이기 때문에, 해당 데이터는 <strong>이상점이 아니라고 할 수 있음</strong>.</li>
+<li>그러나 데이터를 추가한 후 중회귀분석 결과 계수값이 달라져 $\hat{\beta}_1$은 $\beta_1$ 값과 멀어지고, $\hat{\beta}_2$는 $\beta_2$ 값과 비교적 가까워지는 모습을 보였음. 또한 유의한 계수가 $\beta_1$에서 $\beta_2$로 전환되어 추가된 데이터는 <strong>영향점이라고 할 수 있음</strong>. </li>
+</ul>
 
 </div>
 </div>
@@ -581,6 +1131,15 @@ $\to$ 이미 유의한 모델이나, x2를 제거하는 것을 고려해볼 수 
 &lt;/div&gt;
  
 
+</center>
+</center>
+</li>
+</ul>
+</div>
+</div></div>
+</center>
+</div>
+</div></div>
 </center>
 </div>
 </div></div>
