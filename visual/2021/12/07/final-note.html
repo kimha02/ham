@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>(공부) 데이터 시각화 기말 노트 | Hayoung Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="(공부) 데이터 시각화 기말 노트" />
+<meta name="author" content="김하영" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="기말대비" />
+<meta property="og:description" content="기말대비" />
+<link rel="canonical" href="https://kimha02.github.io/ham/visual/2021/12/07/final-note.html" />
+<meta property="og:url" content="https://kimha02.github.io/ham/visual/2021/12/07/final-note.html" />
+<meta property="og:site_name" content="Hayoung Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-07T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-12-07T00:00:00-06:00","url":"https://kimha02.github.io/ham/visual/2021/12/07/final-note.html","@type":"BlogPosting","headline":"(공부) 데이터 시각화 기말 노트","dateModified":"2021-12-07T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/visual/2021/12/07/final-note.html"},"author":{"@type":"Person","name":"김하영"},"description":"기말대비","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="Hayoung Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ham/">Hayoung Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ham/about/">About Me</a><a class="page-link" href="/ham/search/">Search</a><a class="page-link" href="/ham/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">(공부) 데이터 시각화 기말 노트</h1><p class="page-description">기말대비</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-12-07T00:00:00-06:00" itemprop="datePublished">
+        Dec 7, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">김하영</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ham/categories/#Visual">Visual</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/kimha02/ham/tree/master/_notebooks/2021-12-07-final-note.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ham/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/kimha02/ham/master?filepath=_notebooks%2F2021-12-07-final-note.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/kimha02/ham/blob/master/_notebooks/2021-12-07-final-note.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ham/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#melt">melt </a></li>
+<li class="toc-entry toc-h2"><a href="#stack">stack </a></li>
+<li class="toc-entry toc-h2"><a href="#ggplot-그려보기">ggplot 그려보기 </a></li>
+<li class="toc-entry toc-h2"><a href="#assign,-split,-pipe-이해">assign, split, pipe 이해 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-12-07-final-note.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">'https://ncv.kdca.go.kr/mainStatus.es?mid=a11702000000'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1">#한글 깨짐 현상 해결을 위해  encoding 추가, 2번째 데이터인데 첫번째로 읽힘..</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>구분</th>
+      <th colspan="2" halign="left">1차접종</th>
+      <th colspan="2" halign="left">2차접종</th>
+      <th colspan="2" halign="left">3차(부스터)접종</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>구분</th>
+      <th>당일 실적</th>
+      <th>당일 누계</th>
+      <th>당일 실적</th>
+      <th>당일 누계</th>
+      <th>당일 실적</th>
+      <th>당일 누계</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>합계</td>
+      <td>51353</td>
+      <td>42733049</td>
+      <td>65123</td>
+      <td>41410206</td>
+      <td>283796</td>
+      <td>4242449</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>서울</td>
+      <td>9131</td>
+      <td>7955953</td>
+      <td>11854</td>
+      <td>7736180</td>
+      <td>62802</td>
+      <td>794615</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>부산</td>
+      <td>3184</td>
+      <td>2730951</td>
+      <td>3599</td>
+      <td>2643595</td>
+      <td>17082</td>
+      <td>251543</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>대구</td>
+      <td>2476</td>
+      <td>1900800</td>
+      <td>2643</td>
+      <td>1838724</td>
+      <td>10293</td>
+      <td>156707</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>인천</td>
+      <td>3224</td>
+      <td>2438290</td>
+      <td>5088</td>
+      <td>2361539</td>
+      <td>16843</td>
+      <td>220467</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>광주</td>
+      <td>1347</td>
+      <td>1193339</td>
+      <td>2568</td>
+      <td>1150750</td>
+      <td>5854</td>
+      <td>124158</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>대전</td>
+      <td>1445</td>
+      <td>1176866</td>
+      <td>1468</td>
+      <td>1137943</td>
+      <td>6580</td>
+      <td>109483</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>울산</td>
+      <td>1161</td>
+      <td>910902</td>
+      <td>1052</td>
+      <td>883593</td>
+      <td>3942</td>
+      <td>68464</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>세종</td>
+      <td>405</td>
+      <td>273276</td>
+      <td>380</td>
+      <td>263159</td>
+      <td>1397</td>
+      <td>25606</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>경기</td>
+      <td>15055</td>
+      <td>11188968</td>
+      <td>17087</td>
+      <td>10853050</td>
+      <td>70634</td>
+      <td>1046003</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>강원</td>
+      <td>1210</td>
+      <td>1282218</td>
+      <td>1975</td>
+      <td>1242880</td>
+      <td>9922</td>
+      <td>140076</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>충북</td>
+      <td>1316</td>
+      <td>1355078</td>
+      <td>1825</td>
+      <td>1313487</td>
+      <td>8574</td>
+      <td>145695</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>충남</td>
+      <td>1927</td>
+      <td>1794108</td>
+      <td>2330</td>
+      <td>1733928</td>
+      <td>11193</td>
+      <td>198464</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>전북</td>
+      <td>1513</td>
+      <td>1517933</td>
+      <td>3297</td>
+      <td>1469302</td>
+      <td>11808</td>
+      <td>187623</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>전남</td>
+      <td>1320</td>
+      <td>1578459</td>
+      <td>2194</td>
+      <td>1527698</td>
+      <td>11740</td>
+      <td>229015</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>경북</td>
+      <td>2381</td>
+      <td>2165013</td>
+      <td>2597</td>
+      <td>2094437</td>
+      <td>14657</td>
+      <td>226820</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>경남</td>
+      <td>3397</td>
+      <td>2719492</td>
+      <td>4340</td>
+      <td>2627700</td>
+      <td>17142</td>
+      <td>266864</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>제주</td>
+      <td>861</td>
+      <td>551403</td>
+      <td>826</td>
+      <td>532241</td>
+      <td>3333</td>
+      <td>50846</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="melt">
+<a class="anchor" href="#melt" aria-hidden="true"><span class="octicon octicon-link"></span></a>melt<a class="anchor-link" href="#melt"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>빈 칸으로 melt를 쓰면 그냥 냅다 쌓음.</li>
+<li>첫 번째 열부터 냅다 쌓는다. 여기서는 변수명이 2개(구분,구분)이런 식이라 3개 열로 쌓인 모양.</li>
+<li>변수명, 값 으로 쌓인다고 이해하자.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">melt</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable_0</th>
+      <th>variable_1</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>구분</td>
+      <td>구분</td>
+      <td>합계</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>구분</td>
+      <td>구분</td>
+      <td>서울</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>구분</td>
+      <td>구분</td>
+      <td>부산</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>구분</td>
+      <td>구분</td>
+      <td>대구</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>구분</td>
+      <td>구분</td>
+      <td>인천</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>3차(부스터)접종</td>
+      <td>당일 누계</td>
+      <td>187623</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>3차(부스터)접종</td>
+      <td>당일 누계</td>
+      <td>229015</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>3차(부스터)접종</td>
+      <td>당일 누계</td>
+      <td>226820</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>3차(부스터)접종</td>
+      <td>당일 누계</td>
+      <td>266864</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>3차(부스터)접종</td>
+      <td>당일 누계</td>
+      <td>50846</td>
+    </tr>
+  </tbody>
+</table>
+<p>126 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>MultiIndex([(       '구분',    '구분'),
+            (     '1차접종', '당일 실적'),
+            (     '1차접종', '당일 누계'),
+            (     '2차접종', '당일 실적'),
+            (     '2차접종', '당일 누계'),
+            ('3차(부스터)접종', '당일 실적'),
+            ('3차(부스터)접종', '당일 누계')],
+           )</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="stack">
+<a class="anchor" href="#stack" aria-hidden="true"><span class="octicon octicon-link"></span></a>stack<a class="anchor-link" href="#stack"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>stack을 하면 열이름을 기준으로 된다.</li>
+<li>열이름이 2개로 나눠진 경우 무조건!!</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>1차접종</th>
+      <th>2차접종</th>
+      <th>3차(부스터)접종</th>
+      <th>구분</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">0</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>합계</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>42733049.0</td>
+      <td>41410206.0</td>
+      <td>4242449.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>51353.0</td>
+      <td>65123.0</td>
+      <td>283796.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">1</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>서울</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>7955953.0</td>
+      <td>7736180.0</td>
+      <td>794615.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>9131.0</td>
+      <td>11854.0</td>
+      <td>62802.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>부산</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>2730951.0</td>
+      <td>2643595.0</td>
+      <td>251543.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>3184.0</td>
+      <td>3599.0</td>
+      <td>17082.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">3</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>대구</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1900800.0</td>
+      <td>1838724.0</td>
+      <td>156707.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>2476.0</td>
+      <td>2643.0</td>
+      <td>10293.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">4</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>인천</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>2438290.0</td>
+      <td>2361539.0</td>
+      <td>220467.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>3224.0</td>
+      <td>5088.0</td>
+      <td>16843.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">5</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>광주</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1193339.0</td>
+      <td>1150750.0</td>
+      <td>124158.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1347.0</td>
+      <td>2568.0</td>
+      <td>5854.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">6</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>대전</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1176866.0</td>
+      <td>1137943.0</td>
+      <td>109483.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1445.0</td>
+      <td>1468.0</td>
+      <td>6580.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">7</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>울산</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>910902.0</td>
+      <td>883593.0</td>
+      <td>68464.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1161.0</td>
+      <td>1052.0</td>
+      <td>3942.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">8</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>세종</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>273276.0</td>
+      <td>263159.0</td>
+      <td>25606.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>405.0</td>
+      <td>380.0</td>
+      <td>1397.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">9</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>경기</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>11188968.0</td>
+      <td>10853050.0</td>
+      <td>1046003.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>15055.0</td>
+      <td>17087.0</td>
+      <td>70634.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">10</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>강원</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1282218.0</td>
+      <td>1242880.0</td>
+      <td>140076.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1210.0</td>
+      <td>1975.0</td>
+      <td>9922.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">11</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>충북</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1355078.0</td>
+      <td>1313487.0</td>
+      <td>145695.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1316.0</td>
+      <td>1825.0</td>
+      <td>8574.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">12</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>충남</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1794108.0</td>
+      <td>1733928.0</td>
+      <td>198464.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1927.0</td>
+      <td>2330.0</td>
+      <td>11193.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">13</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>전북</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1517933.0</td>
+      <td>1469302.0</td>
+      <td>187623.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1513.0</td>
+      <td>3297.0</td>
+      <td>11808.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">14</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>전남</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>1578459.0</td>
+      <td>1527698.0</td>
+      <td>229015.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1320.0</td>
+      <td>2194.0</td>
+      <td>11740.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">15</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>경북</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>2165013.0</td>
+      <td>2094437.0</td>
+      <td>226820.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>2381.0</td>
+      <td>2597.0</td>
+      <td>14657.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">16</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>경남</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>2719492.0</td>
+      <td>2627700.0</td>
+      <td>266864.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>3397.0</td>
+      <td>4340.0</td>
+      <td>17142.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">17</th>
+      <th>구분</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>제주</td>
+    </tr>
+    <tr>
+      <th>당일 누계</th>
+      <td>551403.0</td>
+      <td>532241.0</td>
+      <td>50846.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>861.0</td>
+      <td>826.0</td>
+      <td>3333.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>계속 해보면... 우리가 알고 싶은 변수도 걍 섞여버린다..</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>level_0</th>
+      <th>level_1</th>
+      <th>level_2</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>구분</td>
+      <td>구분</td>
+      <td>합계</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>당일 누계</td>
+      <td>1차접종</td>
+      <td>42733049.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>당일 누계</td>
+      <td>2차접종</td>
+      <td>41410206.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>당일 누계</td>
+      <td>3차(부스터)접종</td>
+      <td>4242449.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>당일 실적</td>
+      <td>1차접종</td>
+      <td>51353.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>17</td>
+      <td>당일 누계</td>
+      <td>2차접종</td>
+      <td>532241.0</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>17</td>
+      <td>당일 누계</td>
+      <td>3차(부스터)접종</td>
+      <td>50846.0</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>17</td>
+      <td>당일 실적</td>
+      <td>1차접종</td>
+      <td>861.0</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>17</td>
+      <td>당일 실적</td>
+      <td>2차접종</td>
+      <td>826.0</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>17</td>
+      <td>당일 실적</td>
+      <td>3차(부스터)접종</td>
+      <td>3333.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>126 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span><span class="s1">'구분'</span><span class="p">,</span><span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">1차접종</th>
+      <th colspan="2" halign="left">2차접종</th>
+      <th colspan="2" halign="left">3차(부스터)접종</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>당일 실적</th>
+      <th>당일 누계</th>
+      <th>당일 실적</th>
+      <th>당일 누계</th>
+      <th>당일 실적</th>
+      <th>당일 누계</th>
+    </tr>
+    <tr>
+      <th>(구분, 구분)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>서울</th>
+      <td>9131</td>
+      <td>7955953</td>
+      <td>11854</td>
+      <td>7736180</td>
+      <td>62802</td>
+      <td>794615</td>
+    </tr>
+    <tr>
+      <th>부산</th>
+      <td>3184</td>
+      <td>2730951</td>
+      <td>3599</td>
+      <td>2643595</td>
+      <td>17082</td>
+      <td>251543</td>
+    </tr>
+    <tr>
+      <th>대구</th>
+      <td>2476</td>
+      <td>1900800</td>
+      <td>2643</td>
+      <td>1838724</td>
+      <td>10293</td>
+      <td>156707</td>
+    </tr>
+    <tr>
+      <th>인천</th>
+      <td>3224</td>
+      <td>2438290</td>
+      <td>5088</td>
+      <td>2361539</td>
+      <td>16843</td>
+      <td>220467</td>
+    </tr>
+    <tr>
+      <th>광주</th>
+      <td>1347</td>
+      <td>1193339</td>
+      <td>2568</td>
+      <td>1150750</td>
+      <td>5854</td>
+      <td>124158</td>
+    </tr>
+    <tr>
+      <th>대전</th>
+      <td>1445</td>
+      <td>1176866</td>
+      <td>1468</td>
+      <td>1137943</td>
+      <td>6580</td>
+      <td>109483</td>
+    </tr>
+    <tr>
+      <th>울산</th>
+      <td>1161</td>
+      <td>910902</td>
+      <td>1052</td>
+      <td>883593</td>
+      <td>3942</td>
+      <td>68464</td>
+    </tr>
+    <tr>
+      <th>세종</th>
+      <td>405</td>
+      <td>273276</td>
+      <td>380</td>
+      <td>263159</td>
+      <td>1397</td>
+      <td>25606</td>
+    </tr>
+    <tr>
+      <th>경기</th>
+      <td>15055</td>
+      <td>11188968</td>
+      <td>17087</td>
+      <td>10853050</td>
+      <td>70634</td>
+      <td>1046003</td>
+    </tr>
+    <tr>
+      <th>강원</th>
+      <td>1210</td>
+      <td>1282218</td>
+      <td>1975</td>
+      <td>1242880</td>
+      <td>9922</td>
+      <td>140076</td>
+    </tr>
+    <tr>
+      <th>충북</th>
+      <td>1316</td>
+      <td>1355078</td>
+      <td>1825</td>
+      <td>1313487</td>
+      <td>8574</td>
+      <td>145695</td>
+    </tr>
+    <tr>
+      <th>충남</th>
+      <td>1927</td>
+      <td>1794108</td>
+      <td>2330</td>
+      <td>1733928</td>
+      <td>11193</td>
+      <td>198464</td>
+    </tr>
+    <tr>
+      <th>전북</th>
+      <td>1513</td>
+      <td>1517933</td>
+      <td>3297</td>
+      <td>1469302</td>
+      <td>11808</td>
+      <td>187623</td>
+    </tr>
+    <tr>
+      <th>전남</th>
+      <td>1320</td>
+      <td>1578459</td>
+      <td>2194</td>
+      <td>1527698</td>
+      <td>11740</td>
+      <td>229015</td>
+    </tr>
+    <tr>
+      <th>경북</th>
+      <td>2381</td>
+      <td>2165013</td>
+      <td>2597</td>
+      <td>2094437</td>
+      <td>14657</td>
+      <td>226820</td>
+    </tr>
+    <tr>
+      <th>경남</th>
+      <td>3397</td>
+      <td>2719492</td>
+      <td>4340</td>
+      <td>2627700</td>
+      <td>17142</td>
+      <td>266864</td>
+    </tr>
+    <tr>
+      <th>제주</th>
+      <td>861</td>
+      <td>551403</td>
+      <td>826</td>
+      <td>532241</td>
+      <td>3333</td>
+      <td>50846</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>위와 같이 변수명이 2줄이고, 인덱스를 기준으로 묶음이 필요할 때</li>
+<li>냅다 stack해주면 인덱스 기준으로 잘 쌓여짐 -&gt; 인덱스가 숫자일 때는 별 소용없겠다.</li>
+<li>그리고 stack 한 다음에는 reset index 필수겠다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span><span class="s1">'구분'</span><span class="p">,</span><span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>1차접종</th>
+      <th>2차접종</th>
+      <th>3차(부스터)접종</th>
+    </tr>
+    <tr>
+      <th>(구분, 구분)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">서울</th>
+      <th>당일 누계</th>
+      <td>7955953</td>
+      <td>7736180</td>
+      <td>794615</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>9131</td>
+      <td>11854</td>
+      <td>62802</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">부산</th>
+      <th>당일 누계</th>
+      <td>2730951</td>
+      <td>2643595</td>
+      <td>251543</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>3184</td>
+      <td>3599</td>
+      <td>17082</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">대구</th>
+      <th>당일 누계</th>
+      <td>1900800</td>
+      <td>1838724</td>
+      <td>156707</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>2476</td>
+      <td>2643</td>
+      <td>10293</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">인천</th>
+      <th>당일 누계</th>
+      <td>2438290</td>
+      <td>2361539</td>
+      <td>220467</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>3224</td>
+      <td>5088</td>
+      <td>16843</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">광주</th>
+      <th>당일 누계</th>
+      <td>1193339</td>
+      <td>1150750</td>
+      <td>124158</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1347</td>
+      <td>2568</td>
+      <td>5854</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">대전</th>
+      <th>당일 누계</th>
+      <td>1176866</td>
+      <td>1137943</td>
+      <td>109483</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1445</td>
+      <td>1468</td>
+      <td>6580</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">울산</th>
+      <th>당일 누계</th>
+      <td>910902</td>
+      <td>883593</td>
+      <td>68464</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1161</td>
+      <td>1052</td>
+      <td>3942</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">세종</th>
+      <th>당일 누계</th>
+      <td>273276</td>
+      <td>263159</td>
+      <td>25606</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>405</td>
+      <td>380</td>
+      <td>1397</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">경기</th>
+      <th>당일 누계</th>
+      <td>11188968</td>
+      <td>10853050</td>
+      <td>1046003</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>15055</td>
+      <td>17087</td>
+      <td>70634</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">강원</th>
+      <th>당일 누계</th>
+      <td>1282218</td>
+      <td>1242880</td>
+      <td>140076</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1210</td>
+      <td>1975</td>
+      <td>9922</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">충북</th>
+      <th>당일 누계</th>
+      <td>1355078</td>
+      <td>1313487</td>
+      <td>145695</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1316</td>
+      <td>1825</td>
+      <td>8574</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">충남</th>
+      <th>당일 누계</th>
+      <td>1794108</td>
+      <td>1733928</td>
+      <td>198464</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1927</td>
+      <td>2330</td>
+      <td>11193</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">전북</th>
+      <th>당일 누계</th>
+      <td>1517933</td>
+      <td>1469302</td>
+      <td>187623</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1513</td>
+      <td>3297</td>
+      <td>11808</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">전남</th>
+      <th>당일 누계</th>
+      <td>1578459</td>
+      <td>1527698</td>
+      <td>229015</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>1320</td>
+      <td>2194</td>
+      <td>11740</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">경북</th>
+      <th>당일 누계</th>
+      <td>2165013</td>
+      <td>2094437</td>
+      <td>226820</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>2381</td>
+      <td>2597</td>
+      <td>14657</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">경남</th>
+      <th>당일 누계</th>
+      <td>2719492</td>
+      <td>2627700</td>
+      <td>266864</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>3397</td>
+      <td>4340</td>
+      <td>17142</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">제주</th>
+      <th>당일 누계</th>
+      <td>551403</td>
+      <td>532241</td>
+      <td>50846</td>
+    </tr>
+    <tr>
+      <th>당일 실적</th>
+      <td>861</td>
+      <td>826</td>
+      <td>3333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="ggplot-그려보기">
+<a class="anchor" href="#ggplot-%EA%B7%B8%EB%A0%A4%EB%B3%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>ggplot 그려보기<a class="anchor-link" href="#ggplot-%EA%B7%B8%EB%A0%A4%EB%B3%B4%EA%B8%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span><span class="s1">'구분'</span><span class="p">,</span><span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'level_1=="당일 누계"'</span><span class="p">)</span>
+<span class="n">_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">'prov'</span><span class="p">,</span> <span class="s1">'level'</span><span class="p">,</span><span class="s1">'first'</span><span class="p">,</span><span class="s1">'second'</span><span class="p">,</span><span class="s1">'third'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">=</span><span class="n">_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'prov'</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'first'</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>prov</th>
+      <th>first</th>
+      <th>second</th>
+      <th>third</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>세종</td>
+      <td>273276</td>
+      <td>263159</td>
+      <td>25606</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>제주</td>
+      <td>551403</td>
+      <td>532241</td>
+      <td>50846</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>울산</td>
+      <td>910902</td>
+      <td>883593</td>
+      <td>68464</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>대전</td>
+      <td>1176866</td>
+      <td>1137943</td>
+      <td>109483</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>광주</td>
+      <td>1193339</td>
+      <td>1150750</td>
+      <td>124158</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>강원</td>
+      <td>1282218</td>
+      <td>1242880</td>
+      <td>140076</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>충북</td>
+      <td>1355078</td>
+      <td>1313487</td>
+      <td>145695</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>전북</td>
+      <td>1517933</td>
+      <td>1469302</td>
+      <td>187623</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>전남</td>
+      <td>1578459</td>
+      <td>1527698</td>
+      <td>229015</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>충남</td>
+      <td>1794108</td>
+      <td>1733928</td>
+      <td>198464</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>대구</td>
+      <td>1900800</td>
+      <td>1838724</td>
+      <td>156707</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>경북</td>
+      <td>2165013</td>
+      <td>2094437</td>
+      <td>226820</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>인천</td>
+      <td>2438290</td>
+      <td>2361539</td>
+      <td>220467</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>경남</td>
+      <td>2719492</td>
+      <td>2627700</td>
+      <td>266864</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>부산</td>
+      <td>2730951</td>
+      <td>2643595</td>
+      <td>251543</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>서울</td>
+      <td>7955953</td>
+      <td>7736180</td>
+      <td>794615</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>경기</td>
+      <td>11188968</td>
+      <td>10853050</td>
+      <td>1046003</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>ggplot(df)\
++geom_point(aes(x='Dribbling',y='SlidingTackle',color='Age'),alpha=0.5,size=0.5)\
++facet_wrap('Best Position')</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>ggplot을 쓰려면 아주 깔끔하게.. 데이터를 정리해주기</li>
+<li>웬만하면 영어이름으로 변경해주기</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">_df</span><span class="p">)</span><span class="o">+</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'prov'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'first'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'prov'</span><span class="p">),</span><span class="n">stat</span><span class="o">=</span><span class="s1">'identity'</span><span class="p">)</span><span class="c1">#+facet_wrap('prov')</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 44053 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 50896 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 44221 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 44592 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 45224 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 48513 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 44305 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 51452 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 45824 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 44396 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 51204 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 48512 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 49328 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 49436 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 50872 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 49464 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 51333 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 51064 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 52380 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 51228 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 52649 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 44053 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 50896 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 44221 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 44592 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 45224 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 48513 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 44305 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 51452 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 45824 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 44396 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 51204 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 48512 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 49328 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 49436 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 50872 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 49464 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 51333 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 51064 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 52380 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 51228 missing from current font.
+/home/khy/anaconda3/envs/py38r40/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 52649 missing from current font.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;ggplot: (8735862003303)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="assign,-split,-pipe-이해">
+<a class="anchor" href="#assign,-split,-pipe-%EC%9D%B4%ED%95%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>assign, split, pipe 이해<a class="anchor-link" href="#assign,-split,-pipe-%EC%9D%B4%ED%95%B4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>연도만 뽑아보자</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'01/02/1965'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1">#_는 잠시 저장된 데이터, 위에서 부터 다시 해줘야 함</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'1965'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>df.assign을 하면 옆에 붙음</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Magnitude</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01/02/1965</td>
+      <td>19.2460</td>
+      <td>145.6160</td>
+      <td>6.0</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01/04/1965</td>
+      <td>1.8630</td>
+      <td>127.3520</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01/05/1965</td>
+      <td>-20.5790</td>
+      <td>-173.9720</td>
+      <td>6.2</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01/08/1965</td>
+      <td>-59.0760</td>
+      <td>-23.5570</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01/09/1965</td>
+      <td>11.9380</td>
+      <td>126.4270</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>23407</th>
+      <td>12/28/2016</td>
+      <td>38.3917</td>
+      <td>-118.8941</td>
+      <td>5.6</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>23408</th>
+      <td>12/28/2016</td>
+      <td>38.3777</td>
+      <td>-118.8957</td>
+      <td>5.5</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>23409</th>
+      <td>12/28/2016</td>
+      <td>36.9179</td>
+      <td>140.4262</td>
+      <td>5.9</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>23410</th>
+      <td>12/29/2016</td>
+      <td>-9.0283</td>
+      <td>118.6639</td>
+      <td>6.3</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>23411</th>
+      <td>12/30/2016</td>
+      <td>37.3973</td>
+      <td>141.4103</td>
+      <td>5.5</td>
+      <td>2016</td>
+    </tr>
+  </tbody>
+</table>
+<p>23412 rows × 5 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>연도별로 Group by 해주고, pipe(%&gt;%) list를 뽑아주고, 뒤에 [0] 붙이면 첫번째 1965년 데이터 모음이 나오고, [1]을 붙여서 데이터프레임 형태로..</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)))</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="nb">list</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Magnitude</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01/02/1965</td>
+      <td>19.246</td>
+      <td>145.616</td>
+      <td>6.0</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01/04/1965</td>
+      <td>1.863</td>
+      <td>127.352</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01/05/1965</td>
+      <td>-20.579</td>
+      <td>-173.972</td>
+      <td>6.2</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01/08/1965</td>
+      <td>-59.076</td>
+      <td>-23.557</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01/09/1965</td>
+      <td>11.938</td>
+      <td>126.427</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>334</th>
+      <td>12/25/1965</td>
+      <td>-18.096</td>
+      <td>-178.979</td>
+      <td>6.2</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>335</th>
+      <td>12/26/1965</td>
+      <td>-5.201</td>
+      <td>151.583</td>
+      <td>5.9</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>336</th>
+      <td>12/28/1965</td>
+      <td>27.863</td>
+      <td>141.992</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>337</th>
+      <td>12/30/1965</td>
+      <td>54.210</td>
+      <td>-164.476</td>
+      <td>5.6</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>338</th>
+      <td>12/30/1965</td>
+      <td>-16.673</td>
+      <td>-71.111</td>
+      <td>5.8</td>
+      <td>1965</td>
+    </tr>
+  </tbody>
+</table>
+<p>339 rows × 5 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>iloc</code>으로 2,3,4열만 추출하고, 넘파이로 바꿔줬다가 리스트로 바꿔주는데,  </li>
+<li>위에서 1965년 dataframe 만든 것처럼 다른 연도도 해야되니까 for문을 넣어준다  </li>
+<li>for문의 결과를 [ ]안에 묶어서 lst로 저장</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>.\은 +같은 역할</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lst</span><span class="o">=</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)))</span><span class="o">.</span>\
+<span class="n">groupby</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span><span class="o">.</span>\
+<span class="n">pipe</span><span class="p">(</span><span class="nb">list</span><span class="p">)[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span><span class="o">.</span>\
+<span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2017</span><span class="o">-</span><span class="mi">1965</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="kimha02/ham"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ham/visual/2021/12/07/final-note.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ham/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ham/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ham/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/kimha02" target="_blank" title="kimha02"><svg class="svg-icon grey"><use xlink:href="/ham/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
