@@ -9,15 +9,15 @@
 <meta property="og:title" content="(9주차) 5월2일 (1)" />
 <meta name="author" content="최규빈" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<link rel="canonical" href="https://kimha02.github.io/ham/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html" />
-<meta property="og:url" content="https://kimha02.github.io/ham/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html" />
+<meta name="description" content="likelihood function(중간고사 문제 예제), 손실함수의 설계" />
+<meta property="og:description" content="likelihood function(중간고사 문제 예제), 손실함수의 설계" />
+<link rel="canonical" href="https://kimha02.github.io/ham/bigdata/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html" />
+<meta property="og:url" content="https://kimha02.github.io/ham/bigdata/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html" />
 <meta property="og:site_name" content="Hayoung Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-05-02T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2022-05-02T00:00:00-05:00","url":"https://kimha02.github.io/ham/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html","@type":"BlogPosting","headline":"(9주차) 5월2일 (1)","dateModified":"2022-05-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html"},"author":{"@type":"Person","name":"최규빈"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@context":"https://schema.org"}</script>
+{"datePublished":"2022-05-02T00:00:00-05:00","url":"https://kimha02.github.io/ham/bigdata/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html","@type":"BlogPosting","headline":"(9주차) 5월2일 (1)","dateModified":"2022-05-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/bigdata/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html"},"author":{"@type":"Person","name":"최규빈"},"description":"likelihood function(중간고사 문제 예제), 손실함수의 설계","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="Hayoung Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">(9주차) 5월2일 (1)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-02T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">(9주차) 5월2일 (1)</h1><p class="page-description">likelihood function(중간고사 문제 예제), 손실함수의 설계</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-02T00:00:00-05:00" itemprop="datePublished">
         May 2, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -100,6 +100,13 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ham/categories/#Bigdata">Bigdata</a>
+        
+      
+      </p>
     
 
     
@@ -130,7 +137,7 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h3"><a href="#강의영상">강의영상 </a></li>
 <li class="toc-entry toc-h3"><a href="#imports">imports </a></li>
-<li class="toc-entry toc-h3"><a href="#우도함수와-최대우도추정량">우도함수와 최대우도추정량 </a></li>
+<li class="toc-entry toc-h3"><a href="#우도함수(likelihood-function)와-최대우도추정량">우도함수(likelihood function)와 최대우도추정량 </a></li>
 <li class="toc-entry toc-h3"><a href="#중간고사-1번">중간고사 1번 </a></li>
 <li class="toc-entry toc-h3"><a href="#손실함수의-설계-(선택)">손실함수의 설계 (선택) </a></li>
 </ul><!--
@@ -229,8 +236,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="우도함수와-최대우도추정량">
-<a class="anchor" href="#%EC%9A%B0%EB%8F%84%ED%95%A8%EC%88%98%EC%99%80-%EC%B5%9C%EB%8C%80%EC%9A%B0%EB%8F%84%EC%B6%94%EC%A0%95%EB%9F%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>우도함수와 최대우도추정량<a class="anchor-link" href="#%EC%9A%B0%EB%8F%84%ED%95%A8%EC%88%98%EC%99%80-%EC%B5%9C%EB%8C%80%EC%9A%B0%EB%8F%84%EC%B6%94%EC%A0%95%EB%9F%89"> </a>
+<h3 id="우도함수(likelihood-function)와-최대우도추정량">
+<a class="anchor" href="#%EC%9A%B0%EB%8F%84%ED%95%A8%EC%88%98(likelihood-function)%EC%99%80-%EC%B5%9C%EB%8C%80%EC%9A%B0%EB%8F%84%EC%B6%94%EC%A0%95%EB%9F%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>우도함수(likelihood function)와 최대우도추정량<a class="anchor-link" href="#%EC%9A%B0%EB%8F%84%ED%95%A8%EC%88%98(likelihood-function)%EC%99%80-%EC%B5%9C%EB%8C%80%EC%9A%B0%EB%8F%84%EC%B6%94%EC%A0%95%EB%9F%89"> </a>
 </h3>
 </div>
 </div>
@@ -581,9 +588,18 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이 예제의 경우 $p$의 최대우도추정량을 구하면</p>
-<p>
-$$\hat{p}^{mle} = \text{argmax}_p L(p) = \text{argmax}_p  \big\{ p^2(1-p)^2 \big\}= \frac{1}{2}$$
-</p>
+<ul>
+<li>$L(p) = p^2{(1-p)}^2 = \big(p(1-p)\big)^2$</li>
+<li>$L(p)$를 최대화하는 $p$는 0.5이다. 따라서 $\hat{p}^{mle}=0.5$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 
 </div>
 </div>
@@ -1050,7 +1066,7 @@ $$-\log L(w_0,w_1) = - \sum_{i=1}^{n}\big(y_i \log(\pi_i) + (1-y_i)\log(1-\pi_i)
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/ham/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html" hidden></a>
+</script><a class="u-url" href="/ham/bigdata/2022/05/02/(9%EC%A3%BC%EC%B0%A8)lecture_1.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
