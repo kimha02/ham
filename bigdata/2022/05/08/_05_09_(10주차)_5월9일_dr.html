@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      26 min read
+      22 min read
     
 </span></p>
 
@@ -146,7 +146,6 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h3"><a href="#분류할-클래스가-3개-이상일-경우-신경망-모형의-설계">분류할 클래스가 3개 이상일 경우 신경망 모형의 설계 </a></li>
 <li class="toc-entry toc-h3"><a href="#Fashion_MNIST-다중분류">Fashion_MNIST 다중분류 </a></li>
-<li class="toc-entry toc-h3"><a href="#숙제">숙제 </a></li>
 <li class="toc-entry toc-h2"><a href="#평가지표">평가지표 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#다양한-평가지표들">다양한 평가지표들 </a></li>
@@ -533,6 +532,14 @@ $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="sigmoid,-softmax">
 <a class="anchor" href="#sigmoid,-softmax" aria-hidden="true"><span class="octicon octicon-link"></span></a>sigmoid, softmax<a class="anchor-link" href="#sigmoid,-softmax"> </a>
 </h3>
@@ -565,7 +572,8 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <p><code>-</code> 1을 $e^0$로 해석하면 모형2의 해석을 아래와 같이 모형1의 해석으로 적용할수 있다.</p>
 <ul>
 <li>모형2: ${\bf X}\hat{\bf W}_1 +\hat{b}_1$ 와 ${\bf X}\hat{\bf W}_2 +\hat{b}_2$ 의 크기를 비교하고 확률 결정</li>
-<li>모형1: ${\bf X}\hat{\bf W} +\hat{b}$ 와 $0$의 크기를 비교하고 확률 결정 = ${\bf X}\hat{\bf W} +\hat{b}$의 row값이 양수이면 1로 예측하고 음수이면 0으로 예측</li>
+<li>모형1: ${\bf X}\hat{\bf W} +\hat{b}$ 와 $0$의 크기를 비교하고 확률 결정 = <strong>${\bf X}\hat{\bf W} +\hat{b}$의 row값이 양수이면 1로 예측하고 음수이면 0으로 예측</strong>
+</li>
 </ul>
 
 </div>
@@ -599,7 +607,7 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 하지만 sigmoid가 좀 더 좋은 선택이다. 즉 $y= 0 \text{ or } 1$로 데이터를 정리하는 것이 더 좋은 선택이다. 왜냐하면 sigmoid는 softmax와 비교하여 파라메터의 수가 적지만 표현력은 동등하기 때문이다.</p>
+<p><code>-</code> <strong>하지만 sigmoid가 좀 더 좋은 선택이다.</strong> 즉 $y= 0 \text{ or } 1$로 데이터를 정리하는 것이 더 좋은 선택이다. 왜냐하면 sigmoid는 softmax와 비교하여 파라메터의 수가 적지만 표현력은 동등하기 때문이다.</p>
 
 </div>
 </div>
@@ -626,7 +634,7 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big)$를 표현하기 위해서 300, 500 이라는 2개의 숫자가 필요한것이 아니고 따지고보면 200이라는 하나의 숫자만 필요하다. </li>
+<li>$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big)$를 표현하기 위해서 300, 500 이라는 2개의 숫자가 필요한것이 아니고 따지고보면 <strong>200이라는 하나의 숫자만 필요하다.</strong> </li>
 <li>$(\hat{\boldsymbol{y}}_1,\hat{\boldsymbol{y}}_2)$의 표현에서도 ${\bf X}\hat{\bf W}_1 +\hat{b}_1$ 와 ${\bf X}\hat{\bf W}_2 +\hat{b}_2$ 라는 숫자 각각이 필요한 것이 아니고 $({\bf X}\hat{\bf W}_1 +\hat{b}_1)-({\bf X}\hat{\bf W}_2 +\hat{b}_2)$의 값만 알면 된다. </li>
 </ul>
 
@@ -702,6 +710,39 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_train</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([9, 0, 0, ..., 3, 0, 5], dtype=uint8)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -1142,7 +1183,7 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
 <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
 <span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
-<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1158,46 +1199,16 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch 1/20
-50/50 [==============================] - 0s 831us/step - loss: 32.5672 - accuracy: 0.3730
-Epoch 2/20
-50/50 [==============================] - 0s 731us/step - loss: 2.4414 - accuracy: 0.3877
-Epoch 3/20
-50/50 [==============================] - 0s 881us/step - loss: 1.9154 - accuracy: 0.3809
-Epoch 4/20
-50/50 [==============================] - 0s 792us/step - loss: 1.7740 - accuracy: 0.4041
-Epoch 5/20
-50/50 [==============================] - 0s 830us/step - loss: 1.6474 - accuracy: 0.4517
-Epoch 6/20
-50/50 [==============================] - 0s 799us/step - loss: 1.5429 - accuracy: 0.4842
-Epoch 7/20
-50/50 [==============================] - 0s 738us/step - loss: 1.4649 - accuracy: 0.4992
-Epoch 8/20
-50/50 [==============================] - 0s 894us/step - loss: 1.4001 - accuracy: 0.5227
-Epoch 9/20
-50/50 [==============================] - 0s 829us/step - loss: 1.3400 - accuracy: 0.5461
-Epoch 10/20
-50/50 [==============================] - 0s 778us/step - loss: 1.2882 - accuracy: 0.5539
-Epoch 11/20
-50/50 [==============================] - 0s 883us/step - loss: 1.2506 - accuracy: 0.5612
-Epoch 12/20
-50/50 [==============================] - 0s 785us/step - loss: 1.2194 - accuracy: 0.5707
-Epoch 13/20
-50/50 [==============================] - 0s 766us/step - loss: 1.1915 - accuracy: 0.5732
-Epoch 14/20
-50/50 [==============================] - 0s 799us/step - loss: 1.1674 - accuracy: 0.5765
-Epoch 15/20
-50/50 [==============================] - 0s 732us/step - loss: 1.1453 - accuracy: 0.5808
-Epoch 16/20
-50/50 [==============================] - 0s 799us/step - loss: 1.1251 - accuracy: 0.5852
-Epoch 17/20
-50/50 [==============================] - 0s 805us/step - loss: 1.1047 - accuracy: 0.5886
-Epoch 18/20
-50/50 [==============================] - 0s 864us/step - loss: 1.0874 - accuracy: 0.5915
-Epoch 19/20
-50/50 [==============================] - 0s 830us/step - loss: 1.0716 - accuracy: 0.5944
-Epoch 20/20
-50/50 [==============================] - 0s 728us/step - loss: 1.0567 - accuracy: 0.5975
+<pre>Epoch 1/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 2.5281 - accuracy: 0.4108
+Epoch 2/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.2369 - accuracy: 0.4949
+Epoch 3/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.1364 - accuracy: 0.5316
+Epoch 4/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.9777 - accuracy: 0.6145
+Epoch 5/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.8753 - accuracy: 0.6385
 </pre>
 </div>
 </div>
@@ -1207,7 +1218,7 @@ Epoch 20/20
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fc80293a920&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95d01bddb0&gt;</pre>
 </div>
 
 </div>
@@ -1239,7 +1250,7 @@ Epoch 20/20
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 0s 675us/step - loss: 1.0963 - accuracy: 0.5930
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 0.8944 - accuracy: 0.6563
 </pre>
 </div>
 </div>
@@ -1249,7 +1260,7 @@ Epoch 20/20
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[1.0962964296340942, 0.5929999947547913]</pre>
+<pre>[0.894415020942688, 0.6563000082969666]</pre>
 </div>
 
 </div>
@@ -1790,7 +1801,7 @@ Epoch 20/20
 <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
 <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
 <span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
-<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1806,106 +1817,16 @@ Epoch 20/20
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch 1/50
-50/50 [==============================] - 0s 1ms/step - loss: 21.6114 - accuracy: 0.6873
-Epoch 2/50
-50/50 [==============================] - 0s 985us/step - loss: 1.9374 - accuracy: 0.8032
-Epoch 3/50
-50/50 [==============================] - 0s 948us/step - loss: 1.2284 - accuracy: 0.8216
-Epoch 4/50
-50/50 [==============================] - 0s 959us/step - loss: 0.9360 - accuracy: 0.8339
-Epoch 5/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.7526 - accuracy: 0.8436
-Epoch 6/50
-50/50 [==============================] - 0s 986us/step - loss: 0.6205 - accuracy: 0.8538
-Epoch 7/50
-50/50 [==============================] - 0s 973us/step - loss: 0.5437 - accuracy: 0.8615
-Epoch 8/50
-50/50 [==============================] - 0s 984us/step - loss: 0.5181 - accuracy: 0.8644
-Epoch 9/50
-50/50 [==============================] - 0s 918us/step - loss: 0.4379 - accuracy: 0.8750
-Epoch 10/50
-50/50 [==============================] - 0s 948us/step - loss: 0.3880 - accuracy: 0.8852
-Epoch 11/50
-50/50 [==============================] - 0s 992us/step - loss: 0.3627 - accuracy: 0.8872
-Epoch 12/50
-50/50 [==============================] - 0s 917us/step - loss: 0.3536 - accuracy: 0.8899
-Epoch 13/50
-50/50 [==============================] - 0s 920us/step - loss: 0.3106 - accuracy: 0.9006
-Epoch 14/50
-50/50 [==============================] - 0s 939us/step - loss: 0.3013 - accuracy: 0.8997
-Epoch 15/50
-50/50 [==============================] - 0s 945us/step - loss: 0.2864 - accuracy: 0.9043
-Epoch 16/50
-50/50 [==============================] - 0s 998us/step - loss: 0.2813 - accuracy: 0.9067
-Epoch 17/50
-50/50 [==============================] - 0s 950us/step - loss: 0.2551 - accuracy: 0.9124
-Epoch 18/50
-50/50 [==============================] - 0s 920us/step - loss: 0.2427 - accuracy: 0.9155
-Epoch 19/50
-50/50 [==============================] - 0s 992us/step - loss: 0.2200 - accuracy: 0.9227
-Epoch 20/50
-50/50 [==============================] - 0s 931us/step - loss: 0.2154 - accuracy: 0.9240
-Epoch 21/50
-50/50 [==============================] - 0s 954us/step - loss: 0.2073 - accuracy: 0.9267
-Epoch 22/50
-50/50 [==============================] - 0s 932us/step - loss: 0.1962 - accuracy: 0.9300
-Epoch 23/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.2138 - accuracy: 0.9255
-Epoch 24/50
-50/50 [==============================] - 0s 934us/step - loss: 0.1958 - accuracy: 0.9303
-Epoch 25/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.1906 - accuracy: 0.9326
-Epoch 26/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.1725 - accuracy: 0.9372
-Epoch 27/50
-50/50 [==============================] - 0s 981us/step - loss: 0.1792 - accuracy: 0.9355
-Epoch 28/50
-50/50 [==============================] - 0s 957us/step - loss: 0.1658 - accuracy: 0.9400
-Epoch 29/50
-50/50 [==============================] - 0s 978us/step - loss: 0.1527 - accuracy: 0.9444
-Epoch 30/50
-50/50 [==============================] - 0s 931us/step - loss: 0.1600 - accuracy: 0.9418
-Epoch 31/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.1428 - accuracy: 0.9473
-Epoch 32/50
-50/50 [==============================] - 0s 924us/step - loss: 0.1442 - accuracy: 0.9466
-Epoch 33/50
-50/50 [==============================] - 0s 948us/step - loss: 0.1478 - accuracy: 0.9452
-Epoch 34/50
-50/50 [==============================] - 0s 998us/step - loss: 0.1489 - accuracy: 0.9457
-Epoch 35/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.1353 - accuracy: 0.9502
-Epoch 36/50
-50/50 [==============================] - 0s 953us/step - loss: 0.1290 - accuracy: 0.9526
-Epoch 37/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.1279 - accuracy: 0.9530
-Epoch 38/50
-50/50 [==============================] - 0s 932us/step - loss: 0.1202 - accuracy: 0.9556
-Epoch 39/50
-50/50 [==============================] - 0s 953us/step - loss: 0.1151 - accuracy: 0.9571
-Epoch 40/50
-50/50 [==============================] - 0s 977us/step - loss: 0.1089 - accuracy: 0.9601
-Epoch 41/50
-50/50 [==============================] - 0s 948us/step - loss: 0.1085 - accuracy: 0.9596
-Epoch 42/50
-50/50 [==============================] - 0s 963us/step - loss: 0.1139 - accuracy: 0.9583
-Epoch 43/50
-50/50 [==============================] - 0s 969us/step - loss: 0.1051 - accuracy: 0.9609
-Epoch 44/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.1138 - accuracy: 0.9582
-Epoch 45/50
-50/50 [==============================] - 0s 961us/step - loss: 0.1255 - accuracy: 0.9532
-Epoch 46/50
-50/50 [==============================] - 0s 914us/step - loss: 0.1059 - accuracy: 0.9614
-Epoch 47/50
-50/50 [==============================] - 0s 947us/step - loss: 0.1127 - accuracy: 0.9583
-Epoch 48/50
-50/50 [==============================] - 0s 921us/step - loss: 0.1059 - accuracy: 0.9608
-Epoch 49/50
-50/50 [==============================] - 0s 935us/step - loss: 0.1201 - accuracy: 0.9572
-Epoch 50/50
-50/50 [==============================] - 0s 1ms/step - loss: 0.1042 - accuracy: 0.9622
+<pre>Epoch 1/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 2.2519 - accuracy: 0.7419
+Epoch 2/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.6466 - accuracy: 0.7918
+Epoch 3/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.5628 - accuracy: 0.8116
+Epoch 4/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.4696 - accuracy: 0.8359
+Epoch 5/5
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.4355 - accuracy: 0.8469
 </pre>
 </div>
 </div>
@@ -1915,7 +1836,7 @@ Epoch 50/50
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fc8014a3fa0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95ddfdbdc0&gt;</pre>
 </div>
 
 </div>
@@ -1947,7 +1868,7 @@ Epoch 50/50
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 0s 697us/step - loss: 0.7534 - accuracy: 0.8623
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 0.4929 - accuracy: 0.8289
 </pre>
 </div>
 </div>
@@ -1957,9 +1878,54 @@ Epoch 50/50
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0.7533721923828125, 0.8622999787330627]</pre>
+<pre>[0.4929366707801819, 0.8288999795913696]</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>  <span class="c1">#사용한 파라미터 수 확인 : 648010</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_4 (Dense)             (None, 500)               392500    
+                                                                 
+ dense_5 (Dense)             (None, 500)               250500    
+                                                                 
+ dense_6 (Dense)             (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 648,010
+Trainable params: 648,010
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
 </div>
 
 </div>
@@ -1971,16 +1937,9 @@ Epoch 50/50
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="숙제">
-<a class="anchor" href="#%EC%88%99%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>숙제<a class="anchor-link" href="#%EC%88%99%EC%A0%9C"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 시도1,2에서 사용된 모형에서 각각 추정해야할 파라메터의 수를 구하고 비교하라.</p>
+<ul>
+<li>accuracy는 두번째 네트워크가 더 좋지만 파라미터가 좀 낭비되었다고 생각할 수도 있겠다..</li>
+</ul>
 
 </div>
 </div>
@@ -1988,7 +1947,7 @@ Epoch 50/50
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>hint: <code>net.summary()</code> 이용</strong></p>
+<hr>
 
 </div>
 </div>
