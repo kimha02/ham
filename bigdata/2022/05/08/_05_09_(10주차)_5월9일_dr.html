@@ -9,15 +9,15 @@
 <meta property="og:title" content="(10주차) 5월4일" />
 <meta name="author" content="최규빈" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta name="description" content="작업환경, softmax, 평가지표, DNN과 fashion MNIST" />
+<meta property="og:description" content="작업환경, softmax, 평가지표, DNN과 fashion MNIST" />
 <link rel="canonical" href="https://kimha02.github.io/ham/bigdata/2022/05/08/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" />
 <meta property="og:url" content="https://kimha02.github.io/ham/bigdata/2022/05/08/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" />
 <meta property="og:site_name" content="Hayoung Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-05-08T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2022-05-08T00:00:00-05:00","url":"https://kimha02.github.io/ham/bigdata/2022/05/08/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html","@type":"BlogPosting","headline":"(10주차) 5월4일","dateModified":"2022-05-08T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/bigdata/2022/05/08/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html"},"author":{"@type":"Person","name":"최규빈"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@context":"https://schema.org"}</script>
+{"datePublished":"2022-05-08T00:00:00-05:00","url":"https://kimha02.github.io/ham/bigdata/2022/05/08/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html","@type":"BlogPosting","headline":"(10주차) 5월4일","dateModified":"2022-05-08T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/bigdata/2022/05/08/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html"},"author":{"@type":"Person","name":"최규빈"},"description":"작업환경, softmax, 평가지표, DNN과 fashion MNIST","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="Hayoung Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">(10주차) 5월4일</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-08T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">(10주차) 5월4일</h1><p class="page-description">작업환경, softmax, 평가지표, DNN과 fashion MNIST</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-08T00:00:00-05:00" itemprop="datePublished">
         May 8, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      22 min read
+      23 min read
     
 </span></p>
 
@@ -168,7 +168,11 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#더-좋은-모형을-만들고-싶은데..">더 좋은 모형을 만들고 싶은데.. </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#(예제3)-아주-복잡한-DNN">(예제3) 아주 복잡한 DNN </a></li>
+<li class="toc-entry toc-h3"><a href="#(예제3)-아주-복잡한-DNN">(예제3) 아주 복잡한 DNN </a>
+<ul>
+<li class="toc-entry toc-h6"><a href="#$\to$-여기까지-05/09-수업내용">$\to$ 여기까지 05/09 수업내용 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#발상의-전환">발상의 전환 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#MaxPooling2D,-MaxPool2D">MaxPooling2D, MaxPool2D </a></li>
@@ -1973,7 +1977,7 @@ _________________________________________________________________
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 의문: 왜 다양한 평가지표가 필요한가? (accuray면 끝나는거 아닌가? 더 이상 뭐가 필요해?)</p>
+<p><code>-</code> 의문: 왜 다양한 평가지표가 필요한가? (accuracy면 끝나는거 아닌가? 더 이상 뭐가 필요해?)</p>
 
 </div>
 </div>
@@ -2152,9 +2156,9 @@ _________________________________________________________________
 </tr>
 <tr>
 <td style="text-align:center"></td>
-<td style="text-align:center">Precision(프리시즌)=$\frac{TP}{TP+FP}$=$\frac{\# O/O}{\# O/O+\# X/O}$</td>
+<td style="text-align:center">Precision(프리시즌,정밀도)=$\frac{TP}{TP+FP}$=$\frac{\# O/O}{\# O/O+\# X/O}$</td>
 <td style="text-align:center"></td>
-<td style="text-align:center">Accuracy(애큐러시)=$\frac{TP+TN}{total}$=$\frac{\#O/O+\# X/X}{total}$</td>
+<td style="text-align:center">Accuracy(애큐러시,정확도)=$\frac{TP+TN}{total}$=$\frac{\#O/O+\# X/X}{total}$</td>
 </tr>
 </tbody>
 </table>
@@ -2214,10 +2218,10 @@ _________________________________________________________________
 <p><code>-</code> (상확극 시점1) 왜 애큐러시는 불충분한가?</p>
 <ul>
 <li>회사: 퇴사자예측프로그램 개발해</li>
-<li>최규빈: 귀찮은데 다 나간다고 하자! -&gt; 99퍼의 accuracy </li>
+<li>최규빈: 귀찮은데 다 안 나간다고 하자! -&gt; 99퍼의 accuracy </li>
 </ul>
 <blockquote>
-<p>모델에 사용한 파라메터 = 0. 그런데 애큐러시 = 99! 이거 엄청 좋은 모형이다?</p>
+<p>모델에 사용한 파라메터 = 0. 그런데 애큐러시 = .99! 이거 엄청 좋은 모형이다?</p>
 </blockquote>
 
 </div>
@@ -2307,7 +2311,7 @@ _________________________________________________________________
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> (상황극 시점3) recall 만으로 불충분한 이유</p>
 <ul>
-<li>최규빈: 에휴.. 귀찮은데 그냥 좀만 수틀리면 다 나갈것 같다고 해야겠다. -&gt; 한 100명 나간다고 했음 -&gt; 실제로 최규빈이 찍은 100명중에 10명이 다 나감!</li>
+<li>최규빈: 에휴.. 귀찮은데 그냥 좀만 수틀리면 다 나갈것 같다고 해야겠다. cut value를 낮게 잡아야징 -&gt; 한 100명 나간다고 했음 -&gt; 실제로 최규빈이 찍은 100명중에 10명이 다 나감!</li>
 </ul>
 
 </div>
@@ -2482,6 +2486,14 @@ _________________________________________________________________
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="fashion_mnist-(revisit)">
 <a class="anchor" href="#fashion_mnist-(revisit)" aria-hidden="true"><span class="octicon octicon-link"></span></a>fashion_mnist (revisit)<a class="anchor-link" href="#fashion_mnist-(revisit)"> </a>
 </h2>
@@ -2638,7 +2650,7 @@ _________________________________________________________________
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7fb365f96050&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7f94f4693970&gt;</pre>
 </div>
 
 </div>
@@ -2648,7 +2660,7 @@ _________________________________________________________________
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
+<img src="data:image/png;base64,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%0A">
 </div>
 
 </div>
@@ -2677,6 +2689,22 @@ _________________________________________________________________
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그런데 모형에 넣고 돌릴려면 다시 차원을 펼쳐야 하지 않을까?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 안 펼치고 할 수 없나? $\to$ 아래의 <code>flatten</code></p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2691,20 +2719,6 @@ _________________________________________________________________
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-05-09 18:26:22.135680: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2828,7 +2842,7 @@ _________________________________________________________________
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.layers.core.flatten.Flatten at 0x7fb365fe3b80&gt;</pre>
+<pre>&lt;keras.layers.core.flatten.Flatten at 0x7f95ddef6f50&gt;</pre>
 </div>
 
 </div>
@@ -2856,7 +2870,7 @@ _________________________________________________________________
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">flttn</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">{</span><span class="s1">'__call__'</span><span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">flttn</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">{</span><span class="s1">'__call__'</span><span class="p">}</span>  <span class="c1">#set으로 집합, &amp;으로 교집합</span>
 </pre></div>
 
     </div>
@@ -2899,7 +2913,7 @@ _________________________________________________________________
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">flttn</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2914,7 +2928,15 @@ _________________________________________________________________
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>TensorShape([60000, 28, 28, 1])</pre>
+<pre>(TensorShape([60000, 28, 28, 1]),
+ &lt;tf.Tensor: shape=(60000, 784), dtype=float32, numpy=
+ array([[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)&gt;)</pre>
 </div>
 
 </div>
@@ -2932,7 +2954,7 @@ _________________________________________________________________
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flttn</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># 오..? </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flttn</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2965,10 +2987,50 @@ array([[0., 0., 0., ..., 0., 0., 0.],
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(60000, 784), dtype=float64, numpy=
+array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>펴진다? 즉 X.reshape(-1,784)와 같은 기능!</p>
+<p>펴진다? <strong>즉 X.reshape(-1,784)와 같은 기능!</strong></p>
 
 </div>
 </div>
@@ -2976,7 +3038,7 @@ array([[0., 0., 0., ..., 0., 0., 0.],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 근데 이거 레이어다? 즉 네트워크에 add 할 수 있다는 의미!</p>
+<p><code>-</code> 근데 이거 <strong>레이어다?</strong> <strong>즉 네트워크에 add 할 수 있다는 의미!</strong></p>
 
 </div>
 </div>
@@ -2985,6 +3047,9 @@ array([[0., 0., 0., ..., 0., 0., 0.],
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 그렇다면 아래와 같이 예제를 풀어도 괜찮겠다.</p>
+<blockquote>
+<p>metrics=['accuracy','Recall']이렇게 2개도 가능하지!</p>
+</blockquote>
 
 </div>
 </div>
@@ -3016,15 +3081,15 @@ array([[0., 0., 0., ..., 0., 0., 0.],
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-1875/1875 [==============================] - 2s 658us/step - loss: 2.5235 - accuracy: 0.4120
+1875/1875 [==============================] - 19s 10ms/step - loss: 2.5291 - accuracy: 0.4090
 Epoch 2/5
-1875/1875 [==============================] - 1s 650us/step - loss: 1.1457 - accuracy: 0.5479
+1875/1875 [==============================] - 19s 10ms/step - loss: 1.1649 - accuracy: 0.5447
 Epoch 3/5
-1875/1875 [==============================] - 1s 649us/step - loss: 0.9787 - accuracy: 0.6021
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.9883 - accuracy: 0.5980
 Epoch 4/5
-1875/1875 [==============================] - 1s 661us/step - loss: 0.9430 - accuracy: 0.6102
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.9369 - accuracy: 0.6159
 Epoch 5/5
-1875/1875 [==============================] - 1s 648us/step - loss: 0.9015 - accuracy: 0.6277
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.8640 - accuracy: 0.6451
 </pre>
 </div>
 </div>
@@ -3034,7 +3099,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb350495ed0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95ddfcab00&gt;</pre>
 </div>
 
 </div>
@@ -3075,9 +3140,9 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;keras.layers.core.flatten.Flatten at 0x7fb35aa1dbd0&gt;,
- &lt;keras.layers.core.dense.Dense at 0x7fb45901b460&gt;,
- &lt;keras.layers.core.dense.Dense at 0x7fb45901af80&gt;]</pre>
+<pre>[&lt;keras.layers.core.flatten.Flatten at 0x7f95de182500&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7f95ddef64a0&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7f95de1669e0&gt;]</pre>
 </div>
 
 </div>
@@ -3191,19 +3256,19 @@ array([[0., 0., 0., ..., 0., 0., 0.],
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;tf.Tensor: shape=(60000, 10), dtype=float32, numpy=
-array([[1.9793569e-25, 7.1579476e-15, 0.0000000e+00, ..., 6.2440464e-04,
-        0.0000000e+00, 9.9633288e-01],
-       [1.9780228e-01, 1.5488229e-03, 2.4600013e-01, ..., 5.1050093e-03,
-        2.6528535e-02, 3.5198994e-03],
-       [3.8433990e-01, 2.0897342e-02, 7.9168342e-03, ..., 5.4861791e-20,
-        1.0854547e-04, 1.2587489e-11],
+array([[0.0000000e+00, 0.0000000e+00, 0.0000000e+00, ..., 1.0529677e-04,
+        0.0000000e+00, 9.9789065e-01],
+       [1.3276602e-01, 1.8076894e-03, 2.3582792e-01, ..., 2.4486837e-04,
+        2.6956499e-02, 7.0856529e-04],
+       [4.4846085e-01, 2.3028793e-02, 1.6645418e-03, ..., 5.9820746e-24,
+        8.2463684e-04, 7.2763857e-14],
        ...,
-       [1.3888313e-01, 2.3724158e-01, 1.9427710e-06, ..., 0.0000000e+00,
-        6.7928452e-10, 1.3142297e-27],
-       [1.9780228e-01, 1.5488229e-03, 2.4600013e-01, ..., 5.1050093e-03,
-        2.6528535e-02, 3.5198994e-03],
-       [3.0052971e-34, 0.0000000e+00, 0.0000000e+00, ..., 1.2849407e-06,
-        6.5595040e-15, 2.8058716e-07]], dtype=float32)&gt;</pre>
+       [4.6494240e-01, 6.1101977e-02, 2.1869731e-05, ..., 3.4271203e-38,
+        3.0596584e-05, 2.7073474e-21],
+       [1.7478003e-01, 2.7406293e-03, 1.6104330e-01, ..., 2.3228845e-06,
+        2.1515733e-02, 7.0975919e-05],
+       [0.0000000e+00, 0.0000000e+00, 0.0000000e+00, ..., 4.1029420e-09,
+        1.7662206e-26, 2.8550520e-10]], dtype=float32)&gt;</pre>
 </div>
 
 </div>
@@ -3249,15 +3314,15 @@ array([[1.9793569e-25, 7.1579476e-15, 0.0000000e+00, ..., 6.2440464e-04,
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-1875/1875 [==============================] - 1s 660us/step - loss: 2.5221 - categorical_accuracy: 0.4143
+1875/1875 [==============================] - 19s 10ms/step - loss: 2.5211 - categorical_accuracy: 0.4120
 Epoch 2/5
-1875/1875 [==============================] - 1s 672us/step - loss: 1.1528 - categorical_accuracy: 0.5469
+1875/1875 [==============================] - 19s 10ms/step - loss: 1.1434 - categorical_accuracy: 0.5489
 Epoch 3/5
-1875/1875 [==============================] - 1s 656us/step - loss: 0.9925 - categorical_accuracy: 0.5974
+1875/1875 [==============================] - 19s 10ms/step - loss: 1.0170 - categorical_accuracy: 0.5913
 Epoch 4/5
-1875/1875 [==============================] - 1s 647us/step - loss: 0.9253 - categorical_accuracy: 0.6155
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.9324 - categorical_accuracy: 0.6153
 Epoch 5/5
-1875/1875 [==============================] - 1s 651us/step - loss: 0.8920 - categorical_accuracy: 0.6278
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.8899 - categorical_accuracy: 0.6336
 </pre>
 </div>
 </div>
@@ -3267,7 +3332,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb350125b10&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95ddecbfa0&gt;</pre>
 </div>
 
 </div>
@@ -3300,7 +3365,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(94547109693968, 94547109693968)</pre>
+<pre>(93847881526656, 93847881526656)</pre>
 </div>
 
 </div>
@@ -3364,15 +3429,15 @@ Epoch 5/5
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-1875/1875 [==============================] - 2s 924us/step - loss: 2.5196 - categorical_accuracy: 0.4124 - recall: 0.3032
+1875/1875 [==============================] - 18s 10ms/step - loss: 2.5215 - categorical_accuracy: 0.4158 - recall: 0.3054
 Epoch 2/5
-1875/1875 [==============================] - 2s 891us/step - loss: 1.1580 - categorical_accuracy: 0.5501 - recall: 0.4384
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.1357 - categorical_accuracy: 0.5554 - recall: 0.4457
 Epoch 3/5
-1875/1875 [==============================] - 2s 917us/step - loss: 0.8354 - categorical_accuracy: 0.6866 - recall: 0.5670
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.9923 - categorical_accuracy: 0.5962 - recall: 0.4853
 Epoch 4/5
-1875/1875 [==============================] - 2s 904us/step - loss: 0.7475 - categorical_accuracy: 0.7084 - recall: 0.5889
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.9309 - categorical_accuracy: 0.6177 - recall: 0.5026
 Epoch 5/5
-1875/1875 [==============================] - 2s 873us/step - loss: 0.7068 - categorical_accuracy: 0.7195 - recall: 0.6006
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.8677 - categorical_accuracy: 0.6448 - recall: 0.4892
 </pre>
 </div>
 </div>
@@ -3382,7 +3447,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb2f024bc40&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95ddec98a0&gt;</pre>
 </div>
 
 </div>
@@ -3421,7 +3486,7 @@ Epoch 5/5
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 0s 890us/step - loss: 0.7818 - categorical_accuracy: 0.6889 - recall: 0.5721
+<pre>313/313 [==============================] - 4s 13ms/step - loss: 0.8814 - categorical_accuracy: 0.6443 - recall: 0.5028
 </pre>
 </div>
 </div>
@@ -3431,7 +3496,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0.7817590832710266, 0.6888999938964844, 0.5720999836921692]</pre>
+<pre>[0.8814178705215454, 0.6442999839782715, 0.5027999877929688]</pre>
 </div>
 
 </div>
@@ -3487,15 +3552,15 @@ Epoch 5/5
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-1875/1875 [==============================] - 2s 759us/step - loss: 2.2447 - accuracy: 0.7509
+1875/1875 [==============================] - 18s 10ms/step - loss: 2.2255 - accuracy: 0.7517
 Epoch 2/5
-1875/1875 [==============================] - 1s 761us/step - loss: 0.6251 - accuracy: 0.7988
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.6271 - accuracy: 0.7969
 Epoch 3/5
-1875/1875 [==============================] - 1s 775us/step - loss: 0.5591 - accuracy: 0.8152
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.5380 - accuracy: 0.8176
 Epoch 4/5
-1875/1875 [==============================] - 1s 750us/step - loss: 0.4876 - accuracy: 0.8355
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.4652 - accuracy: 0.8351
 Epoch 5/5
-1875/1875 [==============================] - 1s 757us/step - loss: 0.4630 - accuracy: 0.8436
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.4367 - accuracy: 0.8450
 </pre>
 </div>
 </div>
@@ -3505,7 +3570,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb2f02268c0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95ddb13d90&gt;</pre>
 </div>
 
 </div>
@@ -3536,7 +3601,7 @@ Epoch 5/5
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 0s 1ms/step - loss: 0.5205 - accuracy: 0.8175
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 0.4871 - accuracy: 0.8318
 </pre>
 </div>
 </div>
@@ -3546,9 +3611,72 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb2f0119b40&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95ddb8d960&gt;</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_5"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten_3 (Flatten)         (None, 784)               0         
+                                                                 
+ dense_11 (Dense)            (None, 30)                23550     
+                                                                 
+ dense_12 (Dense)            (None, 10)                310       
+                                                                 
+=================================================================
+Total params: 23,860
+Trainable params: 23,860
+Non-trainable params: 0
+_________________________________________________________________
+Model: "sequential_7"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten_5 (Flatten)         (None, 784)               0         
+                                                                 
+ dense_16 (Dense)            (None, 500)               392500    
+                                                                 
+ dense_17 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_18 (Dense)            (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 648,010
+Trainable params: 648,010
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
 </div>
 
 </div>
@@ -3593,25 +3721,25 @@ Epoch 5/5
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/10
-1875/1875 [==============================] - 2s 749us/step - loss: 2.2184 - accuracy: 0.7558
+1875/1875 [==============================] - 18s 10ms/step - loss: 2.2612 - accuracy: 0.7479
 Epoch 2/10
-1875/1875 [==============================] - 1s 745us/step - loss: 0.6094 - accuracy: 0.8047
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.6076 - accuracy: 0.7995
 Epoch 3/10
-1875/1875 [==============================] - 1s 770us/step - loss: 0.5332 - accuracy: 0.8152
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.5334 - accuracy: 0.8198
 Epoch 4/10
-1875/1875 [==============================] - 1s 737us/step - loss: 0.4633 - accuracy: 0.8346
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.4587 - accuracy: 0.8380
 Epoch 5/10
-1875/1875 [==============================] - 1s 732us/step - loss: 0.4426 - accuracy: 0.8438
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.4279 - accuracy: 0.8475
 Epoch 6/10
-1875/1875 [==============================] - 1s 754us/step - loss: 0.4183 - accuracy: 0.8501
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.4102 - accuracy: 0.8527
 Epoch 7/10
-1875/1875 [==============================] - 1s 739us/step - loss: 0.4094 - accuracy: 0.8523
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.3999 - accuracy: 0.8605
 Epoch 8/10
-1875/1875 [==============================] - 1s 748us/step - loss: 0.4019 - accuracy: 0.8580
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.3851 - accuracy: 0.8611
 Epoch 9/10
-1875/1875 [==============================] - 1s 751us/step - loss: 0.3947 - accuracy: 0.8577
+1875/1875 [==============================] - 18s 10ms/step - loss: 0.3825 - accuracy: 0.8623
 Epoch 10/10
-1875/1875 [==============================] - 1s 711us/step - loss: 0.3915 - accuracy: 0.8614
+1875/1875 [==============================] - 19s 10ms/step - loss: 0.3739 - accuracy: 0.8662
 </pre>
 </div>
 </div>
@@ -3621,7 +3749,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb2e877f400&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95776413f0&gt;</pre>
 </div>
 
 </div>
@@ -3652,7 +3780,7 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 0s 1ms/step - loss: 0.4616 - accuracy: 0.8449
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 0.4468 - accuracy: 0.8489
 </pre>
 </div>
 </div>
@@ -3662,7 +3790,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb2e8669a80&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f957770bb80&gt;</pre>
 </div>
 
 </div>
@@ -3738,25 +3866,25 @@ Epoch 10/10
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.9833 - accuracy: 0.7924
+1875/1875 [==============================] - 16s 8ms/step - loss: 0.9836 - accuracy: 0.7942
 Epoch 2/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.4479 - accuracy: 0.8401
+1875/1875 [==============================] - 16s 9ms/step - loss: 0.4495 - accuracy: 0.8395
 Epoch 3/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.4153 - accuracy: 0.8513
+1875/1875 [==============================] - 16s 9ms/step - loss: 0.4185 - accuracy: 0.8528
 Epoch 4/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.3882 - accuracy: 0.8634
+1875/1875 [==============================] - 16s 9ms/step - loss: 0.3930 - accuracy: 0.8619
 Epoch 5/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.3817 - accuracy: 0.8671
+1875/1875 [==============================] - 16s 9ms/step - loss: 0.3736 - accuracy: 0.8686
 Epoch 6/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.3653 - accuracy: 0.8730
+1875/1875 [==============================] - 17s 9ms/step - loss: 0.3683 - accuracy: 0.8718
 Epoch 7/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.3450 - accuracy: 0.8780
+1875/1875 [==============================] - 16s 9ms/step - loss: 0.3445 - accuracy: 0.8774
 Epoch 8/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.3314 - accuracy: 0.8830
+1875/1875 [==============================] - 16s 9ms/step - loss: 0.3325 - accuracy: 0.8816
 Epoch 9/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.3282 - accuracy: 0.8847
+1875/1875 [==============================] - 16s 9ms/step - loss: 0.3288 - accuracy: 0.8829
 Epoch 10/10
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.3148 - accuracy: 0.8870
+1875/1875 [==============================] - 16s 8ms/step - loss: 0.3164 - accuracy: 0.8867
 </pre>
 </div>
 </div>
@@ -3766,7 +3894,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb2e86efac0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f95775ca0e0&gt;</pre>
 </div>
 
 </div>
@@ -3797,7 +3925,7 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 0s 919us/step - loss: 0.3889 - accuracy: 0.8667
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 0.3723 - accuracy: 0.8702
 </pre>
 </div>
 </div>
@@ -3807,7 +3935,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0.3888678252696991, 0.8666999936103821]</pre>
+<pre>[0.372260183095932, 0.870199978351593]</pre>
 </div>
 
 </div>
@@ -3838,17 +3966,17 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: "sequential_4"
+<pre>Model: "sequential_7"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
  flatten_5 (Flatten)         (None, 784)               0         
                                                                  
- dense_9 (Dense)             (None, 500)               392500    
+ dense_16 (Dense)            (None, 500)               392500    
                                                                  
- dense_10 (Dense)            (None, 500)               250500    
+ dense_17 (Dense)            (None, 500)               250500    
                                                                  
- dense_11 (Dense)            (None, 10)                5010      
+ dense_18 (Dense)            (None, 10)                5010      
                                                                  
 =================================================================
 Total params: 648,010
@@ -3885,23 +4013,23 @@ _________________________________________________________________
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: "sequential_5"
+<pre>Model: "sequential_8"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
  flatten_6 (Flatten)         (None, 784)               0         
                                                                  
- dense_12 (Dense)            (None, 500)               392500    
+ dense_19 (Dense)            (None, 500)               392500    
                                                                  
- dense_13 (Dense)            (None, 500)               250500    
+ dense_20 (Dense)            (None, 500)               250500    
                                                                  
- dense_14 (Dense)            (None, 500)               250500    
+ dense_21 (Dense)            (None, 500)               250500    
                                                                  
- dense_15 (Dense)            (None, 500)               250500    
+ dense_22 (Dense)            (None, 500)               250500    
                                                                  
- dense_16 (Dense)            (None, 500)               250500    
+ dense_23 (Dense)            (None, 500)               250500    
                                                                  
- dense_17 (Dense)            (None, 10)                5010      
+ dense_24 (Dense)            (None, 10)                5010      
                                                                  
 =================================================================
 Total params: 1,399,510
@@ -3930,6 +4058,23 @@ _________________________________________________________________
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 왠지 DNN계열로는 한계가 있어보인다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h6 id="$\to$-여기까지-05/09-수업내용">
+<a class="anchor" href="#%24%5Cto%24-%EC%97%AC%EA%B8%B0%EA%B9%8C%EC%A7%80-05/09-%EC%88%98%EC%97%85%EB%82%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\to$ 여기까지 05/09 수업내용<a class="anchor-link" href="#%24%5Cto%24-%EC%97%AC%EA%B8%B0%EA%B9%8C%EC%A7%80-05/09-%EC%88%98%EC%97%85%EB%82%B4%EC%9A%A9"> </a>
+</h6>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 
 </div>
 </div>
@@ -4186,7 +4331,7 @@ _________________________________________________________________
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(94547108763344, 94547108763344)</pre>
+<pre>(93847880576320, 93847880576320)</pre>
 </div>
 
 </div>
