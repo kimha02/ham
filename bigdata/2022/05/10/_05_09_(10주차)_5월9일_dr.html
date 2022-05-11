@@ -11,13 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="작업환경, softmax, 평가지표, DNN과 fashion MNIST" />
 <meta property="og:description" content="작업환경, softmax, 평가지표, DNN과 fashion MNIST" />
-<link rel="canonical" href="https://kimha02.github.io/ham/bigdata/2022/05/09/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" />
-<meta property="og:url" content="https://kimha02.github.io/ham/bigdata/2022/05/09/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" />
+<link rel="canonical" href="https://kimha02.github.io/ham/bigdata/2022/05/10/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" />
+<meta property="og:url" content="https://kimha02.github.io/ham/bigdata/2022/05/10/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" />
 <meta property="og:site_name" content="Hayoung Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-05-09T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-05-10T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2022-05-09T00:00:00-05:00","url":"https://kimha02.github.io/ham/bigdata/2022/05/09/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html","@type":"BlogPosting","headline":"(10주차) 5월4일","dateModified":"2022-05-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/bigdata/2022/05/09/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html"},"author":{"@type":"Person","name":"최규빈"},"description":"작업환경, softmax, 평가지표, DNN과 fashion MNIST","@context":"https://schema.org"}</script>
+{"datePublished":"2022-05-10T00:00:00-05:00","url":"https://kimha02.github.io/ham/bigdata/2022/05/10/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html","@type":"BlogPosting","headline":"(10주차) 5월4일","dateModified":"2022-05-10T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kimha02.github.io/ham/bigdata/2022/05/10/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html"},"author":{"@type":"Person","name":"최규빈"},"description":"작업환경, softmax, 평가지표, DNN과 fashion MNIST","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ham/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kimha02.github.io/ham/feed.xml" title="Hayoung Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ham/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,8 +88,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">(10주차) 5월4일</h1><p class="page-description">작업환경, softmax, 평가지표, DNN과 fashion MNIST</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-09T00:00:00-05:00" itemprop="datePublished">
-        May 9, 2022
+    <h1 class="post-title p-name" itemprop="name headline">(10주차) 5월4일</h1><p class="page-description">작업환경, softmax, 평가지표, DNN과 fashion MNIST</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-10T00:00:00-05:00" itemprop="datePublished">
+        May 10, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">최규빈</span></span>
@@ -207,7 +207,7 @@ window.onload = wrap_img;
 <code>-</code> conda deactivate : base 환경으로 돌아가기<br>
 <code>-</code> conda create -n test : test라는 가상환경을 만들기<br>
 <code>-</code> conda activate test : test라는 가상환경에 들어가기<br>
-<code>-</code> conda install -c conda-forge jupyterlab : conda는 앱스토어 느낌이라서 꼭 conda를 안해도 된다. 그런데 pip와 차이는 pip는 가장 최신버전을, conda-forge에서 추천하는 조합으로 설치할 수 있다. 그리고 이전에 설치한 패키지도 영향을 받는다.<br>
+<code>-</code> conda install -c conda-forge jupyterlab : conda는 앱스토어 느낌이라서 꼭 conda를 안해도 된다. pip와 차이는 pip는 가장 최신버전을, conda-forge에서 추천하는 조합으로 설치할 수 있다. 그리고 이전에 설치한 패키지도 영향을 받는다.<br>
 <code>-</code> conda install -c conda-forge rise : 주피터 노트북을 통해 슬라이드쇼 만들 수 있음!<br>
 <code>-</code> slide는  새 슬라이드 만들기, fragment는 상위 슬라이드의 조각, 하나씩 등장</li>
 </ul>
@@ -4746,7 +4746,7 @@ array([[[14, 17],
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/ham/bigdata/2022/05/09/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" hidden></a>
+</script><a class="u-url" href="/ham/bigdata/2022/05/10/_05_09_(10%EC%A3%BC%EC%B0%A8)_5%EC%9B%949%EC%9D%BC_dr.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
