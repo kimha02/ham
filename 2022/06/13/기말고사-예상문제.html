@@ -190,6 +190,21 @@ window.onload = wrap_img;
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The tensorboard extension is already loaded. To reload it, use:
+  %reload_ext tensorboard
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -1470,9 +1485,9 @@ Epoch 41/50
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 <span class="n">net2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
-<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">6</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">6</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span> 
-<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span> 
 <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
 <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
@@ -1532,11 +1547,11 @@ Epoch 41/50
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(60000, 27, 27, 6)
-(60000, 13, 13, 6)
-(60000, 12, 12, 16)
-(60000, 6, 6, 16)
-(60000, 576)
+<pre>(60000, 24, 24, 6)
+(60000, 12, 12, 6)
+(60000, 8, 8, 16)
+(60000, 4, 4, 16)
+(60000, 256)
 (60000, 120)
 (60000, 120)
 (60000, 10)
@@ -1571,25 +1586,25 @@ Epoch 41/50
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/10
-300/300 [==============================] - 2s 5ms/step - loss: 2.2224 - accuracy: 0.6972
+300/300 [==============================] - 2s 5ms/step - loss: 1.8950 - accuracy: 0.6255
 Epoch 2/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.5656 - accuracy: 0.7963
+300/300 [==============================] - 2s 5ms/step - loss: 0.6264 - accuracy: 0.7666
 Epoch 3/10
-300/300 [==============================] - 2s 6ms/step - loss: 0.4824 - accuracy: 0.8240
+300/300 [==============================] - 2s 5ms/step - loss: 0.5307 - accuracy: 0.8032
 Epoch 4/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.4367 - accuracy: 0.8402
+300/300 [==============================] - 2s 5ms/step - loss: 0.4863 - accuracy: 0.8184
 Epoch 5/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.4040 - accuracy: 0.8491
+300/300 [==============================] - 2s 5ms/step - loss: 0.4551 - accuracy: 0.8294
 Epoch 6/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.3772 - accuracy: 0.8583
+300/300 [==============================] - 2s 5ms/step - loss: 0.4279 - accuracy: 0.8391
 Epoch 7/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.3587 - accuracy: 0.8648
+300/300 [==============================] - 2s 5ms/step - loss: 0.4051 - accuracy: 0.8474
 Epoch 8/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.3401 - accuracy: 0.8711
+300/300 [==============================] - 2s 5ms/step - loss: 0.3910 - accuracy: 0.8533
 Epoch 9/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.3299 - accuracy: 0.8748
+300/300 [==============================] - 2s 5ms/step - loss: 0.3717 - accuracy: 0.8594
 Epoch 10/10
-300/300 [==============================] - 2s 5ms/step - loss: 0.3184 - accuracy: 0.8783
+300/300 [==============================] - 2s 5ms/step - loss: 0.3605 - accuracy: 0.8647
 </pre>
 </div>
 </div>
@@ -1599,7 +1614,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fe3cd2d7190&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7fe1ade3ff40&gt;</pre>
 </div>
 
 </div>
@@ -1630,31 +1645,31 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: &#34;sequential_11&#34;
+<pre>Model: &#34;sequential_38&#34;
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- conv2d_8 (Conv2D)           (None, 27, 27, 6)         30        
+ conv2d_61 (Conv2D)          (200, 24, 24, 6)          156       
                                                                  
- max_pooling2d_8 (MaxPooling  (None, 13, 13, 6)        0         
- 2D)                                                             
+ max_pooling2d_56 (MaxPoolin  (200, 12, 12, 6)         0         
+ g2D)                                                            
                                                                  
- conv2d_9 (Conv2D)           (None, 12, 12, 16)        400       
+ conv2d_62 (Conv2D)          (200, 8, 8, 16)           2416      
                                                                  
- max_pooling2d_9 (MaxPooling  (None, 6, 6, 16)         0         
- 2D)                                                             
+ max_pooling2d_57 (MaxPoolin  (200, 4, 4, 16)          0         
+ g2D)                                                            
                                                                  
- flatten_11 (Flatten)        (None, 576)               0         
+ flatten_38 (Flatten)        (200, 256)                0         
                                                                  
- dense_19 (Dense)            (None, 120)               69240     
+ dense_76 (Dense)            (200, 120)                30840     
                                                                  
- dropout_3 (Dropout)         (None, 120)               0         
+ dropout_19 (Dropout)        (200, 120)                0         
                                                                  
- dense_20 (Dense)            (None, 10)                1210      
+ dense_77 (Dense)            (200, 10)                 1210      
                                                                  
 =================================================================
-Total params: 70,880
-Trainable params: 70,880
+Total params: 34,622
+Trainable params: 34,622
 Non-trainable params: 0
 _________________________________________________________________
 </pre>
@@ -1706,12 +1721,12 @@ _________________________________________________________________
 <span class="o">!</span>rm -rf logs
 <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">128</span><span class="p">]:</span> 
     <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">256</span><span class="p">]:</span> 
-        <span class="n">logdir</span> <span class="o">=</span> <span class="s1">&#39;logs/hpguebin_</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">logdir</span> <span class="o">=</span> <span class="s1">&#39;logs/hayoung_</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">create_file_writer</span><span class="p">(</span><span class="n">logdir</span><span class="p">)</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
             <span class="n">net2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
-            <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">u</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+            <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">u</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
             <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span> 
-            <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+            <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
             <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span> 
             <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
             <span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
@@ -1720,8 +1735,9 @@ _________________________________________________________________
             <span class="n">net2</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
             <span class="n">cb3</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">KerasCallback</span><span class="p">(</span><span class="n">logdir</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">:</span><span class="n">d</span><span class="p">})</span>
             <span class="n">net2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="n">cb3</span><span class="p">)</span>
+            <span class="n">net2</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
             <span class="n">_rslt</span><span class="o">=</span><span class="n">net2</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
-            <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s1">&#39;n1과 n2 비교(test)&#39;</span><span class="p">,</span> <span class="n">_rslt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+            <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s1">&#39;test set loss&#39;</span><span class="p">,</span> <span class="n">_rslt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -1735,47 +1751,53 @@ _________________________________________________________________
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/3
-240/240 [==============================] - 2s 8ms/step - loss: 3.0794 - accuracy: 0.6695 - val_loss: 0.5794 - val_accuracy: 0.7928
+240/240 [==============================] - 2s 8ms/step - loss: 2.2399 - accuracy: 0.6080 - val_loss: 0.6751 - val_accuracy: 0.7465
 Epoch 2/3
-240/240 [==============================] - 2s 8ms/step - loss: 0.6153 - accuracy: 0.7808 - val_loss: 0.5013 - val_accuracy: 0.8144
+240/240 [==============================] - 2s 7ms/step - loss: 0.6752 - accuracy: 0.7527 - val_loss: 0.5574 - val_accuracy: 0.7929
 Epoch 3/3
-240/240 [==============================] - 2s 8ms/step - loss: 0.5224 - accuracy: 0.8097 - val_loss: 0.4548 - val_accuracy: 0.8333
-313/313 [==============================] - 4s 12ms/step - loss: 0.4822 - accuracy: 0.8311
+240/240 [==============================] - 2s 8ms/step - loss: 0.5672 - accuracy: 0.7895 - val_loss: 0.5030 - val_accuracy: 0.8133
+313/313 [==============================] - 4s 12ms/step - loss: 0.5350 - accuracy: 0.8016
+313/313 [==============================] - 4s 12ms/step - loss: 0.5350 - accuracy: 0.8016
 Epoch 1/3
-240/240 [==============================] - 3s 9ms/step - loss: 1.9566 - accuracy: 0.6817 - val_loss: 0.4423 - val_accuracy: 0.8449
+240/240 [==============================] - 2s 8ms/step - loss: 1.9985 - accuracy: 0.6402 - val_loss: 0.5187 - val_accuracy: 0.8274
 Epoch 2/3
-240/240 [==============================] - 2s 8ms/step - loss: 0.5072 - accuracy: 0.8134 - val_loss: 0.3774 - val_accuracy: 0.8670
+240/240 [==============================] - 2s 8ms/step - loss: 0.5635 - accuracy: 0.8059 - val_loss: 0.4245 - val_accuracy: 0.8579
 Epoch 3/3
-240/240 [==============================] - 2s 8ms/step - loss: 0.4290 - accuracy: 0.8420 - val_loss: 0.3373 - val_accuracy: 0.8799
-313/313 [==============================] - 4s 12ms/step - loss: 0.3603 - accuracy: 0.8684
+240/240 [==============================] - 2s 8ms/step - loss: 0.4656 - accuracy: 0.8383 - val_loss: 0.3678 - val_accuracy: 0.8720
+313/313 [==============================] - 4s 12ms/step - loss: 0.3908 - accuracy: 0.8665
+313/313 [==============================] - 4s 12ms/step - loss: 0.3908 - accuracy: 0.8665
 Epoch 1/3
-240/240 [==============================] - 3s 12ms/step - loss: 1.2385 - accuracy: 0.7344 - val_loss: 0.4734 - val_accuracy: 0.8284
+240/240 [==============================] - 2s 8ms/step - loss: 1.5759 - accuracy: 0.5369 - val_loss: 0.7116 - val_accuracy: 0.7497
 Epoch 2/3
-240/240 [==============================] - 3s 12ms/step - loss: 0.4562 - accuracy: 0.8360 - val_loss: 0.3832 - val_accuracy: 0.8608
+240/240 [==============================] - 2s 8ms/step - loss: 0.6449 - accuracy: 0.7708 - val_loss: 0.5058 - val_accuracy: 0.8167
 Epoch 3/3
-240/240 [==============================] - 3s 11ms/step - loss: 0.3778 - accuracy: 0.8612 - val_loss: 0.3580 - val_accuracy: 0.8705
-313/313 [==============================] - 4s 12ms/step - loss: 0.3801 - accuracy: 0.8601
+240/240 [==============================] - 2s 8ms/step - loss: 0.4946 - accuracy: 0.8252 - val_loss: 0.4681 - val_accuracy: 0.8315
+313/313 [==============================] - 4s 11ms/step - loss: 0.4882 - accuracy: 0.8257
+313/313 [==============================] - 3s 11ms/step - loss: 0.4882 - accuracy: 0.8257
 Epoch 1/3
-240/240 [==============================] - 4s 13ms/step - loss: 1.5479 - accuracy: 0.7934 - val_loss: 0.3468 - val_accuracy: 0.8748
+240/240 [==============================] - 3s 11ms/step - loss: 1.7977 - accuracy: 0.7670 - val_loss: 0.3574 - val_accuracy: 0.8698
 Epoch 2/3
-240/240 [==============================] - 3s 13ms/step - loss: 0.3605 - accuracy: 0.8730 - val_loss: 0.3005 - val_accuracy: 0.8845
+240/240 [==============================] - 3s 11ms/step - loss: 0.3470 - accuracy: 0.8769 - val_loss: 0.3088 - val_accuracy: 0.8885
 Epoch 3/3
-240/240 [==============================] - 3s 13ms/step - loss: 0.2991 - accuracy: 0.8921 - val_loss: 0.2968 - val_accuracy: 0.8912
-313/313 [==============================] - 4s 11ms/step - loss: 0.3165 - accuracy: 0.8852
+240/240 [==============================] - 3s 11ms/step - loss: 0.2856 - accuracy: 0.8978 - val_loss: 0.2887 - val_accuracy: 0.8971
+313/313 [==============================] - 3s 10ms/step - loss: 0.3048 - accuracy: 0.8896
+313/313 [==============================] - 3s 10ms/step - loss: 0.3048 - accuracy: 0.8896
 Epoch 1/3
-240/240 [==============================] - 4s 13ms/step - loss: 0.9256 - accuracy: 0.7518 - val_loss: 0.4268 - val_accuracy: 0.8457
+240/240 [==============================] - 3s 10ms/step - loss: 1.3961 - accuracy: 0.5756 - val_loss: 0.6989 - val_accuracy: 0.7518
 Epoch 2/3
-240/240 [==============================] - 3s 13ms/step - loss: 0.4279 - accuracy: 0.8442 - val_loss: 0.3797 - val_accuracy: 0.8602
+240/240 [==============================] - 2s 10ms/step - loss: 0.6160 - accuracy: 0.7769 - val_loss: 0.4826 - val_accuracy: 0.8256
 Epoch 3/3
-240/240 [==============================] - 3s 13ms/step - loss: 0.3704 - accuracy: 0.8635 - val_loss: 0.3421 - val_accuracy: 0.8758
-313/313 [==============================] - 4s 11ms/step - loss: 0.3622 - accuracy: 0.8679
+240/240 [==============================] - 2s 10ms/step - loss: 0.4824 - accuracy: 0.8246 - val_loss: 0.4504 - val_accuracy: 0.8367
+313/313 [==============================] - 3s 10ms/step - loss: 0.4650 - accuracy: 0.8310
+313/313 [==============================] - 3s 11ms/step - loss: 0.4650 - accuracy: 0.8310
 Epoch 1/3
-240/240 [==============================] - 4s 17ms/step - loss: 1.2317 - accuracy: 0.7839 - val_loss: 0.3653 - val_accuracy: 0.8696
+240/240 [==============================] - 4s 16ms/step - loss: 1.4803 - accuracy: 0.7824 - val_loss: 0.3390 - val_accuracy: 0.8777
 Epoch 2/3
-240/240 [==============================] - 4s 17ms/step - loss: 0.3610 - accuracy: 0.8704 - val_loss: 0.3152 - val_accuracy: 0.8887
+240/240 [==============================] - 4s 16ms/step - loss: 0.3431 - accuracy: 0.8782 - val_loss: 0.3040 - val_accuracy: 0.8906
 Epoch 3/3
-240/240 [==============================] - 4s 16ms/step - loss: 0.3119 - accuracy: 0.8861 - val_loss: 0.3129 - val_accuracy: 0.8824
-313/313 [==============================] - 3s 11ms/step - loss: 0.3373 - accuracy: 0.8679
+240/240 [==============================] - 4s 16ms/step - loss: 0.2843 - accuracy: 0.8980 - val_loss: 0.2823 - val_accuracy: 0.8983
+313/313 [==============================] - 3s 11ms/step - loss: 0.2978 - accuracy: 0.8939
+313/313 [==============================] - 3s 11ms/step - loss: 0.2978 - accuracy: 0.8939
 </pre>
 </div>
 </div>
@@ -1808,11 +1830,11 @@ Epoch 3/3
 
 <div class="output_html rendered_html output_subarea ">
 
-      <iframe id="tensorboard-frame-92add0abe32481aa" width="100%" height="800" frameborder="0">
+      <iframe id="tensorboard-frame-b8a8f12c6f19f16e" width="100%" height="800" frameborder="0">
       </iframe>
       <script>
         (function() {
-          const frame = document.getElementById("tensorboard-frame-92add0abe32481aa");
+          const frame = document.getElementById("tensorboard-frame-b8a8f12c6f19f16e");
           const url = new URL("/", window.location);
           const port = 6006;
           if (port) {
@@ -1826,6 +1848,23 @@ Epoch 3/3
 
 </div>
 
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span><span class="nb">kill</span> <span class="m">397183</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
