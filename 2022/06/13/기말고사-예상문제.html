@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      18 min read
     
 </span></p>
 
@@ -788,6 +788,7 @@ window.onload = wrap_img;
 <span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -804,25 +805,25 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 2.3514 - accuracy: 0.2658
+1875/1875 [==============================] - 18s 10ms/step - loss: 2.5210 - accuracy: 0.1373
 Epoch 2/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 1.4790 - accuracy: 0.4040
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.7486 - accuracy: 0.2578
 Epoch 3/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 1.3303 - accuracy: 0.4397
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.5934 - accuracy: 0.3194
 Epoch 4/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 1.2838 - accuracy: 0.4558
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.5165 - accuracy: 0.3574
 Epoch 5/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 1.1775 - accuracy: 0.5087
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.3497 - accuracy: 0.4316
 Epoch 6/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 1.0718 - accuracy: 0.5429
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.3003 - accuracy: 0.4457
 Epoch 7/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 1.0157 - accuracy: 0.5639
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.2845 - accuracy: 0.4462
 Epoch 8/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 0.9594 - accuracy: 0.6076
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.2726 - accuracy: 0.4517
 Epoch 9/10
-1875/1875 [==============================] - 19s 10ms/step - loss: 0.9257 - accuracy: 0.6176
+1875/1875 [==============================] - 18s 10ms/step - loss: 1.2789 - accuracy: 0.4510
 Epoch 10/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 0.8968 - accuracy: 0.6267
+1875/1875 [==============================] - 18s 9ms/step - loss: 1.2564 - accuracy: 0.4556
 </pre>
 </div>
 </div>
@@ -832,7 +833,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fe258127bb0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7fdd140fc400&gt;</pre>
 </div>
 
 </div>
@@ -870,7 +871,7 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 4s 12ms/step - loss: 1.0209 - accuracy: 0.6115
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 1.2462 - accuracy: 0.4610
 </pre>
 </div>
 </div>
@@ -880,7 +881,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[1.0209137201309204, 0.6115000247955322]</pre>
+<pre>[1.2461601495742798, 0.460999995470047]</pre>
 </div>
 
 </div>
@@ -909,6 +910,7 @@ Epoch 10/10
 <span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 </pre></div>
@@ -942,117 +944,134 @@ Epoch 10/10
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/50
-240/240 [==============================] - 3s 13ms/step - loss: 5.1090 - accuracy: 0.2137 - val_loss: 2.1368 - val_accuracy: 0.1933
+240/240 [==============================] - 3s 13ms/step - loss: 4.7876 - accuracy: 0.1153 - val_loss: 2.2636 - val_accuracy: 0.1415
 Epoch 2/50
-240/240 [==============================] - 3s 12ms/step - loss: 2.0072 - accuracy: 0.2474 - val_loss: 1.8944 - val_accuracy: 0.2805
+240/240 [==============================] - 3s 12ms/step - loss: 2.1072 - accuracy: 0.2081 - val_loss: 2.0320 - val_accuracy: 0.2234
 Epoch 3/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.7613 - accuracy: 0.3361 - val_loss: 1.6755 - val_accuracy: 0.3637
+240/240 [==============================] - 3s 12ms/step - loss: 1.9800 - accuracy: 0.2413 - val_loss: 1.9648 - val_accuracy: 0.2407
 Epoch 4/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.5593 - accuracy: 0.4023 - val_loss: 1.5127 - val_accuracy: 0.4224
+240/240 [==============================] - 3s 12ms/step - loss: 1.8763 - accuracy: 0.2677 - val_loss: 1.7393 - val_accuracy: 0.3228
 Epoch 5/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.4039 - accuracy: 0.4570 - val_loss: 1.3494 - val_accuracy: 0.4672
+240/240 [==============================] - 3s 12ms/step - loss: 1.6501 - accuracy: 0.3335 - val_loss: 1.4906 - val_accuracy: 0.4201
 Epoch 6/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.2620 - accuracy: 0.5064 - val_loss: 1.2520 - val_accuracy: 0.5274
+240/240 [==============================] - 3s 12ms/step - loss: 1.4070 - accuracy: 0.4271 - val_loss: 1.4017 - val_accuracy: 0.4347
 Epoch 7/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.1673 - accuracy: 0.5451 - val_loss: 1.1653 - val_accuracy: 0.5367
+240/240 [==============================] - 3s 12ms/step - loss: 1.3177 - accuracy: 0.4589 - val_loss: 1.2631 - val_accuracy: 0.4858
 Epoch 8/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.0999 - accuracy: 0.5624 - val_loss: 1.1198 - val_accuracy: 0.5784
+240/240 [==============================] - 3s 13ms/step - loss: 1.2193 - accuracy: 0.4986 - val_loss: 1.1797 - val_accuracy: 0.5231
 Epoch 9/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.0525 - accuracy: 0.5645 - val_loss: 1.0862 - val_accuracy: 0.5357
+240/240 [==============================] - 3s 13ms/step - loss: 1.1593 - accuracy: 0.5076 - val_loss: 1.1502 - val_accuracy: 0.5035
 Epoch 10/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.0104 - accuracy: 0.5723 - val_loss: 1.0446 - val_accuracy: 0.5632
+240/240 [==============================] - 3s 13ms/step - loss: 1.1192 - accuracy: 0.5219 - val_loss: 1.1181 - val_accuracy: 0.5215
 Epoch 11/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9757 - accuracy: 0.5832 - val_loss: 1.0263 - val_accuracy: 0.5421
+240/240 [==============================] - 3s 12ms/step - loss: 1.1036 - accuracy: 0.5232 - val_loss: 1.1034 - val_accuracy: 0.5272
 Epoch 12/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9591 - accuracy: 0.5883 - val_loss: 0.9935 - val_accuracy: 0.5708
+240/240 [==============================] - 3s 13ms/step - loss: 1.1047 - accuracy: 0.5260 - val_loss: 1.0978 - val_accuracy: 0.5346
 Epoch 13/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9412 - accuracy: 0.5959 - val_loss: 0.9846 - val_accuracy: 0.5799
+240/240 [==============================] - 3s 12ms/step - loss: 1.0919 - accuracy: 0.5305 - val_loss: 1.1151 - val_accuracy: 0.5376
 Epoch 14/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9204 - accuracy: 0.6023 - val_loss: 0.9878 - val_accuracy: 0.5726
+240/240 [==============================] - 3s 13ms/step - loss: 1.0874 - accuracy: 0.5318 - val_loss: 1.1376 - val_accuracy: 0.5148
 Epoch 15/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9148 - accuracy: 0.6054 - val_loss: 0.9467 - val_accuracy: 0.6093
+240/240 [==============================] - 3s 12ms/step - loss: 1.0844 - accuracy: 0.5339 - val_loss: 1.1050 - val_accuracy: 0.5427
 Epoch 16/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.8910 - accuracy: 0.6165 - val_loss: 0.9319 - val_accuracy: 0.6251
+240/240 [==============================] - 3s 12ms/step - loss: 1.0821 - accuracy: 0.5365 - val_loss: 1.0916 - val_accuracy: 0.5452
 Epoch 17/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.8778 - accuracy: 0.6267 - val_loss: 0.9178 - val_accuracy: 0.6067
-Epoch 18/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.8544 - accuracy: 0.6335 - val_loss: 0.8975 - val_accuracy: 0.6255
-Epoch 19/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.8327 - accuracy: 0.6451 - val_loss: 0.8735 - val_accuracy: 0.6519
-Epoch 20/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.8158 - accuracy: 0.6535 - val_loss: 0.8640 - val_accuracy: 0.6685
-Epoch 21/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.8004 - accuracy: 0.6645 - val_loss: 0.8481 - val_accuracy: 0.6463
-Epoch 22/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7909 - accuracy: 0.6672 - val_loss: 0.8459 - val_accuracy: 0.6529
-Epoch 23/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7861 - accuracy: 0.6771 - val_loss: 0.8295 - val_accuracy: 0.6916
-Epoch 24/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7726 - accuracy: 0.6787 - val_loss: 0.8288 - val_accuracy: 0.6812
-Epoch 25/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7707 - accuracy: 0.6759 - val_loss: 0.8266 - val_accuracy: 0.6426
-Epoch 26/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.7615 - accuracy: 0.6811 - val_loss: 0.8236 - val_accuracy: 0.6720
-Epoch 27/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.7596 - accuracy: 0.6802 - val_loss: 0.8145 - val_accuracy: 0.6761
-Epoch 28/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.7569 - accuracy: 0.6809 - val_loss: 0.8134 - val_accuracy: 0.6817
-Epoch 29/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7506 - accuracy: 0.6809 - val_loss: 0.8143 - val_accuracy: 0.6852
-Epoch 30/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7455 - accuracy: 0.6841 - val_loss: 0.8089 - val_accuracy: 0.6798
-Epoch 31/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7467 - accuracy: 0.6836 - val_loss: 0.8017 - val_accuracy: 0.6738
-Epoch 32/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7409 - accuracy: 0.6859 - val_loss: 0.8067 - val_accuracy: 0.6859
-Epoch 33/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.7343 - accuracy: 0.6897 - val_loss: 0.8107 - val_accuracy: 0.6734
-Epoch 34/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.7308 - accuracy: 0.6890 - val_loss: 0.8075 - val_accuracy: 0.6885
-Epoch 35/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7360 - accuracy: 0.6940 - val_loss: 0.7871 - val_accuracy: 0.6852
-Epoch 36/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7231 - accuracy: 0.7051 - val_loss: 0.8124 - val_accuracy: 0.6738
-Epoch 37/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7123 - accuracy: 0.7120 - val_loss: 0.7695 - val_accuracy: 0.7117
-Epoch 38/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7036 - accuracy: 0.7166 - val_loss: 0.7776 - val_accuracy: 0.7125
-Epoch 39/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.6970 - accuracy: 0.7189 - val_loss: 0.7733 - val_accuracy: 0.6914
-Epoch 40/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.6919 - accuracy: 0.7235 - val_loss: 0.7581 - val_accuracy: 0.7074
-Epoch 41/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.6895 - accuracy: 0.7224 - val_loss: 0.7699 - val_accuracy: 0.6977
-Epoch 42/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6545 - accuracy: 0.7408 - val_loss: 0.7149 - val_accuracy: 0.7342
-Epoch 43/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.6492 - accuracy: 0.7436 - val_loss: 0.7094 - val_accuracy: 0.7387
-Epoch 44/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6282 - accuracy: 0.7489 - val_loss: 0.7153 - val_accuracy: 0.7219
-Epoch 45/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.6206 - accuracy: 0.7542 - val_loss: 0.7064 - val_accuracy: 0.7317
-Epoch 46/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6215 - accuracy: 0.7537 - val_loss: 0.7039 - val_accuracy: 0.7378
-Epoch 47/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6174 - accuracy: 0.7541 - val_loss: 0.7007 - val_accuracy: 0.7466
-Epoch 48/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6101 - accuracy: 0.7564 - val_loss: 0.6994 - val_accuracy: 0.7475
-Epoch 49/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6078 - accuracy: 0.7579 - val_loss: 0.6853 - val_accuracy: 0.7483
-Epoch 50/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6045 - accuracy: 0.7605 - val_loss: 0.6904 - val_accuracy: 0.7497
-</pre>
+235/240 [============================&gt;.] - ETA: 0s - loss: 1.0658 - accuracy: 0.5441</pre>
 </div>
 </div>
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [134]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 2&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> cb1 <span style="color: rgb(98,98,98)">=</span> tf<span style="color: rgb(98,98,98)">.</span>keras<span style="color: rgb(98,98,98)">.</span>callbacks<span style="color: rgb(98,98,98)">.</span>TensorBoard()
+<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">net1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">X</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">epochs</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">50</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">batch_size</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">200</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">validation_split</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0.2</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">cb1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">verbose</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">)</span>
 
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/utils/traceback_utils.py:64</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span> filtered_tb <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
+<span class="ansi-green-intense-fg ansi-bold">     63</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">---&gt; 64</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">fn</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint: disable=broad-except</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span>   filtered_tb <span style="color: rgb(98,98,98)">=</span> _process_traceback_frames(e<span style="color: rgb(98,98,98)">.</span>__traceback__)
 
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fe1d2ab2410&gt;</pre>
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/training.py:1252</span>, in <span class="ansi-cyan-fg">Model.fit</span><span class="ansi-blue-fg">(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, validation_batch_size, validation_freq, max_queue_size, workers, use_multiprocessing)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1238</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">getattr</span>(<span style="color: rgb(0,135,0)">self</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">_eval_data_handler</span><span style="color: rgb(175,0,0)">&#39;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>) <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1239</span>   <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_eval_data_handler <span style="color: rgb(98,98,98)">=</span> data_adapter<span style="color: rgb(98,98,98)">.</span>get_data_handler(
+<span class="ansi-green-intense-fg ansi-bold">   1240</span>       x<span style="color: rgb(98,98,98)">=</span>val_x,
+<span class="ansi-green-intense-fg ansi-bold">   1241</span>       y<span style="color: rgb(98,98,98)">=</span>val_y,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1250</span>       model<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span>,
+<span class="ansi-green-intense-fg ansi-bold">   1251</span>       steps_per_execution<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_steps_per_execution)
+<span class="ansi-green-fg">-&gt; 1252</span> val_logs <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">evaluate</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">   1253</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_x</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1254</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_y</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1255</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">sample_weight</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_sample_weight</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1256</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">batch_size</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">validation_batch_size</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(175,0,255)">or</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">batch_size</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1257</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">steps</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">validation_steps</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1258</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1259</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">max_queue_size</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">max_queue_size</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1260</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">workers</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">workers</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1261</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">use_multiprocessing</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">use_multiprocessing</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1262</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">return_dict</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1263</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">_use_cached_eval_dataset</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1264</span> val_logs <span style="color: rgb(98,98,98)">=</span> {<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">val_</span><span style="color: rgb(175,0,0)">&#39;</span> <span style="color: rgb(98,98,98)">+</span> name: val <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> name, val <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> val_logs<span style="color: rgb(98,98,98)">.</span>items()}
+<span class="ansi-green-intense-fg ansi-bold">   1265</span> epoch_logs<span style="color: rgb(98,98,98)">.</span>update(val_logs)
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/utils/traceback_utils.py:64</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span> filtered_tb <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
+<span class="ansi-green-intense-fg ansi-bold">     63</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">---&gt; 64</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">fn</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint: disable=broad-except</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span>   filtered_tb <span style="color: rgb(98,98,98)">=</span> _process_traceback_frames(e<span style="color: rgb(98,98,98)">.</span>__traceback__)
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/training.py:1534</span>, in <span class="ansi-cyan-fg">Model.evaluate</span><span class="ansi-blue-fg">(self, x, y, batch_size, verbose, sample_weight, steps, callbacks, max_queue_size, workers, use_multiprocessing, return_dict, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1532</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>reset_metrics()
+<span class="ansi-green-intense-fg ansi-bold">   1533</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> data_handler<span style="color: rgb(98,98,98)">.</span>catch_stop_iteration():
+<span class="ansi-green-fg">-&gt; 1534</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> step <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> data_handler<span style="color: rgb(98,98,98)">.</span>steps():
+<span class="ansi-green-intense-fg ansi-bold">   1535</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> tf<span style="color: rgb(98,98,98)">.</span>profiler<span style="color: rgb(98,98,98)">.</span>experimental<span style="color: rgb(98,98,98)">.</span>Trace(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">test</span><span style="color: rgb(175,0,0)">&#39;</span>, step_num<span style="color: rgb(98,98,98)">=</span>step, _r<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">1</span>):
+<span class="ansi-green-intense-fg ansi-bold">   1536</span>       callbacks<span style="color: rgb(98,98,98)">.</span>on_test_batch_begin(step)
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/data_adapter.py:1250</span>, in <span class="ansi-cyan-fg">DataHandler.steps</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1248</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_insufficient_data:  <span style="color: rgb(95,135,135)"># Set by `catch_stop_iteration`.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1249</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">break</span>
+<span class="ansi-green-fg">-&gt; 1250</span> original_spe <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_steps_per_execution</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">numpy</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>item()
+<span class="ansi-green-intense-fg ansi-bold">   1251</span> can_run_full_execution <span style="color: rgb(98,98,98)">=</span> (
+<span class="ansi-green-intense-fg ansi-bold">   1252</span>     original_spe <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">1</span> <span class="ansi-bold" style="color: rgb(175,0,255)">or</span>
+<span class="ansi-green-intense-fg ansi-bold">   1253</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_inferred_steps <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(175,0,255)">or</span>
+<span class="ansi-green-intense-fg ansi-bold">   1254</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_inferred_steps <span style="color: rgb(98,98,98)">-</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_current_step <span style="color: rgb(98,98,98)">&gt;</span><span style="color: rgb(98,98,98)">=</span>
+<span class="ansi-green-intense-fg ansi-bold">   1255</span>     original_spe)
+<span class="ansi-green-intense-fg ansi-bold">   1257</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> can_run_full_execution:
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/ops/resource_variable_ops.py:645</span>, in <span class="ansi-cyan-fg">BaseResourceVariable.numpy</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    643</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">numpy</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-intense-fg ansi-bold">    644</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> context<span style="color: rgb(98,98,98)">.</span>executing_eagerly():
+<span class="ansi-green-fg">--&gt; 645</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">read_value</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">numpy</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    646</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">NotImplementedError</span>(
+<span class="ansi-green-intense-fg ansi-bold">    647</span>       <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">numpy() is only available when eager execution is enabled.</span><span style="color: rgb(175,0,0)">&#34;</span>)
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/ops.py:1149</span>, in <span class="ansi-cyan-fg">_EagerTensorBase.numpy</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1126</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Copy of the contents of this Tensor into a NumPy array or scalar.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1127</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1128</span> <span style="color: rgb(175,0,0)">Unlike NumPy arrays, Tensors are immutable, so this method has to copy</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1146</span> <span style="color: rgb(175,0,0)">    NumPy dtype.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1147</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1148</span> <span style="color: rgb(95,135,135)"># TODO(slebedev): Consider avoiding a copy for non-CPU or remote tensors.</span>
+<span class="ansi-green-fg">-&gt; 1149</span> maybe_arr <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_numpy</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>  <span style="color: rgb(95,135,135)"># pylint: disable=protected-access</span>
+<span class="ansi-green-intense-fg ansi-bold">   1150</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> maybe_arr<span style="color: rgb(98,98,98)">.</span>copy() <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(maybe_arr, np<span style="color: rgb(98,98,98)">.</span>ndarray) <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> maybe_arr
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/ops.py:1115</span>, in <span class="ansi-cyan-fg">_EagerTensorBase._numpy</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1113</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_numpy</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-intense-fg ansi-bold">   1114</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 1115</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_numpy_internal</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1116</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> core<span style="color: rgb(98,98,98)">.</span>_NotOkStatusException <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint: disable=protected-access</span>
+<span class="ansi-green-intense-fg ansi-bold">   1117</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> core<span style="color: rgb(98,98,98)">.</span>_status_to_exception(e) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span style="color: rgb(0,135,0)">None</span>
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
 </div>
-
 </div>
 
 </div>
@@ -1203,6 +1222,7 @@ Epoch 50/50
 <span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 </pre></div>
