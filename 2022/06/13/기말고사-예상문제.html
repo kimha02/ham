@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      22 min read
+      25 min read
     
 </span></p>
 
@@ -1878,100 +1878,18 @@ Epoch 3/3
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-06-13 16:13:34.505162: W tensorflow/core/common_runtime/bfc_allocator.cc:462] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.14GiB (rounded to 1228800000)requested by op _EagerConst
-If the cause is memory fragmentation maybe the environment variable &#39;TF_GPU_ALLOCATOR=cuda_malloc_async&#39; will improve the situation. 
-Current allocation summary follows.
-Current allocation summary follows.
-2022-06-13 16:13:34.505206: I tensorflow/core/common_runtime/bfc_allocator.cc:1010] BFCAllocator dump for GPU_0_bfc
-2022-06-13 16:13:34.505217: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (256): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505223: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (512): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505229: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (1024): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505234: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (2048): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505240: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (4096): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505245: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (8192): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505250: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">InternalError</span>                             Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [8]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span> X <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">x_train</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">reshape</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">-</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">32</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">32</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">3</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">float64</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> y <span style="color: rgb(98,98,98)">=</span> tf<span style="color: rgb(98,98,98)">.</span>keras<span style="color: rgb(98,98,98)">.</span>utils<span style="color: rgb(98,98,98)">.</span>to_categorical(y_train)
-<span class="ansi-green-intense-fg ansi-bold">      3</span> XX <span style="color: rgb(98,98,98)">=</span> tf<span style="color: rgb(98,98,98)">.</span>constant(x_test<span style="color: rgb(98,98,98)">.</span>reshape(<span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">1</span>,<span style="color: rgb(98,98,98)">32</span>,<span style="color: rgb(98,98,98)">32</span>,<span style="color: rgb(98,98,98)">3</span>),dtype<span style="color: rgb(98,98,98)">=</span>tf<span style="color: rgb(98,98,98)">.</span>float64)
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:271</span>, in <span class="ansi-cyan-fg">constant</span><span class="ansi-blue-fg">(value, dtype, shape, name)</span>
-<span class="ansi-green-intense-fg ansi-bold">    174</span> <span style="color: rgb(175,0,255)">@tf_export</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">constant</span><span style="color: rgb(175,0,0)">&#34;</span>, v1<span style="color: rgb(98,98,98)">=</span>[])
-<span class="ansi-green-intense-fg ansi-bold">    175</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">constant</span>(value, dtype<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, shape<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, name<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Const</span><span style="color: rgb(175,0,0)">&#34;</span>):
-<span class="ansi-green-intense-fg ansi-bold">    176</span>   <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Creates a constant tensor from a tensor-like object.</span>
-<span class="ansi-green-intense-fg ansi-bold">    177</span> 
-<span class="ansi-green-intense-fg ansi-bold">    178</span> <span style="color: rgb(175,0,0)">  Note: All eager `tf.Tensor` values are immutable (in contrast to</span>
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">    269</span> <span style="color: rgb(175,0,0)">    ValueError: if called on a symbolic tensor.</span>
-<span class="ansi-green-intense-fg ansi-bold">    270</span> <span style="color: rgb(175,0,0)">  &#34;&#34;&#34;</span>
-<span class="ansi-green-fg">--&gt; 271</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_constant_impl</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">shape</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">verify_shape</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    272</span> <span class="ansi-yellow-bg">                        </span><span class="ansi-yellow-bg">allow_broadcast</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:283</span>, in <span class="ansi-cyan-fg">_constant_impl</span><span class="ansi-blue-fg">(value, dtype, shape, name, verify_shape, allow_broadcast)</span>
-<span class="ansi-green-intense-fg ansi-bold">    281</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> trace<span style="color: rgb(98,98,98)">.</span>Trace(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">tf.constant</span><span style="color: rgb(175,0,0)">&#34;</span>):
-<span class="ansi-green-intense-fg ansi-bold">    282</span>       <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> _constant_eager_impl(ctx, value, dtype, shape, verify_shape)
-<span class="ansi-green-fg">--&gt; 283</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_constant_eager_impl</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">ctx</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">shape</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">verify_shape</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    285</span> g <span style="color: rgb(98,98,98)">=</span> ops<span style="color: rgb(98,98,98)">.</span>get_default_graph()
-<span class="ansi-green-intense-fg ansi-bold">    286</span> tensor_value <span style="color: rgb(98,98,98)">=</span> attr_value_pb2<span style="color: rgb(98,98,98)">.</span>AttrValue()
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:308</span>, in <span class="ansi-cyan-fg">_constant_eager_impl</span><span class="ansi-blue-fg">(ctx, value, dtype, shape, verify_shape)</span>
-<span class="ansi-green-intense-fg ansi-bold">    306</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_constant_eager_impl</span>(ctx, value, dtype, shape, verify_shape):
-<span class="ansi-green-intense-fg ansi-bold">    307</span>   <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Creates a constant on the current device.&#34;&#34;&#34;</span>
-<span class="ansi-green-fg">--&gt; 308</span>   t <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">convert_to_eager_tensor</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ctx</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    309</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> shape <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">    310</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> t
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:106</span>, in <span class="ansi-cyan-fg">convert_to_eager_tensor</span><span class="ansi-blue-fg">(value, ctx, dtype)</span>
-<span class="ansi-green-intense-fg ansi-bold">    104</span>     dtype <span style="color: rgb(98,98,98)">=</span> dtypes<span style="color: rgb(98,98,98)">.</span>as_dtype(dtype)<span style="color: rgb(98,98,98)">.</span>as_datatype_enum
-<span class="ansi-green-intense-fg ansi-bold">    105</span> ctx<span style="color: rgb(98,98,98)">.</span>ensure_initialized()
-<span class="ansi-green-fg">--&gt; 106</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">ops</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">EagerTensor</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ctx</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">device_name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">)</span>
-
-<span class="ansi-red-fg">InternalError</span>: Failed copying input tensor from /job:localhost/replica:0/task:0/device:CPU:0 to /job:localhost/replica:0/task:0/device:GPU:0 in order to run _EagerConst: Dst tensor is not initialized.</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre> in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505255: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (32768): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505260: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (65536): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505266: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (131072): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505271: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (262144): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505276: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (524288): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505281: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (1048576): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505287: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (2097152): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505292: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (4194304): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505297: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (8388608): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505302: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (16777216): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505307: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (33554432): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505313: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505318: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505323: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (268435456): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
-2022-06-13 16:13:34.505331: I tensorflow/core/common_runtime/bfc_allocator.cc:1033] Bin for 1.14GiB was 256.00MiB, Chunk State: 
-2022-06-13 16:13:34.505338: I tensorflow/core/common_runtime/bfc_allocator.cc:1071]      Summary of in-use Chunks by size: 
-2022-06-13 16:13:34.505343: I tensorflow/core/common_runtime/bfc_allocator.cc:1078] Sum Total of in-use chunks: 0B
-2022-06-13 16:13:34.505348: I tensorflow/core/common_runtime/bfc_allocator.cc:1080] total_region_allocated_bytes_: 0 memory_limit_: 545325056 available bytes: 545325056 curr_region_allocation_bytes_: 545325056
-2022-06-13 16:13:34.505356: I tensorflow/core/common_runtime/bfc_allocator.cc:1086] Stats: 
-Limit:                       545325056
-InUse:                               0
-MaxInUse:                            0
-NumAllocs:                           0
-MaxAllocSize:                        0
-Reserved:                            0
-PeakReserved:                        0
-LargestFreeBlock:                    0
-
-2022-06-13 16:13:34.505360: W tensorflow/core/common_runtime/bfc_allocator.cc:474] &lt;allocator contains no memory&gt;
+<pre>2022-06-13 16:52:14.056288: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:14.089675: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:14.090114: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:14.091078: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-06-13 16:52:14.091595: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:14.092270: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:14.093002: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:15.075784: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:15.076106: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:15.076390: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-06-13 16:52:15.076663: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6846 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:09:00.0, compute capability: 8.6
 </pre>
 </div>
 </div>
@@ -1996,6 +1914,23 @@ LargestFreeBlock:                    0
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(50000, 32, 32, 3)
+(50000, 10)
+(10000, 32, 32, 3)
+(10000, 10)
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2028,6 +1963,73 @@ LargestFreeBlock:                    0
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/10
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-06-13 16:52:18.424540: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8201
+2022-06-13 16:52:19.282687: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2022-06-13 16:52:19.282956: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2022-06-13 16:52:19.282967: W tensorflow/stream_executor/gpu/asm_compiler.cc:80] Couldn&#39;t get ptxas version string: INTERNAL: Couldn&#39;t invoke ptxas --version
+2022-06-13 16:52:19.283271: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2022-06-13 16:52:19.283300: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] INTERNAL: Failed to launch ptxas
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2022-06-13 16:52:22.360291: I tensorflow/stream_executor/cuda/cuda_blas.cc:1774] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>250/250 [==============================] - 41s 137ms/step - loss: 3.1097 - accuracy: 0.3743
+Epoch 2/10
+250/250 [==============================] - 34s 137ms/step - loss: 1.2262 - accuracy: 0.5678
+Epoch 3/10
+250/250 [==============================] - 34s 137ms/step - loss: 0.9779 - accuracy: 0.6619
+Epoch 4/10
+250/250 [==============================] - 34s 137ms/step - loss: 0.8299 - accuracy: 0.7142
+Epoch 5/10
+250/250 [==============================] - 34s 137ms/step - loss: 0.7162 - accuracy: 0.7543
+Epoch 6/10
+250/250 [==============================] - 34s 137ms/step - loss: 0.6242 - accuracy: 0.7855
+Epoch 7/10
+250/250 [==============================] - 34s 137ms/step - loss: 0.5410 - accuracy: 0.8134
+Epoch 8/10
+250/250 [==============================] - 34s 138ms/step - loss: 0.4542 - accuracy: 0.8425
+Epoch 9/10
+250/250 [==============================] - 34s 137ms/step - loss: 0.3844 - accuracy: 0.8649
+Epoch 10/10
+250/250 [==============================] - 34s 137ms/step - loss: 0.3225 - accuracy: 0.8862
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7faed01164a0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -2045,6 +2047,30 @@ LargestFreeBlock:                    0
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 6s 17ms/step - loss: 1.0152 - accuracy: 0.7119
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1.01518714427948, 0.711899995803833]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -2055,10 +2081,85 @@ LargestFreeBlock:                    0
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">summary</span><span class="p">(</span><span class="n">net3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net3</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: &#34;sequential&#34;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 31, 31, 500)       6500      
+                                                                 
+ conv2d_1 (Conv2D)           (None, 30, 30, 500)       1000500   
+                                                                 
+ max_pooling2d (MaxPooling2D  (None, 15, 15, 500)      0         
+ )                                                               
+                                                                 
+ conv2d_2 (Conv2D)           (None, 14, 14, 500)       1000500   
+                                                                 
+ conv2d_3 (Conv2D)           (None, 13, 13, 500)       1000500   
+                                                                 
+ max_pooling2d_1 (MaxPooling  (None, 6, 6, 500)        0         
+ 2D)                                                             
+                                                                 
+ flatten (Flatten)           (None, 18000)             0         
+                                                                 
+ dense (Dense)               (None, 128)               2304128   
+                                                                 
+ dense_1 (Dense)             (None, 10)                1290      
+                                                                 
+=================================================================
+Total params: 5,313,418
+Trainable params: 5,313,418
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="mi">18000</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">128</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2304128</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -2169,11 +2270,439 @@ LargestFreeBlock:                    0
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A : 1</p>
+<p>A : 729</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">XX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">net4</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net4</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net4</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">729</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">27</span><span class="o">*</span><span class="mi">27</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>729</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.image.AxesImage at 0x7fadb203f6a0&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net4</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 729), dtype=float32, numpy=
+array([[1.10329315e+02, 0.00000000e+00, 0.00000000e+00, 8.15098572e+01,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        2.43397766e+02, 6.24761124e+01, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        9.71506348e+01, 3.12796478e+02, 6.28247719e+01, 2.17005081e+02,
+        1.36487488e+02, 0.00000000e+00, 2.02540649e+02, 2.55946243e+02,
+        0.00000000e+00, 0.00000000e+00, 2.48112457e+02, 1.86817307e+02,
+        1.91894592e+02, 1.78656616e+01, 4.82891159e+01, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 2.19500504e+01, 0.00000000e+00,
+        0.00000000e+00, 7.29396820e+01, 2.00965637e+02, 1.08758881e+02,
+        0.00000000e+00, 0.00000000e+00, 2.09549637e+01, 1.86939148e+02,
+        0.00000000e+00, 4.64130096e+01, 1.14422737e+02, 1.00170792e+02,
+        0.00000000e+00, 1.33816376e+02, 7.21010895e+01, 1.01253906e+02,
+        5.30298996e+01, 1.78686935e+02, 3.87544479e+01, 0.00000000e+00,
+        1.08248093e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        1.31711838e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.37822937e+02,
+        1.64465363e+02, 0.00000000e+00, 1.26343483e+02, 5.42626953e+01,
+        1.80487030e+02, 5.04218750e+01, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.80877609e+02,
+        4.13152847e+01, 2.35480438e+02, 0.00000000e+00, 9.95646667e+01,
+        0.00000000e+00, 0.00000000e+00, 2.17907745e+02, 4.24944534e+01,
+        2.61993561e+01, 0.00000000e+00, 2.42932510e+01, 0.00000000e+00,
+        0.00000000e+00, 3.30233688e+01, 2.50262451e+01, 0.00000000e+00,
+        0.00000000e+00, 2.61380859e+02, 0.00000000e+00, 6.03871689e+01,
+        1.02619904e+02, 0.00000000e+00, 1.16414398e+02, 1.49239685e+02,
+        0.00000000e+00, 1.72471848e+02, 5.65600281e+01, 2.16509781e+02,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.57567245e+02,
+        2.89411163e+01, 0.00000000e+00, 0.00000000e+00, 9.25272522e+01,
+        2.57895927e+01, 1.42763702e+02, 0.00000000e+00, 0.00000000e+00,
+        3.86087723e+01, 0.00000000e+00, 5.95147362e+01, 5.30501404e+01,
+        1.57758423e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.89957947e+02, 0.00000000e+00,
+        3.59352722e+01, 0.00000000e+00, 0.00000000e+00, 1.17198608e+02,
+        0.00000000e+00, 5.12946930e+01, 1.43184479e+02, 0.00000000e+00,
+        1.04167046e+02, 2.06210587e+02, 0.00000000e+00, 1.43657654e+02,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 9.61128387e+01, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 1.50732651e+02, 0.00000000e+00, 4.82995872e+01,
+        0.00000000e+00, 1.03887939e+01, 8.70742798e-02, 0.00000000e+00,
+        6.49200134e+01, 0.00000000e+00, 1.56640411e+02, 2.03310471e+01,
+        1.82920013e+02, 2.00455948e+02, 1.30041183e+02, 6.54383621e+01,
+        1.33053070e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        2.57121246e+02, 0.00000000e+00, 0.00000000e+00, 2.56991577e+02,
+        2.57056427e+01, 0.00000000e+00, 0.00000000e+00, 2.46103775e+02,
+        2.85319885e+02, 1.80950928e+02, 0.00000000e+00, 0.00000000e+00,
+        2.15625977e+02, 4.62135773e+02, 0.00000000e+00, 0.00000000e+00,
+        6.27292480e+01, 1.45403564e+02, 4.10547638e+00, 7.30740356e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        3.08268204e+01, 0.00000000e+00, 2.35357300e+02, 2.28966644e+02,
+        2.88627258e+02, 0.00000000e+00, 0.00000000e+00, 1.14434769e+02,
+        1.20091782e+02, 1.33274109e+02, 9.36813126e+01, 3.71007294e+02,
+        0.00000000e+00, 2.65253296e+01, 8.12598572e+01, 2.37603638e+02,
+        1.74996033e+01, 0.00000000e+00, 5.17205353e+01, 0.00000000e+00,
+        2.39766266e+02, 0.00000000e+00, 1.69582596e+01, 0.00000000e+00,
+        1.22577255e+02, 0.00000000e+00, 0.00000000e+00, 2.77445183e+01,
+        1.71304169e+01, 1.50963837e+02, 2.35603161e+01, 0.00000000e+00,
+        1.37219696e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 8.63583984e+01, 0.00000000e+00, 3.14819885e+02,
+        2.87259674e+01, 0.00000000e+00, 0.00000000e+00, 7.03692245e+01,
+        8.29209595e+01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 5.06893959e+01, 2.79400253e+01,
+        1.44009567e+02, 0.00000000e+00, 2.64389923e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 8.35529709e+00, 0.00000000e+00,
+        0.00000000e+00, 8.05984650e+01, 0.00000000e+00, 9.05198822e+01,
+        0.00000000e+00, 4.88293037e+01, 0.00000000e+00, 9.92312927e+01,
+        0.00000000e+00, 0.00000000e+00, 4.22671280e+01, 0.00000000e+00,
+        2.74079834e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        2.44050446e+02, 3.00490326e+02, 0.00000000e+00, 2.05181534e+02,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 8.17968140e+01,
+        6.24333954e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        1.22156578e+02, 0.00000000e+00, 3.73597679e+01, 0.00000000e+00,
+        1.63152634e+02, 0.00000000e+00, 2.91121216e+02, 3.29257568e+02,
+        6.13424683e+00, 0.00000000e+00, 7.40894165e+01, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.27560974e+02,
+        3.89185600e+01, 1.86586975e+02, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.09705391e+02, 0.00000000e+00,
+        2.00791107e+02, 0.00000000e+00, 1.98684525e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.77546539e+01, 0.00000000e+00,
+        1.72310852e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.59565468e+01, 0.00000000e+00,
+        5.28982315e+01, 0.00000000e+00, 2.50713425e+02, 0.00000000e+00,
+        2.61737122e+02, 1.08421570e+02, 1.24701843e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 7.76705627e+01, 1.03298508e+02,
+        0.00000000e+00, 0.00000000e+00, 1.66156143e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        5.47565651e+01, 1.27744133e+02, 0.00000000e+00, 5.69300194e+01,
+        0.00000000e+00, 2.64025604e+02, 4.62226372e+01, 0.00000000e+00,
+        2.64149963e+02, 0.00000000e+00, 1.93644562e+02, 0.00000000e+00,
+        0.00000000e+00, 1.00123383e+02, 0.00000000e+00, 1.22092606e+02,
+        0.00000000e+00, 0.00000000e+00, 1.78775330e+02, 0.00000000e+00,
+        0.00000000e+00, 4.89320374e+01, 2.81494446e+02, 1.22848267e+02,
+        0.00000000e+00, 8.44056015e+01, 0.00000000e+00, 0.00000000e+00,
+        1.80078964e+02, 0.00000000e+00, 7.80479431e+00, 1.10827759e+02,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 2.54230682e+02,
+        1.39650879e+02, 1.34571320e+02, 1.34163956e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.34671478e+02, 3.79388046e+00,
+        0.00000000e+00, 0.00000000e+00, 4.55619812e+00, 0.00000000e+00,
+        0.00000000e+00, 1.48856873e+02, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 1.94995575e+01, 3.43118763e+00, 3.30243286e+02,
+        2.70654663e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        1.79189529e+01, 1.72325714e+02, 6.59810333e+01, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        3.47620941e+02, 7.98893356e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 1.67833527e+02, 2.03836639e+02, 2.96449738e+01,
+        3.21274628e+02, 0.00000000e+00, 0.00000000e+00, 2.19565678e+01,
+        2.17533112e+01, 0.00000000e+00, 7.42846680e+01, 2.56061676e+02,
+        6.25383949e+01, 0.00000000e+00, 0.00000000e+00, 1.32758362e+02,
+        0.00000000e+00, 3.94366646e+00, 1.06637405e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        2.17703583e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        3.44753296e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 3.44457245e+00,
+        0.00000000e+00, 6.47388077e+01, 3.54433441e+00, 1.50253143e+01,
+        1.34987640e+02, 0.00000000e+00, 2.35770493e+01, 1.75674591e+01,
+        0.00000000e+00, 0.00000000e+00, 6.07507973e+01, 3.60165062e+01,
+        0.00000000e+00, 0.00000000e+00, 2.05348480e+02, 3.43588028e+01,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 7.33892670e+01, 0.00000000e+00,
+        0.00000000e+00, 7.61786652e+01, 1.05534927e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.31817474e+02,
+        1.85197815e+02, 0.00000000e+00, 0.00000000e+00, 9.89376831e+00,
+        3.51303940e+01, 0.00000000e+00, 0.00000000e+00, 8.22819672e+01,
+        3.23183228e+02, 0.00000000e+00, 5.06177521e+00, 1.28375702e+02,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.27910461e+02,
+        1.44862793e+02, 0.00000000e+00, 3.95742111e+01, 0.00000000e+00,
+        3.12837891e+02, 0.00000000e+00, 7.80460205e+01, 5.65488548e+01,
+        8.88177414e+01, 4.62750244e+01, 0.00000000e+00, 4.43943634e+01,
+        6.32217369e+01, 0.00000000e+00, 0.00000000e+00, 1.39277893e+02,
+        0.00000000e+00, 0.00000000e+00, 4.02141907e+02, 0.00000000e+00,
+        4.57167664e+02, 8.51545944e+01, 5.48481750e+01, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.40287781e+00,
+        6.83395386e-01, 1.21378235e+02, 0.00000000e+00, 0.00000000e+00,
+        1.12467438e+02, 9.90335846e+01, 0.00000000e+00, 1.49579147e+02,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 3.37531357e+01,
+        3.72570229e+01, 0.00000000e+00, 0.00000000e+00, 1.75661926e+01,
+        1.64380890e+02, 6.79317474e-01, 5.10176849e+01, 9.25529480e+01,
+        0.00000000e+00, 1.38671844e+02, 4.93234940e+01, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 2.47526169e+01, 8.69730072e+01,
+        0.00000000e+00, 8.99633789e+01, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.93108215e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.22900658e+02, 1.60243134e+02,
+        2.00111206e+02, 0.00000000e+00, 1.19402153e+02, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 9.57799911e+00, 1.58888992e+02,
+        1.32550323e+02, 7.88211060e+01, 1.54529297e+02, 1.84455307e+02,
+        0.00000000e+00, 2.35585022e+01, 0.00000000e+00, 1.07700638e+02,
+        6.95983315e+00, 0.00000000e+00, 3.69639648e+02, 1.05821762e+01,
+        5.12961349e+01, 2.72496490e+01, 3.45576439e+01, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 2.08376617e+01, 0.00000000e+00,
+        3.50559082e+01, 1.64995972e+02, 0.00000000e+00, 0.00000000e+00,
+        1.95735901e+02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        1.53720970e+01, 1.32565231e+01, 2.18447571e+01, 0.00000000e+00,
+        9.45960617e+01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 3.08605118e+01, 0.00000000e+00, 7.69732971e+01,
+        4.72665253e+01, 5.34819870e+01, 0.00000000e+00, 0.00000000e+00,
+        4.14119606e+01, 8.83373260e-01, 9.16106262e+01, 0.00000000e+00,
+        2.20458969e+02, 1.05282143e+02, 2.57286263e+01, 2.11969223e+01,
+        0.00000000e+00, 2.35071716e+02, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 4.00828552e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 1.79293304e+02, 1.22635803e+02, 0.00000000e+00,
+        1.41612503e+02, 1.52787292e+02, 0.00000000e+00, 1.56288929e+01,
+        0.00000000e+00, 3.25996056e+01, 1.94985687e+02, 0.00000000e+00,
+        0.00000000e+00, 1.77930695e+02, 0.00000000e+00, 0.00000000e+00,
+        8.79331512e+01, 0.00000000e+00, 1.19551300e+02, 0.00000000e+00,
+        8.89521179e+01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 1.02629990e+02, 0.00000000e+00, 6.08384171e+01,
+        0.00000000e+00, 0.00000000e+00, 3.42490997e+01, 0.00000000e+00,
+        0.00000000e+00, 4.09014969e+01, 0.00000000e+00, 1.25844093e+02,
+        0.00000000e+00, 4.78698730e-01, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 5.53639259e+01, 0.00000000e+00, 0.00000000e+00,
+        1.18833633e+02, 0.00000000e+00, 9.73598175e+01, 0.00000000e+00,
+        0.00000000e+00, 2.52154556e+02, 2.84631805e+02, 7.37510300e+01,
+        0.00000000e+00, 0.00000000e+00, 1.42746796e+02, 8.40507812e+01,
+        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 3.35954399e+01, 0.00000000e+00, 2.52374969e+02,
+        6.33510399e+01, 2.00345535e+01, 0.00000000e+00, 0.00000000e+00,
+        0.00000000e+00, 0.00000000e+00, 1.36003387e+02, 0.00000000e+00,
+        0.00000000e+00]], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span><span class="o">=</span><span class="n">net4</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">XXX</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.image.AxesImage at 0x7fadb1e1ab90&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
