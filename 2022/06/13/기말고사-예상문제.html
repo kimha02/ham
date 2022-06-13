@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      22 min read
     
 </span></p>
 
@@ -187,21 +187,6 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The tensorboard extension is already loaded. To reload it, use:
-  %reload_ext tensorboard
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -806,7 +791,7 @@ window.onload = wrap_img;
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -820,25 +805,25 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 2.5210 - accuracy: 0.1373
+300/300 [==============================] - 3s 10ms/step - loss: 4.2346 - accuracy: 0.1239
 Epoch 2/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.7486 - accuracy: 0.2578
+300/300 [==============================] - 3s 10ms/step - loss: 2.0610 - accuracy: 0.2200
 Epoch 3/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.5934 - accuracy: 0.3194
+300/300 [==============================] - 3s 10ms/step - loss: 1.9304 - accuracy: 0.2559
 Epoch 4/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.5165 - accuracy: 0.3574
+300/300 [==============================] - 3s 10ms/step - loss: 1.6939 - accuracy: 0.3190
 Epoch 5/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.3497 - accuracy: 0.4316
+300/300 [==============================] - 3s 10ms/step - loss: 1.4987 - accuracy: 0.3839
 Epoch 6/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.3003 - accuracy: 0.4457
+300/300 [==============================] - 3s 10ms/step - loss: 1.3747 - accuracy: 0.4259
 Epoch 7/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.2845 - accuracy: 0.4462
+300/300 [==============================] - 3s 10ms/step - loss: 1.3239 - accuracy: 0.4353
 Epoch 8/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.2726 - accuracy: 0.4517
+300/300 [==============================] - 3s 10ms/step - loss: 1.2969 - accuracy: 0.4404
 Epoch 9/10
-1875/1875 [==============================] - 18s 10ms/step - loss: 1.2789 - accuracy: 0.4510
+300/300 [==============================] - 3s 10ms/step - loss: 1.1533 - accuracy: 0.5128
 Epoch 10/10
-1875/1875 [==============================] - 18s 9ms/step - loss: 1.2564 - accuracy: 0.4556
+300/300 [==============================] - 3s 10ms/step - loss: 1.1005 - accuracy: 0.5340
 </pre>
 </div>
 </div>
@@ -848,7 +833,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fdd140fc400&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7fe2e8800b20&gt;</pre>
 </div>
 
 </div>
@@ -886,7 +871,7 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 4s 12ms/step - loss: 1.2462 - accuracy: 0.4610
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 1.1445 - accuracy: 0.5210
 </pre>
 </div>
 </div>
@@ -896,7 +881,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[1.2461601495742798, 0.460999995470047]</pre>
+<pre>[1.1445320844650269, 0.5210000276565552]</pre>
 </div>
 
 </div>
@@ -927,7 +912,7 @@ Epoch 10/10
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
-<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -963,130 +948,113 @@ Epoch 10/10
 Epoch 2/50
 240/240 [==============================] - 3s 12ms/step - loss: 2.1072 - accuracy: 0.2081 - val_loss: 2.0320 - val_accuracy: 0.2234
 Epoch 3/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.9800 - accuracy: 0.2413 - val_loss: 1.9648 - val_accuracy: 0.2407
+240/240 [==============================] - 3s 12ms/step - loss: 1.9789 - accuracy: 0.2408 - val_loss: 1.9763 - val_accuracy: 0.2341
 Epoch 4/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.8763 - accuracy: 0.2677 - val_loss: 1.7393 - val_accuracy: 0.3228
+240/240 [==============================] - 3s 12ms/step - loss: 1.8792 - accuracy: 0.2676 - val_loss: 1.7629 - val_accuracy: 0.3080
 Epoch 5/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.6501 - accuracy: 0.3335 - val_loss: 1.4906 - val_accuracy: 0.4201
+240/240 [==============================] - 3s 13ms/step - loss: 1.6769 - accuracy: 0.3171 - val_loss: 1.6306 - val_accuracy: 0.3285
 Epoch 6/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.4070 - accuracy: 0.4271 - val_loss: 1.4017 - val_accuracy: 0.4347
+240/240 [==============================] - 3s 12ms/step - loss: 1.4436 - accuracy: 0.4151 - val_loss: 1.3516 - val_accuracy: 0.4481
 Epoch 7/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.3177 - accuracy: 0.4589 - val_loss: 1.2631 - val_accuracy: 0.4858
+240/240 [==============================] - 3s 13ms/step - loss: 1.2371 - accuracy: 0.5032 - val_loss: 1.1990 - val_accuracy: 0.5272
 Epoch 8/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.2193 - accuracy: 0.4986 - val_loss: 1.1797 - val_accuracy: 0.5231
+240/240 [==============================] - 3s 12ms/step - loss: 1.1296 - accuracy: 0.5491 - val_loss: 1.1834 - val_accuracy: 0.5412
 Epoch 9/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.1593 - accuracy: 0.5076 - val_loss: 1.1502 - val_accuracy: 0.5035
+240/240 [==============================] - 3s 12ms/step - loss: 1.0734 - accuracy: 0.5696 - val_loss: 1.0694 - val_accuracy: 0.5749
 Epoch 10/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.1192 - accuracy: 0.5219 - val_loss: 1.1181 - val_accuracy: 0.5215
+240/240 [==============================] - 3s 12ms/step - loss: 1.0117 - accuracy: 0.5898 - val_loss: 1.0358 - val_accuracy: 0.5943
 Epoch 11/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.1036 - accuracy: 0.5232 - val_loss: 1.1034 - val_accuracy: 0.5272
+240/240 [==============================] - 3s 13ms/step - loss: 0.9887 - accuracy: 0.5967 - val_loss: 0.9723 - val_accuracy: 0.6065
 Epoch 12/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.1047 - accuracy: 0.5260 - val_loss: 1.0978 - val_accuracy: 0.5346
+240/240 [==============================] - 3s 13ms/step - loss: 0.9597 - accuracy: 0.6037 - val_loss: 1.0062 - val_accuracy: 0.5898
 Epoch 13/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.0919 - accuracy: 0.5305 - val_loss: 1.1151 - val_accuracy: 0.5376
+240/240 [==============================] - 3s 12ms/step - loss: 0.9461 - accuracy: 0.6071 - val_loss: 0.9625 - val_accuracy: 0.6115
 Epoch 14/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.0874 - accuracy: 0.5318 - val_loss: 1.1376 - val_accuracy: 0.5148
+240/240 [==============================] - 3s 12ms/step - loss: 0.9277 - accuracy: 0.6154 - val_loss: 0.9457 - val_accuracy: 0.6148
 Epoch 15/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.0844 - accuracy: 0.5339 - val_loss: 1.1050 - val_accuracy: 0.5427
+240/240 [==============================] - 3s 12ms/step - loss: 0.9367 - accuracy: 0.6116 - val_loss: 0.9294 - val_accuracy: 0.6178
 Epoch 16/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.0821 - accuracy: 0.5365 - val_loss: 1.0916 - val_accuracy: 0.5452
+240/240 [==============================] - 3s 13ms/step - loss: 0.9100 - accuracy: 0.6225 - val_loss: 0.9491 - val_accuracy: 0.6132
 Epoch 17/50
-235/240 [============================&gt;.] - ETA: 0s - loss: 1.0658 - accuracy: 0.5441</pre>
+240/240 [==============================] - 3s 12ms/step - loss: 0.9018 - accuracy: 0.6231 - val_loss: 0.9077 - val_accuracy: 0.6273
+Epoch 18/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8963 - accuracy: 0.6278 - val_loss: 0.9331 - val_accuracy: 0.6200
+Epoch 19/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8998 - accuracy: 0.6237 - val_loss: 0.9425 - val_accuracy: 0.6184
+Epoch 20/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.8883 - accuracy: 0.6299 - val_loss: 0.9221 - val_accuracy: 0.6291
+Epoch 21/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.8784 - accuracy: 0.6326 - val_loss: 0.9137 - val_accuracy: 0.6253
+Epoch 22/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8801 - accuracy: 0.6333 - val_loss: 0.9193 - val_accuracy: 0.6357
+Epoch 23/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8666 - accuracy: 0.6396 - val_loss: 0.8989 - val_accuracy: 0.6466
+Epoch 24/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.8661 - accuracy: 0.6435 - val_loss: 0.8866 - val_accuracy: 0.6543
+Epoch 25/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.8444 - accuracy: 0.6607 - val_loss: 0.9031 - val_accuracy: 0.6628
+Epoch 26/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8445 - accuracy: 0.6672 - val_loss: 0.8779 - val_accuracy: 0.6492
+Epoch 27/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8237 - accuracy: 0.6727 - val_loss: 0.8399 - val_accuracy: 0.6778
+Epoch 28/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8177 - accuracy: 0.6744 - val_loss: 0.8629 - val_accuracy: 0.6746
+Epoch 29/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.8194 - accuracy: 0.6771 - val_loss: 0.8621 - val_accuracy: 0.6678
+Epoch 30/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.8064 - accuracy: 0.6867 - val_loss: 0.8720 - val_accuracy: 0.6834
+Epoch 31/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7969 - accuracy: 0.7028 - val_loss: 0.8375 - val_accuracy: 0.7080
+Epoch 32/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7886 - accuracy: 0.7036 - val_loss: 0.8503 - val_accuracy: 0.7038
+Epoch 33/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7957 - accuracy: 0.7092 - val_loss: 0.8128 - val_accuracy: 0.7089
+Epoch 34/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7799 - accuracy: 0.7158 - val_loss: 0.7984 - val_accuracy: 0.7227
+Epoch 35/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.7601 - accuracy: 0.7369 - val_loss: 0.8089 - val_accuracy: 0.7314
+Epoch 36/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.7415 - accuracy: 0.7480 - val_loss: 0.8655 - val_accuracy: 0.6987
+Epoch 37/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7484 - accuracy: 0.7452 - val_loss: 0.7784 - val_accuracy: 0.7424
+Epoch 38/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7235 - accuracy: 0.7507 - val_loss: 0.7365 - val_accuracy: 0.7563
+Epoch 39/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7110 - accuracy: 0.7540 - val_loss: 0.7873 - val_accuracy: 0.7326
+Epoch 40/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7101 - accuracy: 0.7551 - val_loss: 0.7537 - val_accuracy: 0.7513
+Epoch 41/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7023 - accuracy: 0.7564 - val_loss: 0.7388 - val_accuracy: 0.7632
+Epoch 42/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.7065 - accuracy: 0.7562 - val_loss: 0.7417 - val_accuracy: 0.7540
+Epoch 43/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.7099 - accuracy: 0.7546 - val_loss: 0.7447 - val_accuracy: 0.7466
+Epoch 44/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.6816 - accuracy: 0.7620 - val_loss: 0.7312 - val_accuracy: 0.7477
+Epoch 45/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.6851 - accuracy: 0.7629 - val_loss: 0.7287 - val_accuracy: 0.7558
+Epoch 46/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.6763 - accuracy: 0.7635 - val_loss: 0.7109 - val_accuracy: 0.7639
+Epoch 47/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.6852 - accuracy: 0.7595 - val_loss: 0.7147 - val_accuracy: 0.7618
+Epoch 48/50
+240/240 [==============================] - 3s 13ms/step - loss: 0.6773 - accuracy: 0.7627 - val_loss: 0.7169 - val_accuracy: 0.7558
+Epoch 49/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.6768 - accuracy: 0.7622 - val_loss: 0.7612 - val_accuracy: 0.7499
+Epoch 50/50
+240/240 [==============================] - 3s 12ms/step - loss: 0.6813 - accuracy: 0.7611 - val_loss: 0.7173 - val_accuracy: 0.7591
+</pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [134]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 2&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> cb1 <span style="color: rgb(98,98,98)">=</span> tf<span style="color: rgb(98,98,98)">.</span>keras<span style="color: rgb(98,98,98)">.</span>callbacks<span style="color: rgb(98,98,98)">.</span>TensorBoard()
-<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">net1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">X</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">epochs</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">50</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">batch_size</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">200</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">validation_split</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0.2</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">cb1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">verbose</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/utils/traceback_utils.py:64</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     62</span> filtered_tb <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
-<span class="ansi-green-intense-fg ansi-bold">     63</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">---&gt; 64</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">fn</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint: disable=broad-except</span>
-<span class="ansi-green-intense-fg ansi-bold">     66</span>   filtered_tb <span style="color: rgb(98,98,98)">=</span> _process_traceback_frames(e<span style="color: rgb(98,98,98)">.</span>__traceback__)
 
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/training.py:1252</span>, in <span class="ansi-cyan-fg">Model.fit</span><span class="ansi-blue-fg">(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, validation_batch_size, validation_freq, max_queue_size, workers, use_multiprocessing)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1238</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">getattr</span>(<span style="color: rgb(0,135,0)">self</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">_eval_data_handler</span><span style="color: rgb(175,0,0)">&#39;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>) <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">   1239</span>   <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_eval_data_handler <span style="color: rgb(98,98,98)">=</span> data_adapter<span style="color: rgb(98,98,98)">.</span>get_data_handler(
-<span class="ansi-green-intense-fg ansi-bold">   1240</span>       x<span style="color: rgb(98,98,98)">=</span>val_x,
-<span class="ansi-green-intense-fg ansi-bold">   1241</span>       y<span style="color: rgb(98,98,98)">=</span>val_y,
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1250</span>       model<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span>,
-<span class="ansi-green-intense-fg ansi-bold">   1251</span>       steps_per_execution<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_steps_per_execution)
-<span class="ansi-green-fg">-&gt; 1252</span> val_logs <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">evaluate</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">   1253</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_x</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1254</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_y</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1255</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">sample_weight</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_sample_weight</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1256</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">batch_size</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">validation_batch_size</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(175,0,255)">or</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">batch_size</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1257</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">steps</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">validation_steps</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1258</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1259</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">max_queue_size</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">max_queue_size</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1260</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">workers</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">workers</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1261</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">use_multiprocessing</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">use_multiprocessing</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1262</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">return_dict</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1263</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">_use_cached_eval_dataset</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1264</span> val_logs <span style="color: rgb(98,98,98)">=</span> {<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">val_</span><span style="color: rgb(175,0,0)">&#39;</span> <span style="color: rgb(98,98,98)">+</span> name: val <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> name, val <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> val_logs<span style="color: rgb(98,98,98)">.</span>items()}
-<span class="ansi-green-intense-fg ansi-bold">   1265</span> epoch_logs<span style="color: rgb(98,98,98)">.</span>update(val_logs)
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/utils/traceback_utils.py:64</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     62</span> filtered_tb <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
-<span class="ansi-green-intense-fg ansi-bold">     63</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">---&gt; 64</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">fn</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint: disable=broad-except</span>
-<span class="ansi-green-intense-fg ansi-bold">     66</span>   filtered_tb <span style="color: rgb(98,98,98)">=</span> _process_traceback_frames(e<span style="color: rgb(98,98,98)">.</span>__traceback__)
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/training.py:1534</span>, in <span class="ansi-cyan-fg">Model.evaluate</span><span class="ansi-blue-fg">(self, x, y, batch_size, verbose, sample_weight, steps, callbacks, max_queue_size, workers, use_multiprocessing, return_dict, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1532</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>reset_metrics()
-<span class="ansi-green-intense-fg ansi-bold">   1533</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> data_handler<span style="color: rgb(98,98,98)">.</span>catch_stop_iteration():
-<span class="ansi-green-fg">-&gt; 1534</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> step <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> data_handler<span style="color: rgb(98,98,98)">.</span>steps():
-<span class="ansi-green-intense-fg ansi-bold">   1535</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> tf<span style="color: rgb(98,98,98)">.</span>profiler<span style="color: rgb(98,98,98)">.</span>experimental<span style="color: rgb(98,98,98)">.</span>Trace(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">test</span><span style="color: rgb(175,0,0)">&#39;</span>, step_num<span style="color: rgb(98,98,98)">=</span>step, _r<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">1</span>):
-<span class="ansi-green-intense-fg ansi-bold">   1536</span>       callbacks<span style="color: rgb(98,98,98)">.</span>on_test_batch_begin(step)
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/data_adapter.py:1250</span>, in <span class="ansi-cyan-fg">DataHandler.steps</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1248</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_insufficient_data:  <span style="color: rgb(95,135,135)"># Set by `catch_stop_iteration`.</span>
-<span class="ansi-green-intense-fg ansi-bold">   1249</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">break</span>
-<span class="ansi-green-fg">-&gt; 1250</span> original_spe <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_steps_per_execution</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">numpy</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>item()
-<span class="ansi-green-intense-fg ansi-bold">   1251</span> can_run_full_execution <span style="color: rgb(98,98,98)">=</span> (
-<span class="ansi-green-intense-fg ansi-bold">   1252</span>     original_spe <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">1</span> <span class="ansi-bold" style="color: rgb(175,0,255)">or</span>
-<span class="ansi-green-intense-fg ansi-bold">   1253</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_inferred_steps <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(175,0,255)">or</span>
-<span class="ansi-green-intense-fg ansi-bold">   1254</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_inferred_steps <span style="color: rgb(98,98,98)">-</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_current_step <span style="color: rgb(98,98,98)">&gt;</span><span style="color: rgb(98,98,98)">=</span>
-<span class="ansi-green-intense-fg ansi-bold">   1255</span>     original_spe)
-<span class="ansi-green-intense-fg ansi-bold">   1257</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> can_run_full_execution:
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/ops/resource_variable_ops.py:645</span>, in <span class="ansi-cyan-fg">BaseResourceVariable.numpy</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    643</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">numpy</span>(<span style="color: rgb(0,135,0)">self</span>):
-<span class="ansi-green-intense-fg ansi-bold">    644</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> context<span style="color: rgb(98,98,98)">.</span>executing_eagerly():
-<span class="ansi-green-fg">--&gt; 645</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">read_value</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">numpy</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    646</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">NotImplementedError</span>(
-<span class="ansi-green-intense-fg ansi-bold">    647</span>       <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">numpy() is only available when eager execution is enabled.</span><span style="color: rgb(175,0,0)">&#34;</span>)
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/ops.py:1149</span>, in <span class="ansi-cyan-fg">_EagerTensorBase.numpy</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1126</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Copy of the contents of this Tensor into a NumPy array or scalar.</span>
-<span class="ansi-green-intense-fg ansi-bold">   1127</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1128</span> <span style="color: rgb(175,0,0)">Unlike NumPy arrays, Tensors are immutable, so this method has to copy</span>
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1146</span> <span style="color: rgb(175,0,0)">    NumPy dtype.</span>
-<span class="ansi-green-intense-fg ansi-bold">   1147</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1148</span> <span style="color: rgb(95,135,135)"># TODO(slebedev): Consider avoiding a copy for non-CPU or remote tensors.</span>
-<span class="ansi-green-fg">-&gt; 1149</span> maybe_arr <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_numpy</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>  <span style="color: rgb(95,135,135)"># pylint: disable=protected-access</span>
-<span class="ansi-green-intense-fg ansi-bold">   1150</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> maybe_arr<span style="color: rgb(98,98,98)">.</span>copy() <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(maybe_arr, np<span style="color: rgb(98,98,98)">.</span>ndarray) <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> maybe_arr
-
-File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/ops.py:1115</span>, in <span class="ansi-cyan-fg">_EagerTensorBase._numpy</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1113</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_numpy</span>(<span style="color: rgb(0,135,0)">self</span>):
-<span class="ansi-green-intense-fg ansi-bold">   1114</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">-&gt; 1115</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_numpy_internal</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1116</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> core<span style="color: rgb(98,98,98)">.</span>_NotOkStatusException <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint: disable=protected-access</span>
-<span class="ansi-green-intense-fg ansi-bold">   1117</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> core<span style="color: rgb(98,98,98)">.</span>_status_to_exception(e) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span style="color: rgb(0,135,0)">None</span>
-
-<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fe2e94bb9d0&gt;</pre>
 </div>
+
 </div>
 
 </div>
@@ -1115,23 +1083,13 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <div class="output_area">
 
 
-
-<div class="output_text output_subarea ">
-<pre>Reusing TensorBoard on port 6006 (pid 381011), started 0:03:42 ago. (Use &#39;!kill 381011&#39; to kill it.)</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-
 <div class="output_html rendered_html output_subarea ">
 
-      <iframe id="tensorboard-frame-84a65654a6db397f" width="100%" height="800" frameborder="0">
+      <iframe id="tensorboard-frame-1c088995419e970d" width="100%" height="800" frameborder="0">
       </iframe>
       <script>
         (function() {
-          const frame = document.getElementById("tensorboard-frame-84a65654a6db397f");
+          const frame = document.getElementById("tensorboard-frame-1c088995419e970d");
           const url = new URL("/", window.location);
           const port = 6006;
           if (port) {
@@ -1195,7 +1153,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 4s 12ms/step - loss: 0.6981 - accuracy: 0.7451
+<pre>313/313 [==============================] - 4s 12ms/step - loss: 0.7137 - accuracy: 0.7519
 </pre>
 </div>
 </div>
@@ -1205,7 +1163,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0.6980773210525513, 0.7451000213623047]</pre>
+<pre>[0.7136780619621277, 0.7519000172615051]</pre>
 </div>
 
 </div>
@@ -1233,13 +1191,30 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -rf logs
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 <span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
-<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1272,87 +1247,65 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/50
-240/240 [==============================] - 3s 13ms/step - loss: 5.1090 - accuracy: 0.2137 - val_loss: 2.1368 - val_accuracy: 0.1933
+240/240 [==============================] - 3s 13ms/step - loss: 4.7876 - accuracy: 0.1153 - val_loss: 2.2636 - val_accuracy: 0.1415
 Epoch 2/50
-240/240 [==============================] - 3s 12ms/step - loss: 2.0072 - accuracy: 0.2474 - val_loss: 1.8946 - val_accuracy: 0.2803
+240/240 [==============================] - 3s 12ms/step - loss: 2.1072 - accuracy: 0.2081 - val_loss: 2.0320 - val_accuracy: 0.2234
 Epoch 3/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.7588 - accuracy: 0.3419 - val_loss: 1.6635 - val_accuracy: 0.3781
+240/240 [==============================] - 3s 13ms/step - loss: 1.9813 - accuracy: 0.2408 - val_loss: 1.9512 - val_accuracy: 0.2482
 Epoch 4/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.5388 - accuracy: 0.4027 - val_loss: 1.4518 - val_accuracy: 0.4381
+240/240 [==============================] - 3s 13ms/step - loss: 1.8790 - accuracy: 0.2669 - val_loss: 1.7602 - val_accuracy: 0.3180
 Epoch 5/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.3729 - accuracy: 0.4580 - val_loss: 1.3603 - val_accuracy: 0.4713
+240/240 [==============================] - 3s 13ms/step - loss: 1.6791 - accuracy: 0.3177 - val_loss: 1.6264 - val_accuracy: 0.3417
 Epoch 6/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.2552 - accuracy: 0.4972 - val_loss: 1.2395 - val_accuracy: 0.5066
+240/240 [==============================] - 3s 13ms/step - loss: 1.4835 - accuracy: 0.3961 - val_loss: 1.4040 - val_accuracy: 0.4299
 Epoch 7/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.1851 - accuracy: 0.5275 - val_loss: 1.1838 - val_accuracy: 0.5468
+240/240 [==============================] - 3s 12ms/step - loss: 1.3185 - accuracy: 0.4638 - val_loss: 1.2663 - val_accuracy: 0.4893
 Epoch 8/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.1066 - accuracy: 0.5871 - val_loss: 1.1283 - val_accuracy: 0.5978
+240/240 [==============================] - 3s 12ms/step - loss: 1.1621 - accuracy: 0.5391 - val_loss: 1.1622 - val_accuracy: 0.5692
 Epoch 9/50
-240/240 [==============================] - 3s 12ms/step - loss: 1.0591 - accuracy: 0.6004 - val_loss: 1.1061 - val_accuracy: 0.6204
+240/240 [==============================] - 3s 12ms/step - loss: 1.0770 - accuracy: 0.5717 - val_loss: 1.0413 - val_accuracy: 0.5926
 Epoch 10/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.0289 - accuracy: 0.5979 - val_loss: 1.0616 - val_accuracy: 0.6217
+240/240 [==============================] - 3s 12ms/step - loss: 1.0154 - accuracy: 0.5913 - val_loss: 1.0372 - val_accuracy: 0.5913
 Epoch 11/50
-240/240 [==============================] - 3s 13ms/step - loss: 1.0000 - accuracy: 0.6094 - val_loss: 1.0356 - val_accuracy: 0.6182
+240/240 [==============================] - 3s 13ms/step - loss: 0.9886 - accuracy: 0.5957 - val_loss: 0.9802 - val_accuracy: 0.6082
 Epoch 12/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.9802 - accuracy: 0.6125 - val_loss: 1.0176 - val_accuracy: 0.5878
+240/240 [==============================] - 3s 12ms/step - loss: 0.9619 - accuracy: 0.6034 - val_loss: 1.0008 - val_accuracy: 0.6041
 Epoch 13/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9709 - accuracy: 0.6179 - val_loss: 1.0132 - val_accuracy: 0.5531
+240/240 [==============================] - 3s 12ms/step - loss: 0.9531 - accuracy: 0.6075 - val_loss: 0.9587 - val_accuracy: 0.6089
 Epoch 14/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9573 - accuracy: 0.6159 - val_loss: 0.9899 - val_accuracy: 0.6029
+240/240 [==============================] - 3s 12ms/step - loss: 0.9320 - accuracy: 0.6126 - val_loss: 0.9506 - val_accuracy: 0.6156
 Epoch 15/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9464 - accuracy: 0.6229 - val_loss: 0.9951 - val_accuracy: 0.6343
+240/240 [==============================] - 3s 12ms/step - loss: 0.9464 - accuracy: 0.6113 - val_loss: 1.0186 - val_accuracy: 0.6047
 Epoch 16/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.9358 - accuracy: 0.6250 - val_loss: 0.9851 - val_accuracy: 0.5726
+240/240 [==============================] - 3s 12ms/step - loss: 0.9170 - accuracy: 0.6197 - val_loss: 0.9462 - val_accuracy: 0.6212
 Epoch 17/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9238 - accuracy: 0.6227 - val_loss: 0.9778 - val_accuracy: 0.5673
+240/240 [==============================] - 3s 13ms/step - loss: 0.9241 - accuracy: 0.6188 - val_loss: 0.9591 - val_accuracy: 0.6164
 Epoch 18/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9194 - accuracy: 0.6248 - val_loss: 0.9708 - val_accuracy: 0.5785
+240/240 [==============================] - 3s 13ms/step - loss: 0.9057 - accuracy: 0.6229 - val_loss: 0.9396 - val_accuracy: 0.6290
 Epoch 19/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.9007 - accuracy: 0.6439 - val_loss: 0.9429 - val_accuracy: 0.6108
+240/240 [==============================] - 3s 12ms/step - loss: 0.9133 - accuracy: 0.6188 - val_loss: 0.9308 - val_accuracy: 0.6224
 Epoch 20/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.8904 - accuracy: 0.6540 - val_loss: 0.9403 - val_accuracy: 0.6560
+240/240 [==============================] - 3s 12ms/step - loss: 0.9099 - accuracy: 0.6229 - val_loss: 0.9342 - val_accuracy: 0.6288
 Epoch 21/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.8709 - accuracy: 0.6657 - val_loss: 0.9456 - val_accuracy: 0.6737
+240/240 [==============================] - 3s 12ms/step - loss: 0.8890 - accuracy: 0.6287 - val_loss: 0.9147 - val_accuracy: 0.6365
 Epoch 22/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.8680 - accuracy: 0.6703 - val_loss: 0.9521 - val_accuracy: 0.6458
+240/240 [==============================] - 3s 13ms/step - loss: 0.8795 - accuracy: 0.6322 - val_loss: 0.9150 - val_accuracy: 0.6276
 Epoch 23/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.8337 - accuracy: 0.6793 - val_loss: 0.8685 - val_accuracy: 0.6754
+240/240 [==============================] - 3s 12ms/step - loss: 0.8825 - accuracy: 0.6363 - val_loss: 0.9147 - val_accuracy: 0.6381
 Epoch 24/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7622 - accuracy: 0.7096 - val_loss: 0.8152 - val_accuracy: 0.7097
+240/240 [==============================] - 3s 12ms/step - loss: 0.8792 - accuracy: 0.6346 - val_loss: 0.8984 - val_accuracy: 0.6350
 Epoch 25/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.7166 - accuracy: 0.7246 - val_loss: 0.7862 - val_accuracy: 0.7139
+240/240 [==============================] - 3s 12ms/step - loss: 0.8700 - accuracy: 0.6373 - val_loss: 0.9184 - val_accuracy: 0.6465
 Epoch 26/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.6720 - accuracy: 0.7471 - val_loss: 0.7245 - val_accuracy: 0.7455
+240/240 [==============================] - 3s 13ms/step - loss: 0.8587 - accuracy: 0.6441 - val_loss: 0.8895 - val_accuracy: 0.6434
 Epoch 27/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.6464 - accuracy: 0.7572 - val_loss: 0.7119 - val_accuracy: 0.7322
+240/240 [==============================] - 3s 13ms/step - loss: 0.8555 - accuracy: 0.6567 - val_loss: 0.8762 - val_accuracy: 0.6541
 Epoch 28/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6297 - accuracy: 0.7636 - val_loss: 0.6781 - val_accuracy: 0.7644
+240/240 [==============================] - 3s 13ms/step - loss: 0.8467 - accuracy: 0.6627 - val_loss: 0.9646 - val_accuracy: 0.6488
 Epoch 29/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.6172 - accuracy: 0.7709 - val_loss: 0.6576 - val_accuracy: 0.7745
+240/240 [==============================] - 3s 13ms/step - loss: 0.8315 - accuracy: 0.6700 - val_loss: 0.9022 - val_accuracy: 0.6500
 Epoch 30/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.5992 - accuracy: 0.7776 - val_loss: 0.6587 - val_accuracy: 0.7732
-Epoch 31/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.5908 - accuracy: 0.7807 - val_loss: 0.6726 - val_accuracy: 0.7701
-Epoch 32/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.5869 - accuracy: 0.7805 - val_loss: 0.6476 - val_accuracy: 0.7753
-Epoch 33/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.5753 - accuracy: 0.7853 - val_loss: 0.6403 - val_accuracy: 0.7785
-Epoch 34/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.5802 - accuracy: 0.7832 - val_loss: 0.6581 - val_accuracy: 0.7696
-Epoch 35/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.5696 - accuracy: 0.7856 - val_loss: 0.6382 - val_accuracy: 0.7771
-Epoch 36/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.5581 - accuracy: 0.7891 - val_loss: 0.6444 - val_accuracy: 0.7817
-Epoch 37/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.5660 - accuracy: 0.7872 - val_loss: 0.6188 - val_accuracy: 0.7784
-Epoch 38/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.5553 - accuracy: 0.7897 - val_loss: 0.6149 - val_accuracy: 0.7843
-Epoch 39/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.5551 - accuracy: 0.7916 - val_loss: 0.6360 - val_accuracy: 0.7710
-Epoch 40/50
-240/240 [==============================] - 3s 12ms/step - loss: 0.5511 - accuracy: 0.7926 - val_loss: 0.6165 - val_accuracy: 0.7820
-Epoch 41/50
-240/240 [==============================] - 3s 13ms/step - loss: 0.5487 - accuracy: 0.7918 - val_loss: 0.6198 - val_accuracy: 0.7854
+240/240 [==============================] - 3s 13ms/step - loss: 0.8498 - accuracy: 0.6625 - val_loss: 0.9011 - val_accuracy: 0.6562
 </pre>
 </div>
 </div>
@@ -1362,7 +1315,7 @@ Epoch 41/50
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fe1d093efe0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7fe2e871bd30&gt;</pre>
 </div>
 
 </div>
@@ -1393,23 +1346,13 @@ Epoch 41/50
 <div class="output_area">
 
 
-
-<div class="output_text output_subarea ">
-<pre>Reusing TensorBoard on port 6006 (pid 381901), started 0:38:25 ago. (Use &#39;!kill 381901&#39; to kill it.)</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-
 <div class="output_html rendered_html output_subarea ">
 
-      <iframe id="tensorboard-frame-37dc105236912222" width="100%" height="800" frameborder="0">
+      <iframe id="tensorboard-frame-68d243b727bb38ba" width="100%" height="800" frameborder="0">
       </iframe>
       <script>
         (function() {
-          const frame = document.getElementById("tensorboard-frame-37dc105236912222");
+          const frame = document.getElementById("tensorboard-frame-68d243b727bb38ba");
           const url = new URL("/", window.location);
           const port = 6006;
           if (port) {
@@ -1929,6 +1872,113 @@ Epoch 3/3
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-06-13 16:13:34.505162: W tensorflow/core/common_runtime/bfc_allocator.cc:462] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.14GiB (rounded to 1228800000)requested by op _EagerConst
+If the cause is memory fragmentation maybe the environment variable &#39;TF_GPU_ALLOCATOR=cuda_malloc_async&#39; will improve the situation. 
+Current allocation summary follows.
+Current allocation summary follows.
+2022-06-13 16:13:34.505206: I tensorflow/core/common_runtime/bfc_allocator.cc:1010] BFCAllocator dump for GPU_0_bfc
+2022-06-13 16:13:34.505217: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (256): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505223: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (512): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505229: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (1024): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505234: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (2048): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505240: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (4096): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505245: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (8192): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505250: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">InternalError</span>                             Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [8]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span> X <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">x_train</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">reshape</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">-</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">32</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">32</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">3</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">float64</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> y <span style="color: rgb(98,98,98)">=</span> tf<span style="color: rgb(98,98,98)">.</span>keras<span style="color: rgb(98,98,98)">.</span>utils<span style="color: rgb(98,98,98)">.</span>to_categorical(y_train)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> XX <span style="color: rgb(98,98,98)">=</span> tf<span style="color: rgb(98,98,98)">.</span>constant(x_test<span style="color: rgb(98,98,98)">.</span>reshape(<span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">1</span>,<span style="color: rgb(98,98,98)">32</span>,<span style="color: rgb(98,98,98)">32</span>,<span style="color: rgb(98,98,98)">3</span>),dtype<span style="color: rgb(98,98,98)">=</span>tf<span style="color: rgb(98,98,98)">.</span>float64)
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:271</span>, in <span class="ansi-cyan-fg">constant</span><span class="ansi-blue-fg">(value, dtype, shape, name)</span>
+<span class="ansi-green-intense-fg ansi-bold">    174</span> <span style="color: rgb(175,0,255)">@tf_export</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">constant</span><span style="color: rgb(175,0,0)">&#34;</span>, v1<span style="color: rgb(98,98,98)">=</span>[])
+<span class="ansi-green-intense-fg ansi-bold">    175</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">constant</span>(value, dtype<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, shape<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, name<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Const</span><span style="color: rgb(175,0,0)">&#34;</span>):
+<span class="ansi-green-intense-fg ansi-bold">    176</span>   <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Creates a constant tensor from a tensor-like object.</span>
+<span class="ansi-green-intense-fg ansi-bold">    177</span> 
+<span class="ansi-green-intense-fg ansi-bold">    178</span> <span style="color: rgb(175,0,0)">  Note: All eager `tf.Tensor` values are immutable (in contrast to</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    269</span> <span style="color: rgb(175,0,0)">    ValueError: if called on a symbolic tensor.</span>
+<span class="ansi-green-intense-fg ansi-bold">    270</span> <span style="color: rgb(175,0,0)">  &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 271</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_constant_impl</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">shape</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">verify_shape</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    272</span> <span class="ansi-yellow-bg">                        </span><span class="ansi-yellow-bg">allow_broadcast</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:283</span>, in <span class="ansi-cyan-fg">_constant_impl</span><span class="ansi-blue-fg">(value, dtype, shape, name, verify_shape, allow_broadcast)</span>
+<span class="ansi-green-intense-fg ansi-bold">    281</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> trace<span style="color: rgb(98,98,98)">.</span>Trace(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">tf.constant</span><span style="color: rgb(175,0,0)">&#34;</span>):
+<span class="ansi-green-intense-fg ansi-bold">    282</span>       <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> _constant_eager_impl(ctx, value, dtype, shape, verify_shape)
+<span class="ansi-green-fg">--&gt; 283</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_constant_eager_impl</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">ctx</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">shape</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">verify_shape</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    285</span> g <span style="color: rgb(98,98,98)">=</span> ops<span style="color: rgb(98,98,98)">.</span>get_default_graph()
+<span class="ansi-green-intense-fg ansi-bold">    286</span> tensor_value <span style="color: rgb(98,98,98)">=</span> attr_value_pb2<span style="color: rgb(98,98,98)">.</span>AttrValue()
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:308</span>, in <span class="ansi-cyan-fg">_constant_eager_impl</span><span class="ansi-blue-fg">(ctx, value, dtype, shape, verify_shape)</span>
+<span class="ansi-green-intense-fg ansi-bold">    306</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_constant_eager_impl</span>(ctx, value, dtype, shape, verify_shape):
+<span class="ansi-green-intense-fg ansi-bold">    307</span>   <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Creates a constant on the current device.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 308</span>   t <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">convert_to_eager_tensor</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ctx</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    309</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> shape <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    310</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> t
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/framework/constant_op.py:106</span>, in <span class="ansi-cyan-fg">convert_to_eager_tensor</span><span class="ansi-blue-fg">(value, ctx, dtype)</span>
+<span class="ansi-green-intense-fg ansi-bold">    104</span>     dtype <span style="color: rgb(98,98,98)">=</span> dtypes<span style="color: rgb(98,98,98)">.</span>as_dtype(dtype)<span style="color: rgb(98,98,98)">.</span>as_datatype_enum
+<span class="ansi-green-intense-fg ansi-bold">    105</span> ctx<span style="color: rgb(98,98,98)">.</span>ensure_initialized()
+<span class="ansi-green-fg">--&gt; 106</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">ops</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">EagerTensor</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ctx</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">device_name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">InternalError</span>: Failed copying input tensor from /job:localhost/replica:0/task:0/device:CPU:0 to /job:localhost/replica:0/task:0/device:GPU:0 in order to run _EagerConst: Dst tensor is not initialized.</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505255: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (32768): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505260: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (65536): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505266: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (131072): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505271: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (262144): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505276: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (524288): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505281: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (1048576): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505287: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (2097152): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505292: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (4194304): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505297: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (8388608): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505302: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (16777216): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505307: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (33554432): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505313: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505318: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505323: I tensorflow/core/common_runtime/bfc_allocator.cc:1017] Bin (268435456): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2022-06-13 16:13:34.505331: I tensorflow/core/common_runtime/bfc_allocator.cc:1033] Bin for 1.14GiB was 256.00MiB, Chunk State: 
+2022-06-13 16:13:34.505338: I tensorflow/core/common_runtime/bfc_allocator.cc:1071]      Summary of in-use Chunks by size: 
+2022-06-13 16:13:34.505343: I tensorflow/core/common_runtime/bfc_allocator.cc:1078] Sum Total of in-use chunks: 0B
+2022-06-13 16:13:34.505348: I tensorflow/core/common_runtime/bfc_allocator.cc:1080] total_region_allocated_bytes_: 0 memory_limit_: 545325056 available bytes: 545325056 curr_region_allocation_bytes_: 545325056
+2022-06-13 16:13:34.505356: I tensorflow/core/common_runtime/bfc_allocator.cc:1086] Stats: 
+Limit:                       545325056
+InUse:                               0
+MaxInUse:                            0
+NumAllocs:                           0
+MaxAllocSize:                        0
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2022-06-13 16:13:34.505360: W tensorflow/core/common_runtime/bfc_allocator.cc:474] &lt;allocator contains no memory&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -1946,23 +1996,6 @@ Epoch 3/3
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(50000, 32, 32, 3)
-(50000, 10)
-(10000, 32, 32, 3)
-(10000, 10)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1995,49 +2028,6 @@ Epoch 3/3
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch 1/10
-250/250 [==============================] - 35s 137ms/step - loss: 3.1167 - accuracy: 0.3704
-Epoch 2/10
-250/250 [==============================] - 34s 137ms/step - loss: 1.2320 - accuracy: 0.5657
-Epoch 3/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.9789 - accuracy: 0.6604
-Epoch 4/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.8302 - accuracy: 0.7110
-Epoch 5/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.7202 - accuracy: 0.7527
-Epoch 6/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.6253 - accuracy: 0.7857
-Epoch 7/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.5361 - accuracy: 0.8148
-Epoch 8/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.4463 - accuracy: 0.8444
-Epoch 9/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.3753 - accuracy: 0.8687
-Epoch 10/10
-250/250 [==============================] - 34s 137ms/step - loss: 0.3182 - accuracy: 0.8885
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fe3cccba350&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -2055,27 +2045,20 @@ Epoch 10/10
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 5s 16ms/step - loss: 1.0667 - accuracy: 0.7164
-</pre>
 </div>
-</div>
+    
 
-<div class="output_area">
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">summary</span><span class="p">(</span><span class="n">net3</span><span class="p">)</span>
+</pre></div>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1.06668221950531, 0.7164000272750854]</pre>
-</div>
-
-</div>
-
+    </div>
 </div>
 </div>
 
